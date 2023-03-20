@@ -2,11 +2,13 @@
 
 ## Scope of this project
 Tube Archivist is *Your self hosted YouTube media server*, which also defines the primary scope of what this project tries to do:
+
 - **Self hosted**: This assumes you have full control over the underlying operating system and hardware and can configure things to work properly with Docker, it's volumes and networks as well as whatever disk storage and filesystem you choose to use.
 - **YouTube**: Downloading, indexing and playing videos from YouTube, there are currently no plans to expand this to any additional platforms.
 - **Media server**: This project tries to be a stand alone media server in it's own web interface.
 
 Additionally to that, progress is also happening on:
+
 - **API**: Endpoints for additional integrations.
 - **Browser Extension**: To integrate between youtube.com and Tube Archivist.
 

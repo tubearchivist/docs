@@ -1,1 +1,26 @@
 site_name: Tube Archivist Documentation
+site_url: https://docs.tubearchivist.com
+nav:
+    - Home: 'index.md'
+    - User Guide:
+        - 'Channels Overview and Channel Detail Page': 'Channels.md'
+        - 'Downloads Page': 'Downloads.md'
+        - 'FAQ': 'FAQ.md'
+        - 'Installation': 'Installation.md'
+        - 'Playlists': 'Playlists.md'
+        - 'Search': 'Search.md'
+        - 'Users': 'Users.md'
+        - 'Video': 'Video.md'
+        - 'Settings': 'Settings.md'
+    - About:
+        - 'Main site': https://www.tubearchivist.com
+        - 'Join us on Discord!': https://www.tubearchivist.com/discord
+        - 'License': https://github.com/tubearchivist/tubearchivist/blob/master/LICENSE
+        - 'Release Notes': https://github.com/tubearchivist/tubearchivist/releases
+repo_url: https://github.com/tubearchivist/docs
+markdown_extensions:
+    - toc:
+        permalink: "#"
+    - callouts
+theme:
+  name: material

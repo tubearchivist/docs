@@ -11,12 +11,12 @@ To setup a local development server:
 
 Install mkdocs with pip:
 ```
-pip install mkdocs
+pip3 install mkdocs markdown-callouts mkdocs-material
 ```
 
 From the AUR:
 ```
-yay -S mkdocs
+yay -S mkdocs markdown-callouts mkdocs-material
 ```
 
 More details: [User Guide](https://www.mkdocs.org/user-guide/installation/)

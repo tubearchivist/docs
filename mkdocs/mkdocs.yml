@@ -34,6 +34,6 @@ theme:
   favicon: assets/favicon.ico
   font: false
   palette:
-    scheme: slate
+    scheme: tubearchivist
 extra_css:
   - stylesheets/style.css

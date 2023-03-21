@@ -27,3 +27,14 @@ mkdocs serve
 ```
 
 And the site - with live reload enabled - should be available on [localhost:8000](http://localhost:8000/).
+
+## Production environment
+Build the Docker image:
+```
+docker build -t bbilly1/tubearchivist-docs .
+```
+
+Run the image:
+```
+docker run -p 80:80 bbilly1/tubearchivist-docs
+```

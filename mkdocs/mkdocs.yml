@@ -26,3 +26,9 @@ markdown_extensions:
     - pymdownx.superfences
 theme:
   name: material
+  logo: assets/favicon.ico
+  favicon: assets/favicon.ico
+  palette:
+    scheme: slate
+extra_css:
+  - stylesheets/style.css

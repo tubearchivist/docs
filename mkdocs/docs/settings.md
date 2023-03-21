@@ -64,7 +64,7 @@ Alternatively you can also manually import your cookie into Tube Archivist. Expo
 - Once imported, a **Validate Cookie File** button will show, where you can confirm if your cookie is working or not.
 
 ### Use your cookie
-Once imported, additionally to the advantages above, your [Watch Later](https://www.youtube.com/playlist?list=WL) and [Liked Videos](https://www.youtube.com/playlist?list=LL) become a regular playlist you can download and subscribe to as any other [playlist](Playlists).
+Once imported, additionally to the advantages above, your [Watch Later](https://www.youtube.com/playlist?list=WL) and [Liked Videos](https://www.youtube.com/playlist?list=LL) become a regular playlist you can download and subscribe to as any other [playlist](playlists.md).
 
 ### Limitation
 There is only one cookie per Tube Archivist instance, this will be shared between all users.

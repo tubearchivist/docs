@@ -31,6 +31,10 @@ h2 {
     border-color: var(--accent-font-light);
 }
 
+.md-footer-meta.md-typeset {
+    display: none;
+}
+
 [data-md-color-scheme="tubearchivist"] {
     --md-default-bg-color: var(--main-bg);
     --md-default-fg-color: var(--main-font);
@@ -44,6 +48,7 @@ h2 {
     --md-accent-fg-color: var(--accent-font-light);
     --md-admonition-bg-color: var(--highlight-bg);
     --md-admonition-fg-color: var(--main-font);
+    --md-footer-bg-color: var(--highlight-bg);
 }
 
 :root {

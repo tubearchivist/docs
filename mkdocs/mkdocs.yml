@@ -35,5 +35,7 @@ theme:
   font: false
   palette:
     scheme: tubearchivist
+  features:
+    - navigation.footer
 extra_css:
   - stylesheets/style.css

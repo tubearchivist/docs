@@ -21,6 +21,8 @@ repo_url: https://github.com/tubearchivist/docs
 markdown_extensions:
     - toc:
         permalink: "#"
-    - callouts
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
 theme:
   name: material

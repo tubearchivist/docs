@@ -15,7 +15,8 @@ The **Subscribe to Playlist** button <img src="/assets/icon-add.png?raw=true" al
     - `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`
 - If you want to subscribe to more than one playlist directly, you can add one playlist per line in the text field
 
-NOTE: It doesn't make sense to subscribe to a playlist if you are already subscribed the corresponding channel as this will slow down the **Rescan Subscriptions** [task](Downloads.md#rescan-subscriptions).
+!!! note
+    It doesn't make sense to subscribe to a playlist if you are already subscribed the corresponding channel as this will slow down the **Rescan Subscriptions** [task](Downloads.md#rescan-subscriptions).
 
 You can search your indexed playlists by clicking on the search icon <img src="/assets/icon-search.png?raw=true" alt="search icon" width="20px" style="margin:0 5px;">. This will open a dedicated page.
 

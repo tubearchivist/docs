@@ -17,4 +17,5 @@ You can delete or change permissions and password of a user by clicking on the u
 ## Reset
 Delete all user configurations by deleting the file `cache/db.sqlite3` and restart the container. This will create the superuser again from the environment variables.
 
-NOTE: Future improvements here will most likely require such a reset.
+!!! note "BE AWARE"
+    Future improvements here will most likely require such a reset.

@@ -1,6 +1,7 @@
 # Detailed Installation Instructions
 
-NOTE: To install Tube Archivist using Docker, the default method, please see the [project README for instructions](https://github.com/tubearchivist/tubearchivist#installing-and-updating).
+!!! note
+    To install Tube Archivist using Docker, the default method, please see the [project README for instructions](https://github.com/tubearchivist/tubearchivist#installing-and-updating).
 
 ---
 
@@ -235,8 +236,9 @@ Once all of the folders have been created, it should have a folder structure wit
         - `xpack.security.enabled=true`
         - `ELASTIC_PASSWORD=verysecret` 
         - `path.repo=/usr/share/elasticsearch/data/snapshot`
-          > NOTE: Do not use the default password as it is very insecure.
-          > Activating snapshots for backups should only be done *after* setting the `path.repo` setting.
+          > !!! note "BE AWARE"
+                - Do not use the default password as it is very insecure.
+                - Activating snapshots for backups should only be done *after* setting the `path.repo` setting.
         ![Synology - ElasticSearch Environment Configurations](assets/Synology_0.2.0_Docker-ES-Env-Conf.png)
     12. Click on the **Apply** button.
     13. Back on the **Create Container** screen, click the **Next** button.
@@ -281,15 +283,17 @@ Once all of the folders have been created, it should have a folder structure wit
       - `TA_PASSWORD=verysecret`
       - `ELASTIC_PASSWORD=verysecret`
       - `TZ=America/New_York`
-      > NOTE: Do not use the default password as it is very insecure.
-      > Ensure that ELASTIC_PASSWORD matches the password used on the tubearchivist-es container.
+      > !!! note "BE AWARE"
+            - Do not use the default password as it is very insecure.
+            - Ensure that ELASTIC_PASSWORD matches the password used on the tubearchivist-es container.
       ![Synology - TubeArchivist Environment Configurations](assets/Synology_0.2.0_Docker-TA-Env-Conf.png)
    13. Click on the **Apply** button.
    14. Back on the **Create Container** screen, click the **Next** button.
    15. Review the settings to confirm, then click the **Apply** button.
 6. After the containers have been configured and started, you can go to the **Container** tab and monitor the containers.
 7. To review the logs to ensure that the system has started successfully, select the "tubearchivist" container and click on the **Details** button. In the new window, go to the **Log** tab. Monitor the logs until either an error occurs or the message `celery@tubearchivist ready.` is in the logs. This may take a few minutes, especially for a first time setup.
-   > Note: Synology Docker presents the logs in a pagination format. If you are not seeing the logs update, check if there are additional pages.
+   > !!! note
+         Synology Docker presents the logs in a pagination format. If you are not seeing the logs update, check if there are additional pages.
 8. After it has started, go to the location in the `TA_HOST`. This should give you the standard TubeArchivist login screen.
 <!-- 
 ### Docker-Compose Setup -->

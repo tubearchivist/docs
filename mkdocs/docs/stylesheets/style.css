@@ -19,6 +19,18 @@ h2 {
     font-family: Sen-Bold;
 }
 
+.md-typeset .note > .admonition-title {
+    background-color: var(--accent-font-dark);
+}
+
+.md-typeset .note > .admonition-title::before {
+    background-color: var(--main-font);
+}
+
+.md-typeset .admonition.note {
+    border-color: var(--accent-font-light);
+}
+
 [data-md-color-scheme="tubearchivist"] {
     --md-default-bg-color: var(--main-bg);
     --md-default-fg-color: var(--main-font);
@@ -30,6 +42,8 @@ h2 {
     --md-code-bg-color: var(--highlight-bg);
     --md-code-fg-color: var(--accent-font-light);
     --md-accent-fg-color: var(--accent-font-light);
+    --md-admonition-bg-color: var(--highlight-bg);
+    --md-admonition-fg-color: var(--main-font);
 }
 
 :root {

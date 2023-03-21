@@ -6,12 +6,16 @@ nav:
         - 'Channels Overview and Channel Detail Page': 'Channels.md'
         - 'Downloads Page': 'Downloads.md'
         - 'FAQ': 'FAQ.md'
-        - 'Installation': 'Installation.md'
         - 'Playlists': 'Playlists.md'
         - 'Search': 'Search.md'
         - 'Users': 'Users.md'
         - 'Video': 'Video.md'
         - 'Settings': 'Settings.md'
+    - Installation:
+        - 'Unraid': 'installation/unraid.md'
+        - 'Synology': 'installation/synology.md'
+        - 'Podman': 'installation/podman.md'
+        - 'Truenas Scale': 'installation/truenas-scale.md'
     - About:
         - 'Main site': https://www.tubearchivist.com
         - 'Join us on Discord!': https://www.tubearchivist.com/discord
@@ -28,6 +32,7 @@ theme:
   name: material
   logo: assets/favicon.ico
   favicon: assets/favicon.ico
+  font: false
   palette:
     scheme: slate
 extra_css:

@@ -1,18 +1,6 @@
 # Tube Archivist
 Welcome to the official Tube Archivist Docs. This is an up-to-date documentation of user functionality.
 
-## Table of contents:
-
-* [FAQ](FAQ): Frequently asked questions what this project is and tries to do
-* [Channels](Channels): Browse your channels, handle channel subscriptions
-* [Playlists](Playlists): Browse your indexed playlists, handle playlist subscriptions
-* [Downloads](Downloads): Scanning subscriptions, handle download queue
-* [Settings](Settings): All the configuration options
-* [Video](Video): All details of a single video and playlist navigation.
-* [Users](Users): User management admin interface
-* [Search](Search): Search your archive
-* [Installation](Installation): Detailed installation instructions for various platforms.
-
 ## Getting Started
 
 1. [Subscribe](Channels#channels-overview) to some of your favourite YouTube channels.

@@ -1,7 +1,7 @@
 # Video Page
 Every video downloaded gets a dedicated page accessible at `/video/<video-id>/` of your Tube Archivist. Throughout the interface, click on a video title to access the video page.
 
-Clicking on the channel name or the channel icon will bring you to the dedicated channel detail [page](Channels.md#channel-detail).
+Clicking on the channel name or the channel icon will bring you to the dedicated channel detail [page](channels.md#channel-detail).
 
 - The button **Reindex** will reindex the metadata of this video.
 - The button **Download File** will download the media file in the browser.
@@ -12,7 +12,7 @@ If available, a tag cloud will show, representing the tags set by the uploader.
 The video description is truncated to the first few lines, click on *show more* to expand the whole description.
 
 ## Playlist
-When available, a playlist navigation will show at the bottom. Clicking on the playlist name will bring you to the dedicated [Playlist Detail](Playlists.md#playlist-detail) page showing all videos downloaded from that playlist. The number in square brackets indicates the position of the current video in that playlist.
+When available, a playlist navigation will show at the bottom. Clicking on the playlist name will bring you to the dedicated [Playlist Detail](playlists.md#playlist-detail) page showing all videos downloaded from that playlist. The number in square brackets indicates the position of the current video in that playlist.
 
 Clicking on the next or previous video name or thumbnail will bring you to that dedicated video page.
 

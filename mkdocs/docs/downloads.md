@@ -5,12 +5,12 @@ Accessible at `/downloads/` of your Tube Archivist, this page handles all the do
 ## Rescan Subscriptions
 The **Rescan Subscriptions** icon <img src="/assets/icon-rescan.png?raw=true" alt="rescan icon" width="20px" style="margin:0 5px;"> will start a background task to look for new videos from the channels and playlists you are subscribed to.  
 
-Tube Archivist will get available *videos*, *shorts* and *streams* from each channel, you can define the channel and playlist page size on the [settings page](Settings.md#subscriptions). With the default page size, expect this process to take around 2-3 seconds for each channel or playlist you are subscribed to. A status message will show the progress.
+Tube Archivist will get available *videos*, *shorts* and *streams* from each channel, you can define the channel and playlist page size on the [settings page](settings.md#subscriptions). With the default page size, expect this process to take around 2-3 seconds for each channel or playlist you are subscribed to. A status message will show the progress.
 
 Then for every video found, **Tube Archivist** will skip the video if it has already been downloaded or if you added it to the *ignored* list before. All the other videos will get added to the download queue. Expect this to take around 2 seconds for each video as **Tube Archivist** needs to grab some additional metadata and artwork. New videos will get added at the bottom of the download queue.
 
 ## Download Queue
-The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="download icon" width="20px" style="margin:0 5px;"> will start the download process starting from the top of the queue. Take a look at the relevant settings on the [Settings Page](Settings.md#downloads). Once the process started, a progress message will show with additional details and controls: 
+The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="download icon" width="20px" style="margin:0 5px;"> will start the download process starting from the top of the queue. Take a look at the relevant settings on the [Settings Page](settings.md#downloads). Once the process started, a progress message will show with additional details and controls: 
 - The stop icon <img src="/assets/icon-stop.png?raw=true" alt="stop icon" width="20px" style="margin:0 5px;"> will gracefully stop the download process, once the current video has been finished successfully.
 - The cancel icon <img src="/assets/icon-close-red.png?raw=true" alt="close icon" width="20px" style="margin:0 5px;"> is equivalent to killing the process and will stop the download immediately. Any leftover files will get deleted, the canceled video will still be available in the download queue.
 
@@ -40,7 +40,7 @@ The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt=
 
 ### Playlist
 - Add a playlist ID or URL to add every available video in the list to the download queue, for example `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha` or `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`.
-- When adding a playlist to the queue, this playlist will automatically get [indexed](Playlists.md#playlist-detail).
+- When adding a playlist to the queue, this playlist will automatically get [indexed](playlists.md#playlist-detail).
 - When you add a link to a video in a playlist, Tube Archivist assumes you want to download only the specific video and not the whole playlist, for example `https://www.youtube.com/watch?v=CINVwWHlzTY&list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha` will only add one video, `CINVwWHlzTY`, to the queue.
 
 ## The Download Queue
@@ -59,4 +59,4 @@ Every video in the ignored list has two buttons:
 - **Forget**: This will delete the item from the ignored list.
 - **Add to Queue**: This will add the ignored video back to the download queue.  
 
-You can delete your download queue from the [Settings](Settings.md#actions) page.
+You can delete your download queue from the [Settings](settings.md#actions) page.

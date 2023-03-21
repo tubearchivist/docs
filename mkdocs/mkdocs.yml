@@ -3,14 +3,14 @@ site_url: https://docs.tubearchivist.com
 nav:
     - Home: 'index.md'
     - User Guide:
-        - 'Channels Overview and Channel Detail Page': 'Channels.md'
-        - 'Downloads Page': 'Downloads.md'
-        - 'FAQ': 'FAQ.md'
-        - 'Playlists': 'Playlists.md'
-        - 'Search': 'Search.md'
-        - 'Users': 'Users.md'
-        - 'Video': 'Video.md'
-        - 'Settings': 'Settings.md'
+        - 'FAQ': 'faq.md'
+        - 'Downloads Page': 'downloads.md'
+        - 'Channels Pages': 'channels.md'
+        - 'Video': 'video.md'
+        - 'Playlists Pages': 'playlists.md'
+        - 'Search': 'search.md'
+        - 'Users': 'users.md'
+        - 'Settings': 'settings.md'
     - Installation:
         - 'Unraid': 'installation/unraid.md'
         - 'Synology': 'installation/synology.md'

@@ -41,8 +41,8 @@ Additional settings passed to yt-dlp.
 ## Comments
 
 - **Download and index comments**: Set your configuration for downloading and indexing comments. This takes the same values as documented in the `max_comments` section for the youtube extractor of [yt-dlp](https://github.com/yt-dlp/yt-dlp#youtube). Add without space between the four different fields: *max-comments,max-parents,max-replies,max-replies-per-thread*. Example:
-  - `all,100,all,30`: Get 100 max-parents and 30 max-replies-per-thread.
-  - `1000,all,all,50`: Get a total of 1000 comments over all, 50 replies per thread.
+    - `all,100,all,30`: Get 100 max-parents and 30 max-replies-per-thread.
+    - `1000,all,all,50`: Get a total of 1000 comments over all, 50 replies per thread.
 - **Comment sort method**: Change sort method between *top* or *new*. The default is *top*, as decided by YouTube.
 - The [Refresh Metadata](#refresh-metadata) background task will get comments from your already archived videos, spreading the requests out over time.  
 

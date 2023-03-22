@@ -13,6 +13,7 @@ Additionally to that, progress is also happening on:
 - **Browser Extension**: To integrate between youtube.com and Tube Archivist.
 
 Defining the scope is important for the success of any project:
+
 - A scope too broad will result in development effort spreading too thin and will run into danger that his project tries to do too many things and none of them well.
 - A too narrow scope will make this project uninteresting and will exclude audiences that could also benefit from this project.
 - Not defining a scope will easily lead to misunderstandings and false hopes of where this project tries to go.

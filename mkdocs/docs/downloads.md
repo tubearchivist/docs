@@ -27,16 +27,18 @@ The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt=
 
 ### Channels
 - When adding a channel, Tube Archivist will ignore the channel page size as described above, this is meant for an initial download of the whole channel. You can still ignore selected videos from the queue before starting the download.
+
 - Download a complete channel including shorts and streams by entering:
-  - Channel ID: `UCBa659QWEk1AI4Tg--mrJ2A`
-  - Channel URL: `https://www.youtube.com/channel/UCBa659QWEk1AI4Tg--mrJ2A`
-  - Channel `@` alias handle: For example `@TomScottGo`
-  - Channel alias URL: `https://www.youtube.com/@TomScottGo`
-- Download videos, live streams or shorts only, by providing a partial channel URL:
-  - Videos only: `https://www.youtube.com/@IBRACORP/videos`
-  - Shorts only: `https://www.youtube.com/@IBRACORP/shorts`
-  - Streams only: `https://www.youtube.com/@IBRACORP/streams`
-  - Every other channel sub page will default to download all, for example `https://www.youtube.com/@IBRACORP/featured` will download videos and shorts and streams.
+    - Channel ID: `UCBa659QWEk1AI4Tg--mrJ2A`
+    - Channel URL: `https://www.youtube.com/channel/UCBa659QWEk1AI4Tg--mrJ2A`
+    - Channel `@` alias handle: For example `@TomScottGo`
+    - Channel alias URL: `https://www.youtube.com/@TomScottGo`
+
+- Download videos, live streams or shorts only, by providing a partial channel URL:  
+    - Videos only: `https://www.youtube.com/@IBRACORP/videos`
+    - Shorts only: `https://www.youtube.com/@IBRACORP/shorts`
+    - Streams only: `https://www.youtube.com/@IBRACORP/streams`
+    - Every other channel sub page will default to download all, for example `https://www.youtube.com/@IBRACORP/featured` will download videos and shorts and streams.
 
 ### Playlist
 - Add a playlist ID or URL to add every available video in the list to the download queue, for example `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha` or `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`.

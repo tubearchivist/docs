@@ -19,7 +19,7 @@ Defining the scope is important for the success of any project:
 
 Of course this is subject to change: The scope can be expanded as this project continues to grow and more people contribute.
 
-## Emby/Plex/Jellyfin/Kodi integrations
+## Emby-Plex-Jellyfin-Kodi integrations
 Although there are similarities between these excellent projects and Tube Archivist, they have a very different use case. Trying to fit the metadata relations and database structure of a YouTube archival project into these media servers that specialize in Movies and TV shows is always going to be limiting.
 
 Part of the scope is to be its own media server, so that's where the focus and effort of this project is. That being said, the nature of self hosted and open source software gives you all the possible freedom to use your media as you wish.
@@ -27,10 +27,15 @@ Part of the scope is to be its own media server, so that's where the focus and e
 ## To Docker or not to Docker
 This project is a classical docker application: There are multiple moving parts that need to be able to interact with each other and need to be compatible with multiple architectures and operating systems. Additionally Docker also drastically reduces development complexity which is highly appreciated.  
 
-So Docker is the only supported installation method. If you don't have any experience with Docker, consider investing the time to learn this very useful technology.
+Docker is the only supported installation method. If you don't have any experience with Docker, consider investing the time to learn this very useful technology. Alternatively you can find user provided installation instructions for Podman [here](installation/podman.md).
 
 ## Finetuning Elasticsearch
 A minimal configuration of Elasticsearch (ES) is provided in the example docker-compose.yml file. ES is highly configurable and very interesting to learn more about. Refer to the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) if you want to get into it.
+
+## Why Elasticsearch?
+That might be an unconventional choice at first glance. Tube Archivist is built to scale to 100k+ videos without slowing down and to 1M+ with only minimal impact on performance, and that all with full text indexing and searching over your subtitles and comments. Elasticsearch is the industry standard <sup>[citation needed]</sup> for a task like that and through its structured query language allows for a very flexible interface to query the index.
+
+That comes at a price: ES can use a lot of memory, particularly on a big index, and will heavily use in memory cached queries to be able to respond within milliseconds, even when searching through multiple GBs of raw text.
 
 ## When I subscribe to a channel it only downloads the most recent 50 videos
 Subscribing to a channel is a different operation from downloading it. You can [add the channel to the download queue](https://github.com/tubearchivist/tubearchivist/wiki/Downloads#add-to-download-queue) to download all past videos.

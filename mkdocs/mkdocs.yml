@@ -16,7 +16,7 @@ nav:
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'
         - 'Truenas Scale': 'installation/truenas-scale.md'
-    - About:
+    - Links:
         - 'Main site': https://www.tubearchivist.com
         - 'Join us on Discord!': https://www.tubearchivist.com/discord
         - 'License': https://github.com/tubearchivist/tubearchivist/blob/master/LICENSE

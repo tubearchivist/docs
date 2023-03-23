@@ -39,6 +39,7 @@ h2 {
     --md-default-bg-color: var(--main-bg);
     --md-default-fg-color: var(--main-font);
     --md-primary-fg-color: var(--accent-font-dark);
+    --md-primary-fg-color--dark: var(--highlight-bg);
     --md-default-fg-color--light: var(--accent-font-light);
     --md-default-fg-color--lighter: var(--accent-font-light);
     --md-typeset-color: var(--main-font);

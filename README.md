@@ -1,7 +1,17 @@
 # Tube Archivist Documentation
 
-This is a work in progress, porting the old wiki to a more flexible documentation framework.
+## [docs.tubearchivist.com](https://docs.tubearchivist.com/)
 
+This is the git repo of the official documentation for Tube Archivist - Your self hosted YouTube media server.
+
+Additional links:
+- The Project: [tubearchivist/tubearchivist](https://github.com/tubearchivist/tubearchivist)
+- The Website: [tubearchivist.com](https://www.tubearchivist.com/)
+- The Discord: [tubearchivist.com/discord](https://www.tubearchivist.com/discord)
+
+## Make Changes
+
+Please help improve these documentations. To make changes, fork this repo and make your changes. When you are ready, open a Pull Request. When merged, this will rebuild the live documentations within a few seconds.
 
 ## Development Environment
 

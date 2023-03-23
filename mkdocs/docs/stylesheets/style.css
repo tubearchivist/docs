@@ -19,6 +19,10 @@ h2 {
     font-family: Sen-Bold;
 }
 
+footer {
+    margin-top: 2rem;
+}
+
 .md-typeset .note > .admonition-title {
     background-color: var(--accent-font-dark);
 }
@@ -29,10 +33,6 @@ h2 {
 
 .md-typeset .admonition.note {
     border-color: var(--accent-font-light);
-}
-
-.md-footer-meta.md-typeset {
-    display: none;
 }
 
 [data-md-color-scheme="tubearchivist"] {

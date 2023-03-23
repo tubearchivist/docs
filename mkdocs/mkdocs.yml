@@ -33,6 +33,7 @@ theme:
   logo: assets/favicon.ico
   favicon: assets/favicon.ico
   font: false
+  custom_dir: overrides
   palette:
     scheme: tubearchivist
   features:

@@ -1,0 +1,13 @@
+<div class="md-copyright">
+  {% if config.copyright %}
+  <div class="md-copyright__highlight">
+    {{ config.copyright }}
+  </div>
+  {% endif %}
+  {% if not config.extra.generator == false %}
+  © <script type="text/javascript">document.write(new Date().getFullYear());</script> TubeArchivist | <span title="built date">{{ build_date_utc.strftime("%Y-%m-%d %H:%M:%S") }} UTC</span> | made with
+  <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    Material for MkDocs
+  </a>
+  {% endif %}
+</div>

@@ -12,10 +12,21 @@ nav:
         - 'Users': 'users.md'
         - 'Settings': 'settings.md'
     - Installation:
+        - 'Docker (default)': 'installation/docker.md'    
         - 'Unraid': 'installation/unraid.md'
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'
         - 'Truenas Scale': 'installation/truenas-scale.md'
+    - Configuration:
+        - 'Installation': 'configuration/installation.md'    
+        - 'Port Collisions': 'configuration/port_collisions.md'        
+        - 'LDAP Authentication': 'configuration/ldap.md'          
+        - 'Cast Support': 'configuration/cast.md' 
+        - 'Elasticsearch': 'configuration/elasticsearch.md' 
+        - 'Redis': 'configuration/redis.md'
+        - 'Updating': 'configuration/updating.md'
+        - 'Helm Charts': 'configuration/helm.md'
+        - 'Common Errors': 'configuration/errors.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com
         - 'Join us on Discord!': https://www.tubearchivist.com/discord

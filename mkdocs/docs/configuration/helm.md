@@ -1,0 +1,1 @@
+There is a Helm Chart available at [https://github.com/insuusvenerati/helm-charts](https://github.com/insuusvenerati/helm-charts). Mostly self-explanatory but feel free to ask questions in the discord / subreddit.

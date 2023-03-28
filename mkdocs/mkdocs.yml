@@ -17,6 +17,7 @@ nav:
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'
         - 'Truenas Scale': 'installation/truenas-scale.md'
+        - 'Helm Charts': 'installation/helm-charts.md'
     - Configuration:
         - 'Installation': 'configuration/installation.md'    
         - 'Port Collisions': 'configuration/port_collisions.md'        
@@ -24,8 +25,7 @@ nav:
         - 'Cast Support': 'configuration/cast.md' 
         - 'Elasticsearch': 'configuration/elasticsearch.md' 
         - 'Redis': 'configuration/redis.md'
-        - 'Updating': 'configuration/updating.md'
-        - 'Helm Charts': 'configuration/helm.md'
+        - 'Updating': 'configuration/updating.md'        
         - 'Common Errors': 'configuration/errors.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com

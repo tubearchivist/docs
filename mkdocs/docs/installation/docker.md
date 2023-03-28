@@ -1,4 +1,4 @@
-### Setting up TubeArchivist with Docker  
+# Setting up TubeArchivist with Docker  
 
 TubeArchivist requires Docker. Please make sure that it is installed and running on your computer before continuing. 
 Docker is required because Tube Archivist depends on three main components split up into separate docker containers.  
@@ -56,7 +56,7 @@ You can bring the application down by running `docker compose down` in the same 
 Use the *latest* (the default) or a named semantic version tag for the docker images. The *unstable* tag is for intermediate testing and as the name implies, is **unstable** and not be used on your main installation but in a [testing environment](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md).  
 
 
-## Port Collisions  
+### Port Collisions  
 If you have a collision on port `8000`, best solution is to use dockers *HOST_PORT* and *CONTAINER_PORT* distinction: To for example change the interface to port 9000 use `9000:8000` in your docker-compose file.  
 
 Should that not be an option, the Tube Archivist container takes these two additional environment variables:  
@@ -87,7 +87,6 @@ Should you need to change the port for Elasticsearch to for example `9500`, foll
 - For the Tube Archivist container, change the `ES_URL` environment variable, e.g. `ES_URL=http://archivist-es:9500`  
 
 ## Redis  
-### Redis JSON
 Functions as a cache and temporary link between the application and the file system. Used to store and display messages and configuration variables.
   - Needs to be accessible over the default port `6379`
   - Needs a volume at `/data` to make your configuration changes permanent.

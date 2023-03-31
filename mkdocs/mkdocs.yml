@@ -12,10 +12,15 @@ nav:
         - 'Users': 'users.md'
         - 'Settings': 'settings.md'
     - Installation:
+        - 'Docker-Compose (default)': 'installation/docker-compose.md'    
         - 'Unraid': 'installation/unraid.md'
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'
         - 'Truenas Scale': 'installation/truenas-scale.md'
+        - 'Helm Charts': 'installation/helm-charts.md'
+    - Configuration:        
+        - 'LDAP Authentication': 'configuration/ldap.md'          
+        - 'Cast Support': 'configuration/cast.md' 
     - Links:
         - 'Main site': https://www.tubearchivist.com
         - 'Join us on Discord!': https://www.tubearchivist.com/discord

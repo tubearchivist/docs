@@ -12,7 +12,7 @@ nav:
         - 'Users': 'users.md'
         - 'Settings': 'settings.md'
     - Installation:
-        - 'Docker-Compose (default)': 'installation/docker.md'    
+        - 'Docker-Compose (default)': 'installation/docker-compose.md'    
         - 'Unraid': 'installation/unraid.md'
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'

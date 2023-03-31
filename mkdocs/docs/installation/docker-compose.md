@@ -98,11 +98,10 @@ For some architectures it might be required to run Redis JSON on a nonstandard p
 - For the *archivist-redis* service, change the ports to `6380:6380`
 - Additionally set the following value to the *archivist-redis* service: `command: --port 6380 --loadmodule /usr/lib/redis/modules/rejson.so`  
 
-## Updating TubeArchivist  
-You will see the current version number of **Tube Archivist** in the footer of the interface. There is a daily version check task querying tubearchivist.com, notifying you of any new releases in the footer. To take advantage of the latest fixes and improvements, make sure you are running the *latest and greatest*.  
+## Start the application
 
-Should that not be an option, the Tube Archivist container takes these two additional environment variables:  
+To start, `cd` into the directory where the `docker-compose.yml` file is located and run `docker compose up --detach` in terminal. The first time you do this it will download the appropriate images, which can take a minute.
 
-  - This project is tested for updates between one or two releases maximum. Further updates back may or may not be supported and you might have to reset your index and configurations to update. Ideally apply new updates at least once per month.  
-  - There can be breaking changes between updates, particularly as the application grows, new environment variables or settings might be required for you to set in the your docker-compose file. *Always* check the **release notes**: Any breaking changes will be marked there.  
-  - All testing and development is done with the Elasticsearch version number as mentioned in the provided *docker-compose.yml* file. This will be updated when a new release of Elasticsearch is available. Running an older version of Elasticsearch is most likely not going to result in any issues, but it's still recommended to run the same version as mentioned. Use `bbilly1/tubearchivist-es` to automatically get the recommended version.   
+You can follow the logs with `docker compose logs -f`. Once it's ready it will print something like `celery@1234567890ab ready`. At this point you should be able to go to `http://your-host:8000` and log in with the `TA_USER`/`TA_PASSWORD` credentials.
+
+You can bring the application down by running `docker compose down` in the same directory.

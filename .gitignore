@@ -1,2 +1,5 @@
 # ignore test builds
 mkdocs/site
+
+# ignore local cache
+mkdocs/.cache/

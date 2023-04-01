@@ -35,7 +35,7 @@ markdown_extensions:
     - pymdownx.superfences
 theme:
   name: material
-  logo: assets/favicon.ico
+  logo: assets/logo-dark.jpg
   favicon: assets/favicon.ico
   font: false
   custom_dir: overrides
@@ -48,3 +48,9 @@ extra_css:
 extra:
   analytics:
     provider: custom
+plugins:
+  - social:
+      cards_color:
+        fill: "#00202f" 
+        text: "#eeeeee"
+        cards_font: Sen-Bold

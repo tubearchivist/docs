@@ -3,6 +3,8 @@
 FROM python:3.10.9-slim-bullseye AS builder
 ENV PATH=/root/.local/bin:$PATH
 
+RUN apt-get update -y && apt-get install -y libcairo2
+
 COPY requirements.txt /requirements.txt
 RUN pip install --user -r requirements.txt
 

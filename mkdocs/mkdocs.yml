@@ -45,3 +45,6 @@ theme:
     - navigation.footer
 extra_css:
   - stylesheets/style.css
+extra:
+  analytics:
+    provider: custom

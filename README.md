@@ -19,13 +19,14 @@ To just make simple changes, edit the markdown files within *mkdocs/docs* direcl
 
 To setup a local development server:
 
-Install mkdocs with pip:
+Install requirements with pip:
 ```
-pip3 install mkdocs mkdocs-material
+pip3 install -r requirements.txt
 ```
 
-From the AUR:
+For Arch:
 ```
+pacman -S python-cairosvg python-pillow
 yay -S mkdocs mkdocs-material
 ```
 

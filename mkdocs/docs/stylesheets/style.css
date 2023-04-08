@@ -10,12 +10,17 @@
     font-family: 'Sen-Regular';
 }
 
-* {
+p, a, span, h3 {
     font-family: Sen-Regular;
 }
 
+code span {
+    font-family: monospace;
+}
+
 h1,
-h2 {
+h2,
+strong {
     font-family: Sen-Bold;
 }
 
@@ -50,6 +55,11 @@ footer {
     --md-admonition-bg-color: var(--highlight-bg);
     --md-admonition-fg-color: var(--main-font);
     --md-footer-bg-color: var(--highlight-bg);
+    --md-code-hl-punctuation-color: var(--main-font);
+    --md-code-hl-name-color: var(--accent-font-light);
+    --md-code-hl-string-color: var(--accent-font-dark);
+    --md-code-hl-number-color: var(--highlight-error-light);
+    --md-code-hl-operator-color: var(--highlight-error);
 }
 
 :root {

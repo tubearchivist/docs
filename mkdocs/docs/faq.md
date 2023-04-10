@@ -23,9 +23,9 @@ Of course this is subject to change: The scope can be expanded as this project c
 ## How do I import my videos to Emby-Plex-Jellyfin-Kodi?
 Although there are similarities between these excellent projects and Tube Archivist, they have a very different use case. Trying to fit the metadata relations and database structure of a YouTube archival project into these media servers that specialize in Movies and TV shows is always going to be limiting.
 
-Part of the scope is to be its own media server, so that's where the focus and effort of this project is. That being said, the nature of self hosted and open source software gives you all the possible freedom to use your media as you wish.
+Part of the scope is to be its own media server, to be able to overcome these limitations, so that's where the focus and effort of this project is. That being said, the nature of self hosted and open source software gives you all the possible freedom to use your media as you wish.
 
-If you want to help with integrating this project, [this issue on GH](https://github.com/tubearchivist/tubearchivist/issues/419) is a good start.
+- **Jellyfin**: There is a proof of concept script for linking these two APIs together and to populate metadata from Tube Archivist to Jellyfin: [tubearchivist/jellyfin](https://github.com/tubearchivist/jellyfin). Please contribute to improve this integration.
 
 ## How do I install this natively?
 This project is a classical Docker application: There are multiple moving parts that need to be able to interact with each other and need to be compatible with multiple architectures and operating systems. Additionally Docker also drastically reduces development complexity which is highly appreciated.  

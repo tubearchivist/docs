@@ -77,17 +77,10 @@ All third party integrations of TubeArchivist will **always** be *opt in*.
 - **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. If a video doesn't have timestamps, or has unlocked timestamps, use the browser addon to contribute to this excellent project. Can also be activated and deactivated as a per [channel overwrite](Settings#channel-customize).
 
 ## Snapshots
-System snapshots will automatically make daily snapshots of the Elasticsearch index. The task will start at 12pm your local time. Snapshots are deduplicated, meaning that each snapshot will only have to backup changes since the last snapshot. The initial snapshot may be slow, but subsequent runs will be much faster. There is also a cleanup function implemented, that will remove snapshots older than 30 days.
+!!! note
+    This will make a snapshot of your metadata index only, no media files or additional configuration variables you have set on the settings page will be backed up.
 
-This will make a snapshot of your metadata index only, no media files or additional configuration variables you have set on the settings page will be backed up.
-
-Due to these improvements compared to the previous backup solution, system snapshots will replace the current backup system in a future version.
-
-Before activating system snapshots, you'll have to add one additional environment variables to the *archivist-es* container:
-```
-path.repo=/usr/share/elasticsearch/data/snapshot
-```
-The variable `path.repo` will set the folder where the snapshots will go inside the Elasticsearch container, you can't change it, but the variable needs to be set. Rebuild the container for changes to take effect, e.g `docker compose up -d`.
+System snapshots will automatically make daily snapshots of the Elasticsearch index. The task will start at 12pm your local time. Snapshots are deduplicated, meaning that each snapshot will only have to backup changes since the last snapshot. Old snpshots will automatically get deleted after 30 days.
 
 - **Create snapshot now**: Will start the snapshot process now, outside of the regular daily schedule.
 - **Restore**: Restore your index to that point in time.
@@ -116,9 +109,11 @@ That's the equivalent task as run from the downloads page looking through your c
 Start downloading all videos currently in the download queue.
 
 ## Refresh Metadata
-Rescan videos, channels and playlists on youtube and update metadata periodically. This will also refresh your subtitles based on your current settings. If an item is no longer available on YouTube, this will deactivate it and exclude it from future refreshes. This task is meant to be run once per day, set your schedule accordingly.
+Rescan videos, channels and playlists on youtube and update metadata periodically. This will also refresh your subtitles and comments based on your current settings. If an item is no longer available on YouTube, this will deactivate it and exclude it from future refreshes. This task is meant to be run once per day, set your schedule accordingly.
 
 The field **Refresh older than x days** takes a number where TubeArchivist will consider an item as *outdated*. This value is used to calculate how many items need to be refreshed today based on the total indexed. This will spread out the requests to YouTube. Sensible value here is **90** days.
+
+Additionally to the outdated documents, this will also refresh very recently published videos. This is to keep metadata and statistics uptodate during the first few days when the video goes live.
 
 ## Thumbnail check
 This will check if all expected thumbnails are there and will delete any artwork without matching video.
@@ -128,13 +123,12 @@ Create a zip file of the metadata and select **Max auto backups to keep** to aut
 
 
 # Actions
-Additional database functionality.
 
 ## Delete download queue
 The button **Delete all queued** will delete all pending videos from the download queue. The button **Delete all ignored** will delete all videos you have previously ignored.
 
 ## Manual Media Files Import
-!!! note "BE AWARE"
+!!! note
     This is inherently error prone, as there are many variables, some outside of the control of this project. Read this carefully and use at your own risk. 
 
 Add the files you'd like to import to the */cache/import* folder. Only add files, don't add subdirectories. All files you are adding, need to have the same *base name* as the media file. Then start the process from the settings page *Manual Media Files Import*.
@@ -168,10 +162,10 @@ If the video you are trying to import is not available on YouTube any more, **Tu
 - This will **consume** the files you put into the import folder: Files will get converted to mp4 if needed (this might take a long time...) and moved to the archive, *.json* files will get deleted upon completion to avoid having duplicates on the next run.
 - For best file transcoding quality, convert your media files with desired settings first before importing.
 - Maybe start with a subset of your files to import to make sure everything goes well...
-- Follow the logs to monitor progress and errors: `docker-compose logs -f tubearchivist`.
+- A notification box will show with progress, follow the docker logs to monitor for errors.
 
 ## Embed thumbnails into media file
-This will write or overwrite all thumbnails in the media file using the downloaded thumbnail. This is only necessary if you didn't download the files with the option *Embed Thumbnail* enabled or want to make sure all media files get the newest thumbnail. Follow the docker-compose logs to monitor progress.
+This will write or overwrite all thumbnails in the media file using the downloaded thumbnail. This is only necessary if you didn't download the files with the option *Embed Thumbnail* enabled or you want to make sure all media files get the newest thumbnail.
 
 ## ZIP file index backup
 This will backup your metadata into a zip file. The file will get stored at *cache/backup* and will contain the necessary files to restore the Elasticsearch index formatted **nd-json** files. For data consistency, make sure there aren't any other tasks running that will change the index during the backup process. This is very slow, particularly for large archives.  
@@ -180,14 +174,15 @@ This will backup your metadata into a zip file. The file will get stored at *cac
     This will **not** backup any media files, just the metadata from the Elasticsearch.
 
 ## Restore From Backup
-The restore functionality will expect the same zip file in *cache/backup* as created from the **Backup database** function. This will recreate the index from the snapshot. There will be a list of all available backup to choose from. The *source* tag can have these different values:
+The restore functionality will expect the same zip file in *cache/backup* as created from the **Backup database** function. This will recreate the index from the zip archive file. There will be a list of all available backup to choose from. The *source* tag can have these different values:
 
 - **manual**: For backups manually created from here on the settings page.
 - **auto**: For backups automatically created via a sceduled task.
 - **update**: For backups created after a Tube Archivist update due to changes in the index.
 - **False**: Undefined.
 
-BE AWARE: This will **replace** your current index with the one from the backup file. This won't restore any media files.
+!!! note "BE AWARE"
+    This will **replace** your current index with the one from the backup file. This won't restore any media files.
 
 ## Rescan Filesystem
 This function will go through all your media files and looks at the whole index to try to find any issues:

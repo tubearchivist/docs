@@ -105,6 +105,8 @@ Examples:
 ## Rescan Subscriptions
 That's the equivalent task as run from the downloads page looking through your channel and playlist and add missing videos to the download queue.
 
+Become a sponsor and join [members.tubearchivist.com](https://members.tubearchivist.com/) to get access to *real time* notifications for new videos uploaded by your favorite channels.
+
 ## Start download
 Start downloading all videos currently in the download queue.
 

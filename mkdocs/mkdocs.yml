@@ -63,3 +63,5 @@ plugins:
         fill: "#00202f" 
         text: "#eeeeee"
         cards_font: Sen-Bold
+  - search:
+      lang: en

@@ -12,7 +12,9 @@ Tube Archivist, and all if it's dependencies are located in the [community appli
 ![TubeArchivist-RedisJSON](https://i.imgur.com/ZKc8pSK.png)
 This is the easiest container to setup of the thee, just make sure that you do not have any port conflicts, and that your `/data` is mounted to the correct path. The other containers will map to the same root directory (/mnt/user/appdata/TubeArchivist).
 
-If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](https://github.com/tubearchivist/tubearchivist#redis-on-a-custom-port) later on when installing the `TubeArchivist` container
+If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](https://github.com/tubearchivist/tubearchivist#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.
+
+Make sure and start Redis and the ElasticSearch containers approximately one minute before starting `TubeArchivist`
 
 
 ### Install  `TubeArchivist-ES`
@@ -21,10 +23,11 @@ ElasticSeach is also pretty easy to setup. Again, make sure you have no port con
 
 There is four additional settings in the "show more settings" area, but don't require any changes.
 
+Make sure and start Redis and the ElasticSearch containers approximately one minute before starting `TubeArchivist`
 
 ### Install  `TubeArchivist`
 
-![TubeArchivist](https://i.imgur.com/oLsmwBZ.png)
+![TubeArchivist](https://i.imgur.com/dctyK3O.png)
 
 It's finally time to set up TubeArchivist!
 
@@ -57,4 +60,5 @@ It's finally time to set up TubeArchivist!
 
 **From there, you should be able to start up your containers and you're good to go!**
 
-If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the #support channel.
+If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the [#support channel.](https://discord.com/channels/920056098122248193/1006394050217246772)
+

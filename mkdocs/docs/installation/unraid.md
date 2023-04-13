@@ -9,7 +9,7 @@ Tube Archivist, and all if it's dependencies are located in the [community appli
 
 ### Install  `TubeArchivist-RedisJSON`
 
-![TubeArchivist-RedisJSON](https://i.imgur.com/ZKc8pSK.png)
+![TubeArchivist-RedisJSON](../assets/unraid_redis_install.png)
 This is the easiest container to setup of the thee, just make sure that you do not have any port conflicts, and that your `/data` is mounted to the correct path. The other containers will map to the same root directory (/mnt/user/appdata/TubeArchivist).
 
 If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](https://github.com/tubearchivist/tubearchivist#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.
@@ -18,7 +18,7 @@ Make sure and start Redis and the ElasticSearch containers approximately one min
 
 
 ### Install  `TubeArchivist-ES`
-![TubeArchivist-ES](https://i.imgur.com/RC38b3u.png)
+![TubeArchivist-ES](../assets/unraid_es_install.png)
 ElasticSeach is also pretty easy to setup. Again, make sure you have no port conflicts, make sure that you mapped the ElasticSearch Data to the same root directory as `RedisJSON` (/mnt/user/appdata/TubeArchivist), and make sure to change the default password to something more secure. 
 
 There is four additional settings in the "show more settings" area, but don't require any changes.
@@ -27,7 +27,7 @@ Make sure and start Redis and the ElasticSearch containers approximately one min
 
 ### Install  `TubeArchivist`
 
-![TubeArchivist](https://i.imgur.com/dctyK3O.png)
+![TubeArchivist](../assets/unraid_ta_install.png)
 
 It's finally time to set up TubeArchivist!
 

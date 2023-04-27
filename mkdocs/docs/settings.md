@@ -91,8 +91,8 @@ Schedule settings expect a cron like format, where the first value is minute, se
 Examples:
 
 - `0 15 *`: Run task every day at 15:00 in the afternoon.
-- `30 8 \*/2`: Run task every second day of the week (Sun, Tue, Thu, Sat) at 08:30 in the morning.
-- `0 \*/3,8-17 *`: Execute every hour divisible by 3, and every hour during office hours (8 in the morning - 5 in the afternoon).
+- `30 8 */2`: Run task every second day of the week (Sun, Tue, Thu, Sat) at 08:30 in the morning.
+- `0 */3,8-17 *`: Execute every hour divisible by 3, and every hour during office hours (8 in the morning - 5 in the afternoon).
 - `0 8,16 *`: Execute every day at 8 in the morning and at 4 in the afternoon.
 - `auto`: Sensible default.
 - `0`: (zero), deactivate that task.

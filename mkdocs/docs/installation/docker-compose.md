@@ -24,7 +24,7 @@ The main Python application that displays and serves your video collection, buil
   - For the scheduler to know what time it is, set your timezone with the `TZ` environment variable, defaults to *UTC*.  
   - Serves the interface on port `8000`
   - Needs a volume for the video archive at `/youtube`  
-  - Set the environment variable `ENABLE_CAST=True` to send videos to your cast device, [read more](#enable-cast). 
+  - Set the environment variable `ENABLE_CAST=True` to send videos to your cast device, [read more](/configuration/cast/). 
 
 
 ## Configuring TubeArchivist  

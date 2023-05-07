@@ -9,6 +9,8 @@ Clicking on the channel name or the channel icon will bring you to the dedicated
 
 If available, a tag cloud will show, representing the tags set by the uploader.
 
+There you can also find stream metadata like file size, video codecs, video bitrate and resolution, audio codecs and bitrate. 
+
 The video description is truncated to the first few lines, click on *show more* to expand the whole description.
 
 ## Playlist

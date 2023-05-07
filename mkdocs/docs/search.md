@@ -32,7 +32,7 @@ Start your query with the **primary keyword** `video:` to search for videos only
     - Note the omitted term after the primary key, this will show all videos from the channel *Tom Scott* that are no longer active on YouTube.
 
 ## Channel
-Start with the `channel:` **primary keyword** to search for channels matching your query. This will search through the *channel name* and *channel description* fields. Narrow your search down with secondary keywords:
+Start with the `channel:` **primary keyword** to search for channels matching your query. This will search through the *channel name*, *channel description* and *channel tags* fields. Narrow your search down with secondary keywords:
 
 - `subscribed:` is a boolean value, search for channels that you are subscribed to or not.
 - `active:` is a boolean value, to search for channels that are still active on YouTube or that are no longer active.

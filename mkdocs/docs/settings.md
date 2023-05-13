@@ -1,3 +1,7 @@
+---
+description: Configure this project, yt-dlp behavior, the scheduler and more.
+---
+
 # Settings Page
 Accessible at `/settings/` of your **Tube Archivist**, this page holds all the configurations and additional functionality related to the database.
 

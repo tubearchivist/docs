@@ -1,3 +1,7 @@
+---
+description: Populate your download queue by rescanning your Subscriptions or manually adding items to the download queue.
+---
+
 # Downloads Page
 Accessible at `/downloads/` of your Tube Archivist, this page handles all the download functionality.
 

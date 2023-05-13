@@ -1,3 +1,7 @@
+---
+description: Complete Video metadata with playlist navigation and comments.
+---
+
 # Video Page
 Every video downloaded gets a dedicated page accessible at `/video/<video-id>/` of your Tube Archivist. Throughout the interface, click on a video title to access the video page.
 

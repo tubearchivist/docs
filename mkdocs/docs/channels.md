@@ -1,3 +1,7 @@
+---
+description: Subscribe to channels, browse your channels and access additional metadata.
+---
+
 # Channels Pages
 
 The channels are organized on two different levels, similar to the [playlists](playlists.md):

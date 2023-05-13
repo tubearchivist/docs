@@ -1,3 +1,7 @@
+---
+description: Unified search pagage to query your index.
+---
+
 # Search Page
 Accessible at `/search/` of your **Tube Archivist**, search your archive for Videos, Channels and Playlists - or even full text search throughout your indexed subtitles.
 

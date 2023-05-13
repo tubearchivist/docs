@@ -1,3 +1,7 @@
+---
+description: Complete Video metadata with playlist navigation and comments.
+---
+
 # Video Page
 Every video downloaded gets a dedicated page accessible at `/video/<video-id>/` of your Tube Archivist. Throughout the interface, click on a video title to access the video page.
 
@@ -8,6 +12,8 @@ Clicking on the channel name or the channel icon will bring you to the dedicated
 - The button **Delete Video** will delete that video including the media file.
 
 If available, a tag cloud will show, representing the tags set by the uploader.
+
+There you can also find stream metadata like file size, video codecs, video bitrate and resolution, audio codecs and bitrate. 
 
 The video description is truncated to the first few lines, click on *show more* to expand the whole description.
 

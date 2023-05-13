@@ -1,3 +1,7 @@
+---
+description: Configure this project, yt-dlp behavior, the scheduler and more.
+---
+
 # Settings Page
 Accessible at `/settings/` of your **Tube Archivist**, this page holds all the configurations and additional functionality related to the database.
 
@@ -15,11 +19,11 @@ Settings related to the channel management. Disable shorts or streams by setting
 - **Channel Page Size**: Defines how many pages will get analyzed by **Tube Archivist** each time you click on *Rescan Subscriptions*. The default page size used by yt-dlp is **50**, that's also the recommended value to set here. Any value higher will slow down the rescan process, for example if you set the value to 51, that means yt-dlp will have to go through 2 pages of results instead of 1 and by that doubling the time that process takes.
 - **Live Page Size**: Same as above, but for channel live streams.
 - **Shorts page Size**: Same as above, but for shorts videos.
+- **Auto Start**: This will prioritize and automatically start downloading videos from your subscriptions over regular video added to the download queue.
 
 ## Downloads
 Settings related to the download process.
 
-- **Download Limit**: Stop the download process after downloading the set quantity of videos.
 - **Download Speed Limit**: Set your download speed limit in KB/s. This will pass the option `--limit-rate` to yt-dlp.
 - **Throttled Rate Limit**: Restart download if the download speed drops below this value in KB/s. This will pass the option `--throttled-rate` to yt-dlp. Using this option might have a negative effect if you have an unstable or slow internet connection.
 - **Sleep Interval**: Time in seconds to sleep between requests to YouTube. It's a good idea to set this to **3** seconds. Might be necessary to avoid throttling.
@@ -29,6 +33,8 @@ Settings related to the download process.
 Additional settings passed to yt-dlp.
 
 - **Format**: This controls which streams get downloaded and is equivalent to passing `--format` to yt-dlp. Use one of the recommended one or look at the documentation of [yt-dlp](https://github.com/yt-dlp/yt-dlp#format-selection). Please note: The option `--merge-output-format mp4` is automatically passed to yt-dlp to guarantee browser compatibility. Similar to that, `--check-formats` is passed as well to check that the selected formats are actually downloadable.
+- **Format Sort**: This allows you to change how yt-dlp sorts formats by passing `--format-sort` to yt-dlp. Refere to the [documentation](https://github.com/yt-dlp/yt-dlp#sorting-formats), what you can pass here. Be aware, that some codecs might not be compatible with your browser of choice.
+- **Extractor Language**: Some channels provide tranlated video titles and descriptions. Add the two letter ISO language code, to set your prefered default language. This will only have an effect, if the uploader adds translations. Not all language codes are supported, see the [documentation](https://github.com/yt-dlp/yt-dlp#youtube) (the `lang` section) for more details.
 - **Embed Metadata**: This saves the available tags directly into the media file by passing `--embed-metadata` to yt-dlp.
 - **Embed Thumbnail**: This will save the thumbnail into the media file by passing `--embed-thumbnail` to yt-dlp.
 

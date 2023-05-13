@@ -17,6 +17,8 @@ Add list of videos to download queue:
     ]
 }
 ```
+Parameter:
+- autostart: true
 
 Delete download queue items by filter:  
 **DELETE** `/api/download/?filter=ignore`  

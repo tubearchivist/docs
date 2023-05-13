@@ -1,4 +1,4 @@
 cairosvg==2.7.0
 mkdocs==1.4.3
-mkdocs-material==9.1.9
+mkdocs-material==9.1.12
 pillow==9.5.0

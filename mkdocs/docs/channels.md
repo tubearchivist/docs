@@ -1,3 +1,7 @@
+---
+description: Subscribe to channels, browse your channels and access additional metadata.
+---
+
 # Channels Pages
 
 The channels are organized on two different levels, similar to the [playlists](playlists.md):
@@ -21,7 +25,9 @@ To search your channels, click on the search icon <img src="/assets/icon-search.
 
 ## Channel Detail
 Each channel gets a set of channel detail pages.
+
 - If you are subscribed to the channel, an *Unsubscribe* button will show, else the *Subscribe* button will show.
+- You'll see some statistics of the channel, like how many videos you have, total playback and total size. That aggregation is based your filter, e.g. if you toggle *Hide watched*, the aggregation will be over your unwatched videos only.
 - The **Mark as Watched** button will mark all videos of this channel as watched.
 
 ### Videos
@@ -42,6 +48,8 @@ On the *Channel About* page, accessible at `/channel/<channel-id>/about/`, you c
 - The button **Delete Channel** will delete the channel plus all videos of this channel, both media files and metadata additionally this will also delete playlists metadata belonging to that channel.
 - The button **Reindex** will reindex all channel metadata. This will also categorize existing videos as shorts or streams.
 - The button **Reindex Videos** will reindex metadata for all videos in this channel.
+
+If available, you can find the channel description and channel tags there.
 
 The channel customize form gives options to change settings on a per channel basis. Any configurations here will overwrite your configurations from the [settings](settings.md) page.
 

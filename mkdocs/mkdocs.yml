@@ -59,9 +59,9 @@ extra:
     provider: custom
 plugins:
   - social:
-      cards_color:
-        fill: "#00202f" 
-        text: "#eeeeee"
-        cards_font: Sen-Bold
+      cards_layout_options:
+        background_color: "#00202f"
+        color: "#eeeeee"
+        font_family: Sen-Bold
   - search:
       lang: en

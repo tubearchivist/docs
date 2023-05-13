@@ -1,3 +1,7 @@
+---
+description: Home of the documentation, additional installation instructions and user guide. Recommended reading for all interested in the project.
+---
+
 # Tube Archivist
 Welcome to the official Tube Archivist Docs. This is an up-to-date documentation of user functionality.
 

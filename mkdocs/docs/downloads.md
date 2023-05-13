@@ -1,3 +1,7 @@
+---
+description: Populate your download queue by rescanning your Subscriptions or manually adding items to the download queue.
+---
+
 # Downloads Page
 Accessible at `/downloads/` of your Tube Archivist, this page handles all the download functionality.
 
@@ -10,7 +14,7 @@ Tube Archivist will get available *videos*, *shorts* and *streams* from each cha
 Then for every video found, **Tube Archivist** will skip the video if it has already been downloaded or if you added it to the *ignored* list before. All the other videos will get added to the download queue. Expect this to take around 2 seconds for each video as **Tube Archivist** needs to grab some additional metadata and artwork. New videos will get added at the bottom of the download queue.
 
 ## Download Queue
-The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="download icon" width="20px" style="margin:0 5px;"> will start the download process starting from the top of the queue. Take a look at the relevant settings on the [Settings Page](settings.md#downloads). Once the process started, a progress message will show with additional details and controls: 
+The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="download icon" width="20px" style="margin:0 5px;"> will start the download process. This will prioritize videos added as *auto start* or as *download now*, starting from the top of the queue. Once the process started, a progress message will show with additional details and controls: 
 
 - The stop icon <img src="/assets/icon-stop.png?raw=true" alt="stop icon" width="20px" style="margin:0 5px;"> will gracefully stop the download process, once the current video has been finished successfully.
 - [Currenlty broken] The cancel icon <img src="/assets/icon-close-red.png?raw=true" alt="close icon" width="20px" style="margin:0 5px;"> is equivalent to killing the process and will stop the download immediately. Any leftover files will get deleted, the canceled video will still be available in the download queue.
@@ -18,7 +22,9 @@ The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="d
 After downloading, Tube Archivist tries to add new videos to already indexed playlists and if activated on the settings page, get comments for the new videos.
 
 ## Add to Download Queue
-The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to manually add videos to the download queue. Add one item per line. You have a few options:
+The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to manually add videos to the download queue. Add one item per line. The *Add to queue* will add the videos as regular items to the queue, you'll be able to ignore undesired videos before starting the queue. If you add them with *Download Now*, this will start the download automatically with priority. 
+
+You have a few options:
 
 ### Videos
 - Add a YouTube video ID, for example `2tdiKTSdE9Y`

@@ -1,3 +1,7 @@
+---
+description: Frequently asked questions about what this project is, what it tries and what it doesn't try to do.
+---
+
 # Frequently Asked Questions
 
 ## What is the scope of this project?

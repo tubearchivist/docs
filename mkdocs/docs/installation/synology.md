@@ -162,12 +162,12 @@ Once all of the folders have been created, it should have a folder structure wit
    9. In the **Port Settings** tab, replace the "Auto" entry under **Local Port** with the port that will be used to connect to TubeArchivist (default is 8000).
    10. In the **Links** tab, select the "tubearchivist-es" container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-es".
    11. In the **Links** tab, select the "tubearchivist-redis" container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-redis".
-   12. In the **Environment** tab, add in the following TubeArchivist specific environment variables that may apply. **Change the variables as-is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#tube-archivist) for details on what to set each variable.**
+   12. In the **Environment** tab, add in the following TubeArchivist specific environment variables that may apply. **Change the variables as is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#tube-archivist) for details on what to set each variable.**
       - `TA_HOST=synology.local`
       - `ES_URL=http://tubearchivist-es:9200`
       - `REDIS_HOST=tubearchivist-redis`
       - `HOST_UID=1000`
-      - `HOST_GID=1000`
+      - `HOST_GID=0`
       - `TA_USERNAME=tubearchivist`
       - `TA_PASSWORD=verysecret`
       - `ELASTIC_PASSWORD=verysecret`
@@ -189,5 +189,8 @@ Once all of the folders have been created, it should have a folder structure wit
 <!-- This section is a Work In Progress -->
 
 **From there, you should be able to start up your containers and you're good to go!**
+
+### Synology Docker Upgrade
+
 
 If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the #support channel.

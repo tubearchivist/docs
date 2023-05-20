@@ -215,4 +215,6 @@ When a new version of the image is available, you can follow the following steps
    3. Follow the Installation instructions again *for just the TubeArchivist image*, using the same configurations as the existing container. It'll have to be named slightly differently.
    4. After the image is now running and the upgrade of the backend files occurs, shut down the new container. Rename or delete the old container. Rename the new container to have the intended name.
 
+!!! note "Links are incredibly important if you upgrade or change the ES or Redis container images. You will either need to remove the links, create the new containers, then re-add the links or rebuild all of the images with the same instructions as Installation, starting at Step 3.
+
 If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the #support channel.

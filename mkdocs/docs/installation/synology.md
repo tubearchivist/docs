@@ -69,10 +69,10 @@ Once all of the folders have been created, it should have a folder structure wit
    6. Change the owner of the "redis" folder. *If correct, this does not have an output.*
       </br>Example: `chown 999:100 redis`
    7. Change the owner of the "es" folder. *If correct, this does not have an output.*
-      </br>Example: `chown 1000:1000 es`
+      </br>Example: `chown 1000:0 es`
    8. Confirm that the folders have the correct permissions.
       </br>Example: `ls -hl`
-![Synology - Docker Folder Permissions Command](../assets/Synology_0.2.0_Docker-Folder-Permissions-Commands.png)
+![Synology - Docker Folder Permissions Command](../assets/Synology_0.3.6_Docker-Folder-Permissions-Commands.png)
    9. Logout from root.
       </br>Example: `logout`
    10. Disconnect from the SSH connection.

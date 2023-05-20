@@ -2,7 +2,7 @@
     These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing-and-updating). If you see any issues here while using these instructions, please contribute. 
 
 
-There are several different methods to install TubeArchivist on Synology platforms. This will focus on the available `docker` package and `docker-compose` implementations.
+There are several different methods to install TubeArchivist on Synology platforms. This will focus on the available `docker` package implementation.<!--  and `docker-compose` implementations. -->
 
 ### Prepare Directories/Folders
 Before we setup TubeArchivist, we need to setup the directories/folders. You are assumed to be logged into the Synology NAS.

@@ -102,6 +102,7 @@ Once all of the folders have been created, it should have a folder structure wit
          ![Synology - ElasticSearch Image Search](../assets/Synology_0.2.0_Docker-ES-Search.png)
          - `bbilly1/tubearchivist`
          ![Synology - TubeArchivist Image Search](../assets/Synology_0.2.0_Docker-TA-Search.png)
+         > !!! note "Upgrades in Synology require use of the `latest` tag."
 
 #### 3. Configure ElasticSearch
 
@@ -191,6 +192,27 @@ Once all of the folders have been created, it should have a folder structure wit
 **From there, you should be able to start up your containers and you're good to go!**
 
 ### Synology Docker Upgrade
+When a new version of the image is available, you can follow the following steps to more easily upgrade your previous instance.
+!!!note "If you did not use the `latest` tag, you may have some variances in your upgrade steps. Those are detailed below these instructions."
+1. Go to the Registry Tab and download the newest instance of the `:latest` tag, as seen in the Installation Instructions earlier.
+2. Go to Image Tab and confirm that you have the newer version available.
+3. Stop the running `tubearchivist` container.
+4. Click on the **Settings🔽** button and choose "Duplicate settings".
+5. Choose a new name
+   - Recommended to use the existing name with a `_upgrade` appended to the end.
+6. Save and let it run the new `tubearchivist_upgrade` container.
+7. Once all of the upgrade steps for the container are completed and the web page is available again, stop the `tubearchivist_upgrade` container.
+   - Monitoring the logs is best for this action if the upgrade is taking longer than suggested in the Release Notes for the version (default: 5 minutes unless specified).
+   - If an issue occurs during the ugprade process, follow the suggested links for opening an issue so we can review and advise.
+8. After you have verified that the new container is working as intended, rename or delete the old `tubearchivist` container.
+9. With the old name now available, rename the new container from `tubearchivist_upgrade` to `tubearchivist`.
+10. Restart the `tubearchivist` container and confirm it is working again. 
 
+
+!!! note "If you did not use the `latest` tag for the `tubearchivist` container, then you will instead do the following:
+   1. Shut down the old container.
+   2. Download the new image.
+   3. Follow the Installation instructions again *for just the TubeArchivist image*, using the same configurations as the existing container. It'll have to be named slightly differently.
+   4. After the image is now running and the upgrade of the backend files occurs, shut down the new container. Rename or delete the old container. Rename the new container to have the intended name.
 
 If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the #support channel.

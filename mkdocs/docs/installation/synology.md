@@ -96,8 +96,8 @@ Once all of the folders have been created, it should have a folder structure wit
    2. After `Docker` is installed, open the `Docker` utility.
       3. Go to the `Registry` tab.
       4. Search for the following `images` and download them. Follow the recommended versions for each of the images.
-         - `redislabs/rejson`
-         ![Synology - Redis Image Search](../assets/Synology_0.2.0_Docker-Redis-Search.png)
+         - `redis/redis-stack-server`
+         ![Synology - Redis Image Search](../assets/Synology_0.3.6_Docker-Redis-Search.png)
          - `bbilly1/tubearchivist-es`
          ![Synology - ElasticSearch Image Search](../assets/Synology_0.2.0_Docker-ES-Search.png)
          - `bbilly1/tubearchivist`

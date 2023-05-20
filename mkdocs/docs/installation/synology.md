@@ -57,7 +57,9 @@ Once all of the folders have been created, it should have a folder structure wit
 ![Synology - Docker Folder Structure](../assets/Synology_0.2.0_Docker-Folder-Structure.png)
 
 #### 8. Change Permissions - CLI Required
-> If you do not have SSH access enabled for CLI, [enable it](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) before continuing.
+!!! note
+    If you do not have SSH access enabled for CLI, [enable it](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) before continuing.
+
    1. Open the SSH connection to the Synology. Login as your primary `Admin` user, or the user that was enabled for SSH access.
    2. Elevate your access to `root`. Steps are provided [here](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet).
    3. Change directories to the **Volume** where the "Docker" folder resides.
@@ -102,7 +104,8 @@ Once all of the folders have been created, it should have a folder structure wit
          ![Synology - ElasticSearch Image Search](../assets/Synology_0.2.0_Docker-ES-Search.png)
          - `bbilly1/tubearchivist`
          ![Synology - TubeArchivist Image Search](../assets/Synology_0.2.0_Docker-TA-Search.png)
-         > !!! note "Upgrades in Synology require use of the `latest` tag."
+         > !!! note
+               "Upgrades in Synology require use of the `latest` tag."
 
 #### 3. Configure ElasticSearch
 
@@ -177,6 +180,7 @@ Once all of the folders have been created, it should have a folder structure wit
             - Do not use the default password as it is very insecure.
             - Ensure that ELASTIC_PASSWORD matches the password used on the tubearchivist-es container.
       ![Synology - TubeArchivist Environment Configurations](../assets/Synology_0.2.0_Docker-TA-Env-Conf.png)
+
    13. Click on the **Apply** button.
    14. Back on the **Create Container** screen, click the **Next** button.
    15. Review the settings to confirm, then click the **Apply** button.

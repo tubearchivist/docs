@@ -197,16 +197,10 @@ When a new version of the image is available, you can follow the following steps
 1. Go to the Registry Tab and download the newest instance of the `:latest` tag, as seen in the Installation Instructions earlier.
 2. Go to Image Tab and confirm that you have the newer version available.
 3. Stop the running `tubearchivist` container.
-4. Click on the **Settings🔽** button and choose "Duplicate settings".
-5. Choose a new name
-   - Recommended to use the existing name with a `_upgrade` appended to the end.
-6. Save and let it run the new `tubearchivist_upgrade` container.
-7. Once all of the upgrade steps for the container are completed and the web page is available again, stop the `tubearchivist_upgrade` container.
-   - Monitoring the logs is best for this action if the upgrade is taking longer than suggested in the Release Notes for the version (default: 5 minutes unless specified).
-   - If an issue occurs during the ugprade process, follow the suggested links for opening an issue so we can review and advise.
-8. After you have verified that the new container is working as intended, rename or delete the old `tubearchivist` container.
-9. With the old name now available, rename the new container from `tubearchivist_upgrade` to `tubearchivist`.
-10. Restart the `tubearchivist` container and confirm it is working again. 
+4. Click on the **Action🔽** button and choose "Reset".
+5. This will load the newer image we downloaded earlier. This should not delete any files if all of your volumes were setup correctly.
+6. If it doesn't start automatically, start the `tubearchivist` container. Monitor the upgrade in the logs and confirm that the service starts up successfully.
+7. Once you are able to login successfully to the web page for TubeArchivist, you have successfully upgraded your container!
 
 
 !!! note "If you did not use the `latest` tag for the `tubearchivist` container, then you will instead do the following:"

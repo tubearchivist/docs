@@ -63,6 +63,5 @@ plugins:
       cards_layout_options:
         background_color: "#00202f"
         color: "#eeeeee"
-        font_family: Sen-Bold
   - search:
       lang: en

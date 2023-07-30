@@ -13,11 +13,8 @@ You can index playlists of a channel from the channel detail page as described [
 
 The **Subscribe to Playlist** button <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to subscribe to playlists. You have a few options:
 
-- Enter the YouTube playlist id, for example:
-    - `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`
-- Enter the Youtube dedicated playlist url, for example:
-    - `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`
-- If you want to subscribe to more than one playlist directly, you can add one playlist per line in the text field
+- Enter a playlist [playlist](urls.md#playlist)
+- Add one per line.
 
 !!! note
     It doesn't make sense to subscribe to a playlist if you are already subscribed the corresponding channel as this will slow down the **Rescan Subscriptions** [task](downloads.md#rescan-subscriptions).

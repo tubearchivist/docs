@@ -27,30 +27,13 @@ The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt=
 You have a few options:
 
 ### Videos
-- Add a YouTube video ID, for example `2tdiKTSdE9Y`
-- Add a link to a YouTube video, for example `https://www.youtube.com/watch?v=2tdiKTSdE9Y`
-- Add a link to a YouTube video by providing the shortened URL, for example `https://youtu.be/2tdiKTSdE9Y`
-- Add a link to a shorts video, for example `https://www.youtube.com/shorts/UOfe6e0k7cQ`
+Add a [video](urls.md#video) URL to download a single video.
 
 ### Channels
-- When adding a channel, Tube Archivist will ignore the channel page size as described above, this is meant for an initial download of the whole channel. You can still ignore selected videos from the queue before starting the download.
-
-- Download a complete channel including shorts and streams by entering:
-    - Channel ID: `UCBa659QWEk1AI4Tg--mrJ2A`
-    - Channel URL: `https://www.youtube.com/channel/UCBa659QWEk1AI4Tg--mrJ2A`
-    - Channel `@` alias handle: For example `@TomScottGo`
-    - Channel alias URL: `https://www.youtube.com/@TomScottGo`
-
-- Download videos, live streams or shorts only, by providing a partial channel URL:  
-    - Videos only: `https://www.youtube.com/@IBRACORP/videos`
-    - Shorts only: `https://www.youtube.com/@IBRACORP/shorts`
-    - Streams only: `https://www.youtube.com/@IBRACORP/streams`
-    - Every other channel sub page will default to download all, for example `https://www.youtube.com/@IBRACORP/featured` will download videos and shorts and streams.
+Add a [channel](urls.md#channel) to download the complete channel, or a [channel sub page](urls.md#channel-sub-pages) to download a partial channel.
 
 ### Playlist
-- Add a playlist ID or URL to add every available video in the list to the download queue, for example `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha` or `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`.
-- When adding a playlist to the queue, this playlist will automatically get [indexed](playlists.md#playlist-detail).
-- When you add a link to a video in a playlist, Tube Archivist assumes you want to download only the specific video and not the whole playlist, for example `https://www.youtube.com/watch?v=CINVwWHlzTY&list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha` will only add one video, `CINVwWHlzTY`, to the queue.
+Add a [playlist](urls.md#playlist) to download all videos in the list. When adding a playlist to the queue, this playlist will automatically get [indexed](playlists.md#playlist-detail).
 
 ## The Download Queue
 Below the three buttons you find the download queue. New items will get added at the bottom of the queue, the next video to download once you click on **Start Download** will be the first in the list.

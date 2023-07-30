@@ -4,6 +4,7 @@ nav:
     - Home: 'index.md'
     - User Guide:
         - 'FAQ': 'faq.md'
+        - 'URLs': 'urls.md'
         - 'Downloads Page': 'downloads.md'
         - 'Channels Pages': 'channels.md'
         - 'Video': 'video.md'

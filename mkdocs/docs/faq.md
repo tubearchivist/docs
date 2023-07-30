@@ -29,7 +29,8 @@ Although there are similarities between these excellent projects and Tube Archiv
 
 Part of the scope is to be its own media server, to be able to overcome these limitations, so that's where the focus and effort of this project is. That being said, the nature of self hosted and open source software gives you all the possible freedom to use your media as you wish.
 
-- **Jellyfin**: There is a proof of concept script for linking these two APIs together and to populate metadata from Tube Archivist to Jellyfin: [tubearchivist/jellyfin](https://github.com/tubearchivist/jellyfin). Please contribute to improve this integration.
+- **Jellyfin**: There is an API to API integration available to sync metadata from Tube Archivist to Jellyfin: [tubearchivist/jellyfin](https://github.com/tubearchivist/jellyfin). Follow the instructions there. Please contribute to improve this integration.
+- **Plex**: Progress is happening on that...
 
 ## How do I install this natively?
 This project is a classical Docker application: There are multiple moving parts that need to be able to interact with each other and need to be compatible with multiple architectures and operating systems. Additionally Docker also drastically reduces development complexity which is highly appreciated.  
@@ -59,3 +60,12 @@ Using a Proxy/VPN can be advantages for heavy users of this project. Some users 
 This project doesn't make any recommendations: Some people prefer to convert their home router to a VPN client, some have a home firewall capable of routing traffic, some prefer to set up their host network as a client and others prefer to use a networking container to tunnel container traffic through. Some prefer one of the many proxy protocols, others use various OpenVPN configurations, others use WireGuard.
 
 There are too many variations of that problem to be implemented in this project, use any of the various solutions out there that fits your needs.
+
+## Why is there no flexible naming structure?
+Unlike other similar projects, Tube Archivist needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly and the metadata refresh task kept failing because of that.
+
+This project tries to be compatible with as many filesystem/OS variations out there as possible. Using channel names and titles to build file paths that can be any Unicode character is a flawed and highly error prone approach of doing that, there is always a filesystem/OS out there that proves to be incompatible with how something is named.
+
+That's why this project has landed on `<channel-id>/<video-id>.mp4`. These values are guaranteed to be static, are guaranteed to be compatible with every filesystem out there and make things predictable where all files will go on every instance of Tube Archivist indefinitely.
+
+For browsing these files you have the fancy interface provided by this project, or use a supported integration as stated above. If you really want to you could easily also create your own file naming structure with the API and symlinks, but that is not part of the scope of this project.

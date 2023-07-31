@@ -108,6 +108,15 @@ Examples:
     - Cron format as *number*/*number* are none standard cron and are not supported by the scheduler, for example `0 0/12 *` is invalid, use `0 */12 *` instead.
     - Avoid an unnecessary frequent schedule to not get blocked by YouTube. For that reason, the scheduler doesn't support schedules that trigger more than once per hour.
 
+## Notifications
+Some of the scheduled tasks support sending notifications at task completion with a short summary message. This uses the amazing [Apprise](https://github.com/caronc/apprise) framework, refere to the wiki about the [basics](https://github.com/caronc/apprise/wiki/URLBasics) how to build links and a list of [supported services](https://github.com/caronc/apprise/wiki#notification-services) for the details.
+
+Notes:
+
+- This will only send notifications when a task returns anything, e.g. if a [Rescan Subscriptions](#rescan-subscriptions) task doesn't find any new videos to add, no notification will get sent.
+- Due to the fact that apprise is running inside a docker container, [desktop notifications](https://github.com/caronc/apprise/wiki#desktop-notification-services) will not work.
+- Add one per line.
+
 ## Rescan Subscriptions
 That's the equivalent task as run from the downloads page looking through your channel and playlist and add missing videos to the download queue.
 

@@ -45,6 +45,8 @@ Every video in the download queue has two buttons:
 - **Ignore**: This will remove that video from the download queue and this video will not get added again, even when you **Rescan Subscriptions**.
 - **Download now**: This will give priority to this video. If the download process is already running, the prioritized video will get downloaded as soon as the current video is finished. If there is no download process running, this will start downloading this single video and stop after that.  
 
+Failed videos will show an error message of what went wrong and will give you additional options with how to continue. Usually this means the video in the queue is no longer available on YouTube. Tube Archivist will not retry to download a failed video.
+
 You can flip the view by activating **Show Only Ignored Videos**. This will show all videos you have previously *ignored*.  
 Every video in the ignored list has two buttons:
 

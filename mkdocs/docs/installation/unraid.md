@@ -60,5 +60,7 @@ It's finally time to set up TubeArchivist!
 
 **From there, you should be able to start up your containers and you're good to go!**
 
+If you run into permission errors, try ```'newperms /mnt/user/appdata/TubeArchivist/'``` to reset the permissions to the root of your TubeArchivist appdata folder.
+
 If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the [#support channel.](https://discord.com/channels/920056098122248193/1006394050217246772)
 

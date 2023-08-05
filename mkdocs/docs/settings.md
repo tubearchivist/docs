@@ -109,7 +109,12 @@ Examples:
     - Avoid an unnecessary frequent schedule to not get blocked by YouTube. For that reason, the scheduler doesn't support schedules that trigger more than once per hour.
 
 ## Notifications
-Some of the scheduled tasks support sending notifications at task completion with a short summary message. This uses the amazing [Apprise](https://github.com/caronc/apprise) framework, refere to the wiki about the [basics](https://github.com/caronc/apprise/wiki/URLBasics) how to build links and a list of [supported services](https://github.com/caronc/apprise/wiki#notification-services) for the details.
+Some of the tasks support sending notifications at task completion with a short summary message. Tasks can get started through the scheduler or manually from the interface. This uses the amazing [Apprise](https://github.com/caronc/apprise) framework, refer to the wiki about the [basics](https://github.com/caronc/apprise/wiki/URLBasics) how to build links and a list of [supported services](https://github.com/caronc/apprise/wiki#notification-services) for the details.
+
+Send yourself a test notification to verify your link works, e.g.:
+```bash
+docker exec -it tubearchivist apprise -b "Hello from TA" <link>
+```
 
 Notes:
 

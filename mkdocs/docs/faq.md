@@ -48,9 +48,9 @@ That might be an unconventional choice at first glance. Tube Archivist is built 
 That comes at a price: ES can use a lot of memory, particularly on a big index, and will heavily use in memory cached queries to be able to respond within milliseconds, even when searching through multiple GBs of raw text.
 
 ## Why does subscribing to a channel not download the complete channel?
-For Tube Archivist, these are two different things: To download a complete channel, add it to the [download queue](downloads/#add-to-download-queue) with the form or with [Tube Archivist Companion](https://github.com/tubearchivist/browser-extension), the browser extension. This is meant for a complete archival.  
+For Tube Archivist, these are two different things: To download a complete channel, add it to the [download queue](downloads.md/#add-to-download-queue) with the form or with [Tube Archivist Companion](https://github.com/tubearchivist/browser-extension), the browser extension. This is meant for a complete archival.  
 
-Subscribing to a channel is for downloading new videos as they come out. That is designed to be as quick as possible, to allow you to efficiently rescan your favourite channels frequently. This will add videos to your download queue based on your [channel page size](settings/#subscriptions).
+Subscribing to a channel is for downloading new videos as they come out. That is designed to be as quick as possible, to allow you to efficiently rescan your favourite channels frequently. This will add videos to your download queue based on your [channel page size](settings.md/#subscriptions).
 
 If you want to archive the complete channel **and** any future videos, you can do both.
 

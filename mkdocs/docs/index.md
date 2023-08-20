@@ -7,10 +7,10 @@ Welcome to the official Tube Archivist Docs. This is an up-to-date documentation
 
 ## Getting Started
 
-1. [Subscribe](channels#channels-overview) to some of your favourite YouTube channels.
-2. [Scan](downloads#rescan-subscriptions) subscriptions to add the latest videos to the download queue.
-3. [Add](downloads#add-to-download-queue) additional videos, channels or playlist - ignore the ones you don't want to download.
-4. [Download](downloads#download-queue) and let **Tube Archivist** do it's thing.
+1. [Subscribe](channels.md#channels-overview) to some of your favourite YouTube channels.
+2. [Scan](downloads.md#rescan-subscriptions) subscriptions to add the latest videos to the download queue.
+3. [Add](downloads.md#add-to-download-queue) additional videos, channels or playlist - ignore the ones you don't want to download.
+4. [Download](downloads.md#download-queue) and let **Tube Archivist** do it's thing.
 5. Sit back and enjoy your archived and indexed collection!
 
 ## General Navigation

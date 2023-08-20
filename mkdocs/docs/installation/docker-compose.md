@@ -22,7 +22,7 @@ The main Python application that displays and serves your video collection, buil
   - Change the environment variables `TA_USERNAME` and `TA_PASSWORD` to create the initial credentials.   
   - `ELASTIC_PASSWORD` is for the password for Elasticsearch. The environment variable `ELASTIC_USER` is optional, should you want to change the username from the default *elastic*.  
   - For the scheduler to know what time it is, set your timezone with the `TZ` environment variable, defaults to *UTC*.  
-  - Set the environment variable `ENABLE_CAST=True` to send videos to your cast device, [read more](/configuration/cast/). 
+  - Set the environment variable `ENABLE_CAST=True` to send videos to your cast device, [read more](../configuration/cast.md). 
 
 
 ## Configuring TubeArchivist  

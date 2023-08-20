@@ -29,7 +29,7 @@ Although there are similarities between these excellent projects and Tube Archiv
 
 Part of the scope is to be its own media server, to be able to overcome these limitations, so that's where the focus and effort of this project is. That being said, the nature of self hosted and open source software gives you all the possible freedom to use your media as you wish.
 
-- **Jellyfin**: There is an API to API integration available to sync metadata from Tube Archivist to Jellyfin: [tubearchivist/jellyfin](https://github.com/tubearchivist/jellyfin). Follow the instructions there. Please contribute to improve this integration.
+- **Jellyfin**: There is an API to API integration available to sync metadata from Tube Archivist to Jellyfin: [tubearchivist/tubearchivist-jf](https://github.com/tubearchivist/tubearchivist-jf). Follow the instructions there. Please contribute to improve this integration.
 - **Plex**: Progress is happening on that...
 
 ## How do I install this natively?

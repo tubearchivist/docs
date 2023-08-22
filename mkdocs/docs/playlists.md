@@ -7,6 +7,7 @@ The playlists are organized in two different levels, similar as the [channels](c
 
 ## Playlist Overview
 Accessible at `/playlist/` of your Tube Archivist, this **Overview Page** shows a list of all playlists you have indexed over all your channels.
+
 - You can filter that list to show only subscribed to playlists with the toggle.
 
 You can index playlists of a channel from the channel detail page as described [here](channels.md#channel-detail).

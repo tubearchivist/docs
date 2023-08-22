@@ -1,5 +1,5 @@
 !!! note
-    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing-and-updating). If you see any issues here while using these instructions, please contribute. 
+    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
 
 There are several different methods to install TubeArchivist on Synology platforms. This will focus on the available `docker` package implementation.<!--  and `docker-compose` implementations. -->
@@ -166,7 +166,7 @@ Once all of the folders have been created, it should have a folder structure wit
    9. In the **Port Settings** tab, replace the "Auto" entry under **Local Port** with the port that will be used to connect to TubeArchivist (default is 8000).
    10. In the **Links** tab, select the "tubearchivist-es" container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-es".
    11. In the **Links** tab, select the "tubearchivist-redis" container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-redis".
-   12. In the **Environment** tab, add in the following TubeArchivist specific environment variables that may apply. **Change the variables as is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#tube-archivist) for details on what to set each variable.**
+   12. In the **Environment** tab, add in the following TubeArchivist specific environment variables that may apply. **Change the variables as is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#installing) for details on what to set each variable.**
       - `TA_HOST=synology.local`
       - `ES_URL=http://tubearchivist-es:9200`
       - `REDIS_HOST=tubearchivist-redis`

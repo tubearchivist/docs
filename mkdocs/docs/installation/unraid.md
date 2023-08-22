@@ -1,5 +1,5 @@
 !!! note
-    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing-and-updating). If you see any issues here while using these instructions, please contribute. 
+    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
 Tube Archivist, and all if it's dependencies are located in the [community applications](https://unraid.net/community/apps?q=tubearchivist) store. The three containers you will need are as follows:
 
@@ -12,7 +12,7 @@ Tube Archivist, and all if it's dependencies are located in the [community appli
 ![TubeArchivist-RedisJSON](../assets/unraid_redis_install.png)
 This is the easiest container to setup of the thee, just make sure that you do not have any port conflicts, and that your `/data` is mounted to the correct path. The other containers will map to the same root directory (/mnt/user/appdata/TubeArchivist).
 
-If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](https://github.com/tubearchivist/tubearchivist#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.
+If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](docker-compose.md#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.
 
 Make sure and start Redis and the ElasticSearch containers approximately one minute before starting `TubeArchivist`
 

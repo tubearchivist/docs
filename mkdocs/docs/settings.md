@@ -80,7 +80,7 @@ All third party integrations of TubeArchivist will **always** be *opt in*.
 
 - **API**: Your access token for the Tube Archivist API.
 - **returnyoutubedislike.com**: This will get return dislikes and average ratings for each video by integrating with the API from [returnyoutubedislike.com](https://www.returnyoutubedislike.com/).
-- **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. If a video doesn't have timestamps, or has unlocked timestamps, use the browser addon to contribute to this excellent project. Can also be activated and deactivated as a per [channel overwrite](settings.md#channel-customize).
+- **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. If a video doesn't have timestamps, or has unlocked timestamps, use the browser addon to contribute to this excellent project. Can also be activated and deactivated as a per [channel overwrite](channels.md#about).
 
 ## Snapshots
 !!! note

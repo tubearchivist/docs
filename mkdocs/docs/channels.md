@@ -8,6 +8,7 @@ The channels are organized on two different levels, similar to the [playlists](p
 
 ## Channels Overview
 Accessible at `/channel/` of your Tube Archivist, the **Overview Page** shows a list of all channels you have indexed. 
+
 - You can filter that list to show or hide subscribed channels with the toggle. Clicking on the channel banner or the channel name will direct you to the *Channel Detail Page*.
 - If you are subscribed to a channel an *Unsubscribe* button will show, if you aren't subscribed, a *Subscribe* button will show instead. 
 

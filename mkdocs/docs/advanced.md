@@ -1,3 +1,7 @@
+---
+description: Collection of advanced concepts and debug info.
+---
+
 # Advanced Notes
 
 !!! note

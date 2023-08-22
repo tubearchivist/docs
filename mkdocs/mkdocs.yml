@@ -12,6 +12,7 @@ nav:
         - 'Search': 'search.md'
         - 'Users': 'users.md'
         - 'Settings': 'settings.md'
+        - 'Advanced': 'advanced.md'
     - Installation:
         - 'Docker-Compose (default)': 'installation/docker-compose.md'    
         - 'Unraid': 'installation/unraid.md'

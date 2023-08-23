@@ -7,7 +7,7 @@ Parameter:
 
 - filter: subscribed
 
-Subscribe to a list of channels:  
+Subscribe/Unsubscribe to a list of channels:  
 **POST** `/api/channel/`
 ```json
 {

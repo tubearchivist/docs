@@ -17,6 +17,12 @@ Subscribe/Unsubscribe to a list of channels:
 }
 ```
 
+## Channel Search
+**GET** `/api/channel/?q=`
+
+Parameter:
+- q: Query to search channel
+
 ## Channel Item
 **GET** `/api/channel/<channel_id>/`  
 **DELETE** `/api/channel/\<channel_id>/`  

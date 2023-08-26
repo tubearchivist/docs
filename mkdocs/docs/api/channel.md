@@ -18,9 +18,13 @@ Subscribe/Unsubscribe to a list of channels:
 ```
 
 ## Channel Search
+
+⚠️ **Experimental**
+
 **GET** `/api/channel/?q=`
 
-Parameter:
+Parameter:  
+
 - q: Query to search channel
 
 ## Channel Item

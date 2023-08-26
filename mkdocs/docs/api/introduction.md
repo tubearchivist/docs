@@ -5,6 +5,12 @@ This page has a generic overview with how the Tube Archivist API functions. This
 !!! note
     These API endpoints *have* changed in the past and *will* change again while building out additional integrations and functionality. For the time being, don't expect backwards compatibility for third party integrations using these endpoints.
 
+!!! note
+	Endpoints marked as **experimental** are particularly likely to change again.
+
+!!! note
+    Not all endpoints will return expected status codes for errors, e.g. sometimes you'll see an error **500 Server Error** even though it should be **400 Bad request**. If you encounter any such cases, [please fix them](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md#how-to-make-a-pull-request) as you find them, no need to clutter up the issue queue.
+
 ## Context
 - All changes to the API are marked with a `[API]` keyword for easy searching, for example search for [commits](https://github.com/tubearchivist/tubearchivist/search?o=desc&q=%5Bapi%5D&s=committer-date&type=commits). You'll find the same in the [release notes](https://github.com/tubearchivist/tubearchivist/releases).
 - Check the commit history and release notes to see if a documented feature is already in your release. The documentation might be ahead of the regular release schedule.

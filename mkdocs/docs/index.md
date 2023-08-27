@@ -29,6 +29,7 @@ You can control the video player with the following keyboard shortcuts:
 
 - `?`: Show help
 - `m`: toggle mute
+- `f`: toggle fullscreen
 - `c`: toggle subtitles if available
 - `>`: increase playback speed
 - `<`: decrease playback speed

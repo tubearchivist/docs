@@ -11,18 +11,23 @@ nav:
         - 'Playlists Pages': 'playlists.md'
         - 'Search': 'search.md'
         - 'Users': 'users.md'
-        - 'Settings': 'settings.md'
+        - Settings:
+          - 'Dashboard': 'settings/dashboard.md'
+          - 'User': 'settings/user.md'
+          - 'Application': 'settings/application.md'
+          - 'Scheduling': 'settings/scheduling.md'
+          - 'Actions': 'settings/actions.md'
         - 'Advanced': 'advanced.md'
     - Installation:
-        - 'Docker-Compose (default)': 'installation/docker-compose.md'    
+        - 'Docker-Compose (default)': 'installation/docker-compose.md'
         - 'Unraid': 'installation/unraid.md'
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'
         - 'Truenas Scale': 'installation/truenas-scale.md'
         - 'Helm Charts': 'installation/helm-charts.md'
-    - Configuration:        
-        - 'LDAP Authentication': 'configuration/ldap.md'          
-        - 'Cast Support': 'configuration/cast.md' 
+    - Configuration:
+        - 'LDAP Authentication': 'configuration/ldap.md'
+        - 'Cast Support': 'configuration/cast.md'
     - API:
         - 'Introduction': 'api/introduction.md'
         - 'Video': 'api/video.md'

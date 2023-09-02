@@ -9,23 +9,63 @@ description: Collection of advanced concepts and debug info.
 
 A loose collection of advanced debug info, may or may not apply to you, only use this when you know what you are doing. Some of that functionality might get implemented in the future in the regular UI.
 
-## Reactivate all Videos
-As part of the metadata refresh task, Tube Archivist will mark videos as deactivated, if they are no longer available on YouTube. For some reasons, that might have deactivated videos that shouldn't have, for example if a video got reinstated after a copyright strike on YT. You can reactivate all videos in bulk, so the refresh task will check them again and deactivate the ones that are actually not available anymore.
+## Reactivate documents
+As part of the metadata refresh task, Tube Archivist will mark videos, channels and playlists as deactivated, if they are no longer available on YouTube. For some reasons, that might have deactivated something that shouldn't have, for example if a video got reinstated after a copyright strike on YT. You can reactivate all things in bulk, so the refresh task will check them again and deactivate the ones that are actually not available anymore.
 
-Run this curl command from within the TA container:
+Curl commands to run within the TA container.
+
+Reactivate all videos:
 
 ```bash
 curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
 {
   "query": {
 	"term": {
-  	"active": {
-    	"value": false
-  	}
+		"active": {
+			"value": false
+		}
 	}
   },
   "script": {
 	"source": "ctx._source.active = true",
+	"lang": "painless"
+  }
+}'
+```
+
+Reactivate all channels:
+
+```bash
+curl -XPOST "$ES_URL/ta_channel/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
+{
+  "query": {
+	"term": {
+		"channel_active": {
+			"value": false
+		}
+	}
+  },
+  "script": {
+	"source": "ctx._source.channel_active = true",
+	"lang": "painless"
+  }
+}'
+```
+
+Reactivate all playlists:
+
+```bash
+curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
+{
+  "query": {
+	"term": {
+		"playlist_active": {
+			"value": false
+		}
+	}
+  },
+  "script": {
+	"source": "ctx._source.playlist_active = true",
 	"lang": "painless"
   }
 }'

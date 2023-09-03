@@ -16,7 +16,7 @@ Then for every video found, **Tube Archivist** will skip the video if it has alr
 ## Download Queue
 The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="download icon" width="20px" style="margin:0 5px;"> will start the download process. This will prioritize videos added as *auto start* or as *download now*, starting from the top of the queue. Once the process started, a progress message will show with additional details and controls: 
 
-- The stop icon <img src="/assets/icon-stop.png?raw=true" alt="stop icon" width="20px" style="margin:0 5px;"> will gracefully stop the download process, once the current video has been finished successfully.
+- The stop icon <img src="/assets/icon-stop.png?raw=true" alt="stop icon" width="20px" style="margin:0 5px;"> will gracefully stop the download process, once the current video has been finished successfully. This will also reset the auto start behavior to avoid confusion.
 - [Currenlty broken] The cancel icon <img src="/assets/icon-close-red.png?raw=true" alt="close icon" width="20px" style="margin:0 5px;"> is equivalent to killing the process and will stop the download immediately. Any leftover files will get deleted, the canceled video will still be available in the download queue.
 
 After downloading, Tube Archivist tries to add new videos to already indexed playlists and if activated on the settings page, get comments for the new videos.

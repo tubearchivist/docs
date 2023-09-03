@@ -48,12 +48,12 @@ On the *Channel About* page, accessible at `/channel/<channel-id>/about/`, you c
 
 If available, you can find the channel description and channel tags there.
 
-The channel customize form gives options to change settings on a per channel basis. Any configurations here will overwrite your configurations from the [settings](settings.md) page.
+The channel customize form gives options to change settings on a per channel basis. Any configurations here will overwrite your configurations from the [settings](settings/application.md) page.
 
 - **Download Format**: Overwrite the download quality for videos from this channel.
 - **Auto Delete**: Automatically delete watched videos from this channel after selected days.
 - **Index Playlists**: Automatically add all Playlists with at least a video downloaded to your index. Only do this for channels where you care about playlists as this will slow down indexing new videos for having to check which playlist this belongs to.
-- **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. Customize per channel: You can *disable* or *enable* SponsorBlock for certain channels only to overwrite the behavior set on the [settings](settings.md) page. Selecting *unset* will remove the overwrite and your setting will fall back to the default on the settings page.
+- **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. Customize per channel: You can *disable* or *enable* SponsorBlock for certain channels only to overwrite the behavior set on the [settings](settings/application.md) page. Selecting *unset* will remove the overwrite and your setting will fall back to the default on the settings page.
 
 ### Downloads
 If you have any videos from this channel pending in the download queue, a *Downloads* link will show, bringing you directly to the [downloads](downloads.md) page, filtering the list by the selected channel.

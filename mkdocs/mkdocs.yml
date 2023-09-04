@@ -36,6 +36,7 @@ nav:
         - 'Download': 'api/download.md'
         - 'Snapshot': 'api/snapshot.md'
         - 'Task': 'api/task.md'
+        - 'Stats': 'api/stats.md'
         - 'Additional': 'api/additional.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com

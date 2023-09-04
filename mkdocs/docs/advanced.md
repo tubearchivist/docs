@@ -75,3 +75,41 @@ curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSW
 After a hard reset of your server or any other hardware failure you might experience data corruption. ES can be particularly unhappy about that, especially if the reset happens during actively writing to disk. It's very likely that only your `/indices` folder got corrupted, as that is where the regular read/writes happen. Luckily you have your [snapshots](settings/application.md#snapshots) set up.
 
 ES will not start, if the data is corrupted. So, stop all containers, delete everything *except* the `/snapshot` folder in the ES volume. After that, start everything back up. Tube Archivist will create a new blank index. All your snapshots should be available for restore on your settings page, you probably want to restore the most recent one. After restore, run a [filesystem rescan](settings/actions.md#rescan-filesystem) for good measures.
+
+## ES mapping migrations troubleshooting
+
+Tube Archivist will apply mapping changes at application startup. That usually is needed when changing how an existing field is indexed. That should be seamless and automatic, but can leave your index in a messed up state if that process gets interrupted for any reason. Common reasons could be that if you artificially limit the memory to the container, disabling the OS to dynamically manage that, or if you don't have enough available storage on the ES volume, or if you interrupt that because of your impatience (don't do that).
+
+In general the process is:
+
+- Compare existing mapping with predefined expected mapping
+- If that is identical, there is nothing to do
+- Else create a `_backup` of the existing index
+- Delete the original index and create a new empty one with the new mapping in place
+- Copy over the previously created `_backup` index to apply the new mappings
+- Delete the now leftover `_backup` index.
+
+If you are not sure if anything is happening, you can monitor your index and `docs.count` value for each index, that should change over time during that process and you should get an indicator of progress happening:
+
+From within the ES container:
+
+```bash
+curl -u elastic:$ELASTIC_PASSWORD "localhost:9200/_cat/indices?v&s=index"
+```
+
+If that process gets interrupted before deleting the `_backup` index and you try to run this again, you will see an error like `resource_already_exists_exception` for example `index [ta_comment_backup/...] already exists` indicating in this case that your migration previously failed for the `ta_comment` index.
+
+First make sure you have the original index still with the command above, after verifying that, stop the TA container then you can delete the `_backup` index e.g. in the case of `ta_comment_backup`.
+
+```bash
+curl -XDELETE -u elastic:$ELASTIC_PASSWORD "localhost:9200/ta_comment_backup?pretty"
+```
+
+and you should get:
+```json
+{
+  "acknowledged" : true
+}
+```
+
+Then you can start everything again and the migration will run again. If your error persists, the ES and TA logs should give additional debug info.

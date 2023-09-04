@@ -59,6 +59,7 @@ theme:
     scheme: tubearchivist
   features:
     - navigation.footer
+    - content.code.copy
 extra_css:
   - stylesheets/style.css
 extra:

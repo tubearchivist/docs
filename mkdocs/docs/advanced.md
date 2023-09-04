@@ -12,64 +12,64 @@ A loose collection of advanced debug info, may or may not apply to you, only use
 ## Reactivate documents
 As part of the metadata refresh task, Tube Archivist will mark videos, channels and playlists as deactivated, if they are no longer available on YouTube. For some reasons, that might have deactivated something that shouldn't have, for example if a video got reinstated after a copyright strike on YT. You can reactivate all things in bulk, so the refresh task will check them again and deactivate the ones that are actually not available anymore.
 
-Curl commands to run within the TA container.
+Curl commands to run within the TA container to reactivate documents:
 
-Reactivate all videos:
+??? Videos
 
-```bash
-curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
-{
-  "query": {
-	"term": {
-		"active": {
-			"value": false
+    ```bash
+	curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
+	{
+	"query": {
+		"term": {
+			"active": {
+				"value": false
+			}
 		}
+	},
+	"script": {
+		"source": "ctx._source.active = true",
+		"lang": "painless"
 	}
-  },
-  "script": {
-	"source": "ctx._source.active = true",
-	"lang": "painless"
-  }
-}'
-```
+	}'
+	```
 
-Reactivate all channels:
+??? Channels
 
-```bash
-curl -XPOST "$ES_URL/ta_channel/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
-{
-  "query": {
-	"term": {
-		"channel_active": {
-			"value": false
+	```bash
+	curl -XPOST "$ES_URL/ta_channel/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
+	{
+	"query": {
+		"term": {
+			"channel_active": {
+				"value": false
+			}
 		}
+	},
+	"script": {
+		"source": "ctx._source.channel_active = true",
+		"lang": "painless"
 	}
-  },
-  "script": {
-	"source": "ctx._source.channel_active = true",
-	"lang": "painless"
-  }
-}'
-```
+	}'
+	```
 
-Reactivate all playlists:
+??? Playlists
 
-```bash
-curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
-{
-  "query": {
-	"term": {
-		"playlist_active": {
-			"value": false
+	```bash
+	curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
+	{
+	"query": {
+		"term": {
+			"playlist_active": {
+				"value": false
+			}
 		}
+	},
+	"script": {
+		"source": "ctx._source.playlist_active = true",
+		"lang": "painless"
 	}
-  },
-  "script": {
-	"source": "ctx._source.playlist_active = true",
-	"lang": "painless"
-  }
-}'
-```
+	}'
+	```
 
 ## Corrupted ES index reset
 After a hard reset of your server or any other hardware failure you might experience data corruption. ES can be particularly unhappy about that, especially if the reset happens during actively writing to disk. It's very likely that only your `/indices` folder got corrupted, as that is where the regular read/writes happen. Luckily you have your [snapshots](settings/application.md#snapshots) set up.

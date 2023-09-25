@@ -113,3 +113,30 @@ and you should get:
 ```
 
 Then you can start everything again and the migration will run again. If your error persists, the ES and TA logs should give additional debug info.
+
+## Manual yt-dlp update
+This project strives for timely updates when yt-dlp makes a new release, but sometimes ideals meet reality. Also sometimes yt-dlp has a fix published, but not yet released.
+
+Doing this is **very likely** going to break things for you. You will want to try this out on a testing instance first. Regularly there have been subtle changes in the yt-dlp API, so only do this if you know how to debug this project by yourself, but obviously share your fixes so any problems can be dealt with before release.
+
+**Build your own image**: Update the version in `requirements.txt` and rebuild the image from `Dockerfile`. This will use your own image, even on container rebuild.
+
+**Update yt-dlp on its own**: You can also update the yt-dlp library alone in the container.
+
+- Restart your container for changes to take effect.
+- These changes won't persist a container rebuild from image.
+
+Update to newest regular yt-dlp release:
+
+```
+pip install --upgrade yt-dlp
+```
+
+To update to nightly you'll have to specify the correct `--target` folder:
+```
+pip install \
+    --upgrade \
+    --target=/root/.local/bin \
+    https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
+```
+This is obviously particularly likely to create problems. Also note that the `--version` command will only show the latest regular release, not a nightly mention.

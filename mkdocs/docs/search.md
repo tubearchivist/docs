@@ -59,7 +59,7 @@ Start your query with the **primary keyword** `playlist:` to search for playlist
 - `playlist:html css active:yes`: Search for playlists containing *HTML CSS* that are still active on YouTube.
 
 ## Full
-Start a full text search by beginning your query with the **primary keyword** `full:`. This will search through your indexed Subtitles showing segments with possible matches. This will only show any results if you have activated *subtitle download and index* on the settings page. The operator for full text searches is `or` meaning when searching for multiple words not all words need to match, but additional words will change the ranking of the result, the more words match and the better they match, the higher ranked the result. The matching words will get highlighted in the text preview.
+Start a full text search by beginning your query with the **primary keyword** `full:`. This will search through your indexed Subtitles showing segments with possible matches. This will only show any results if you have activated *subtitle download and index* on the settings page. The operator for full text searches is `or` meaning when searching for multiple words not all words need to match, but additional words will change the ranking of the result, the more words match and the better they match, the higher ranked the result. The matching words will get highlighted in the text preview and you will see a score indicating how well your term is matching.
 
 Clicking the play button on the thumbnail will open the inplace player at the timestamp from where the segment starts. Same when clicking the video title, this will open the video page and put the player at the segment timestamp. This will overwrite any previous playback position.
 

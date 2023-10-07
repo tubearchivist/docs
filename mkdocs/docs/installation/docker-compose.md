@@ -21,6 +21,8 @@ The main Python application that displays and serves your video collection, buil
   - Set the environment variable `TA_HOST` to match with the system running Tube Archivist. This can be a domain like *example.com*, a subdomain like *ta.example.com* or an IP address like *192.168.1.20*. If you are running Tube Archivist behind a SSL reverse proxy, specify the protocoll. You can add multiple hostnames separated with a space. Any wrong configurations here will result in a `Bad Request (400)` response.  
   - Change the environment variables `TA_USERNAME` and `TA_PASSWORD` to create the initial credentials.   
   - `ELASTIC_PASSWORD` is for the password for Elasticsearch. The environment variable `ELASTIC_USER` is optional, should you want to change the username from the default *elastic*.  
+  - Optionally set `ES_SNAPSHOT_DIR` to change the folder where ES is storing it's snapshots. When changing that, make sure you have persistence. That is an absolute path from inside the ES container.
+  - Set `ES_DISABLE_VERIFY_SSL`, boolean value, to disable SSL verification for connections to ES, e.g. for self signed certificates.
   - For the scheduler to know what time it is, set your timezone with the `TZ` environment variable, defaults to *UTC*.  
   - Set the environment variable `ENABLE_CAST=True` to send videos to your cast device, [read more](../configuration/cast.md). 
 

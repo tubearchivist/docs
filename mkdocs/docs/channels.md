@@ -25,7 +25,7 @@ Each channel gets a set of channel detail pages.
 
 - If you are subscribed to the channel, an *Unsubscribe* button will show, else the *Subscribe* button will show.
 - You'll see some statistics of the channel, like how many videos you have, total playback and total size. That aggregation is based your filter, e.g. if you toggle *Hide watched*, the aggregation will be over your unwatched videos only.
-- The **Mark as Watched** button will mark all videos of this channel as watched.
+- The **Mark as Watched** and **Mark as Unwatched** buttos will mark all videos of this channel as watched/unwatched.
 
 ### Videos
 Accessible at `/channel/<channel-id>/`, this page shows all the videos you have downloaded from this channel.

@@ -27,6 +27,7 @@ nav:
         - 'Helm Charts': 'installation/helm-charts.md'
     - Configuration:
         - 'LDAP Authentication': 'configuration/ldap.md'
+        - 'Forward Authentication': 'configuration/forward-auth.md'
         - 'Cast Support': 'configuration/cast.md'
     - API:
         - 'Introduction': 'api/introduction.md'

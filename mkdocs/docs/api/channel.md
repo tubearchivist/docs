@@ -7,7 +7,7 @@ Parameter:
 
 - filter: subscribed
 
-Subscribe to a list of channels:  
+Subscribe/Unsubscribe to a list of channels:  
 **POST** `/api/channel/`
 ```json
 {
@@ -16,6 +16,16 @@ Subscribe to a list of channels:
     ]
 }
 ```
+
+## Channel Search
+
+⚠️ **Experimental**
+
+**GET** `/api/channel/?q=`
+
+Parameter:  
+
+- q: Query to search channel
 
 ## Channel Item
 **GET** `/api/channel/<channel_id>/`  

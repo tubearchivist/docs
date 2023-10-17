@@ -4,23 +4,31 @@ nav:
     - Home: 'index.md'
     - User Guide:
         - 'FAQ': 'faq.md'
+        - 'URLs': 'urls.md'
         - 'Downloads Page': 'downloads.md'
         - 'Channels Pages': 'channels.md'
         - 'Video': 'video.md'
         - 'Playlists Pages': 'playlists.md'
         - 'Search': 'search.md'
         - 'Users': 'users.md'
-        - 'Settings': 'settings.md'
+        - Settings:
+          - 'Dashboard': 'settings/dashboard.md'
+          - 'User': 'settings/user.md'
+          - 'Application': 'settings/application.md'
+          - 'Scheduling': 'settings/scheduling.md'
+          - 'Actions': 'settings/actions.md'
+        - 'Advanced': 'advanced.md'
     - Installation:
-        - 'Docker-Compose (default)': 'installation/docker-compose.md'    
+        - 'Docker-Compose (default)': 'installation/docker-compose.md'
         - 'Unraid': 'installation/unraid.md'
         - 'Synology': 'installation/synology.md'
         - 'Podman': 'installation/podman.md'
         - 'Truenas Scale': 'installation/truenas-scale.md'
         - 'Helm Charts': 'installation/helm-charts.md'
-    - Configuration:        
-        - 'LDAP Authentication': 'configuration/ldap.md'          
-        - 'Cast Support': 'configuration/cast.md' 
+    - Configuration:
+        - 'LDAP Authentication': 'configuration/ldap.md'
+        - 'Forward Authentication': 'configuration/forward-auth.md'
+        - 'Cast Support': 'configuration/cast.md'
     - API:
         - 'Introduction': 'api/introduction.md'
         - 'Video': 'api/video.md'
@@ -29,6 +37,7 @@ nav:
         - 'Download': 'api/download.md'
         - 'Snapshot': 'api/snapshot.md'
         - 'Task': 'api/task.md'
+        - 'Stats': 'api/stats.md'
         - 'Additional': 'api/additional.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com
@@ -52,6 +61,7 @@ theme:
     scheme: tubearchivist
   features:
     - navigation.footer
+    - content.code.copy
 extra_css:
   - stylesheets/style.css
 extra:
@@ -59,9 +69,8 @@ extra:
     provider: custom
 plugins:
   - social:
-      cards_color:
-        fill: "#00202f" 
-        text: "#eeeeee"
-        cards_font: Sen-Bold
+      cards_layout_options:
+        background_color: "#00202f"
+        color: "#eeeeee"
   - search:
       lang: en

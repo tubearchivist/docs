@@ -1,9 +1,9 @@
 !!! note
-    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing-and-updating). If you see any issues here while using these instructions, please contribute. 
+    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
 Podman handles container hostname resolving slightly differently than docker, so you need to make a few changes to the `docker-compose.yml` to get up and running.
 
-### Follow the installation instructions from the [README](https://github.com/tubearchivist/tubearchivist#installing-and-updating), with a few additional changes to the `docker-compose.yml`.
+### Follow the installation instructions from the [README](https://github.com/tubearchivist/tubearchivist#installing), with a few additional changes to the `docker-compose.yml`.
 
 Edit these additional changes to the `docker-compose.yml`:  
 

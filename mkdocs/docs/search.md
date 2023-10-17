@@ -1,3 +1,7 @@
+---
+description: Unified search pagage to query your index.
+---
+
 # Search Page
 Accessible at `/search/` of your **Tube Archivist**, search your archive for Videos, Channels and Playlists - or even full text search throughout your indexed subtitles.
 
@@ -32,7 +36,7 @@ Start your query with the **primary keyword** `video:` to search for videos only
     - Note the omitted term after the primary key, this will show all videos from the channel *Tom Scott* that are no longer active on YouTube.
 
 ## Channel
-Start with the `channel:` **primary keyword** to search for channels matching your query. This will search through the *channel name* and *channel description* fields. Narrow your search down with secondary keywords:
+Start with the `channel:` **primary keyword** to search for channels matching your query. This will search through the *channel name*, *channel description* and *channel tags* fields. Narrow your search down with secondary keywords:
 
 - `subscribed:` is a boolean value, search for channels that you are subscribed to or not.
 - `active:` is a boolean value, to search for channels that are still active on YouTube or that are no longer active.
@@ -55,7 +59,7 @@ Start your query with the **primary keyword** `playlist:` to search for playlist
 - `playlist:html css active:yes`: Search for playlists containing *HTML CSS* that are still active on YouTube.
 
 ## Full
-Start a full text search by beginning your query with the **primary keyword** `full:`. This will search through your indexed Subtitles showing segments with possible matches. This will only show any results if you have activated *subtitle download and index* on the settings page. The operator for full text searches is `or` meaning when searching for multiple words not all words need to match, but additional words will change the ranking of the result, the more words match and the better they match, the higher ranked the result. The matching words will get highlighted in the text preview.
+Start a full text search by beginning your query with the **primary keyword** `full:`. This will search through your indexed Subtitles showing segments with possible matches. This will only show any results if you have activated *subtitle download and index* on the settings page. The operator for full text searches is `or` meaning when searching for multiple words not all words need to match, but additional words will change the ranking of the result, the more words match and the better they match, the higher ranked the result. The matching words will get highlighted in the text preview and you will see a score indicating how well your term is matching.
 
 Clicking the play button on the thumbnail will open the inplace player at the timestamp from where the segment starts. Same when clicking the video title, this will open the video page and put the player at the segment timestamp. This will overwrite any previous playback position.
 

@@ -132,10 +132,14 @@ Change watched state, where the `id` can be a single video, or channel/playlist 
 Validate your connection with the API  
 **GET** `/api/ping/`
 
-When valid returns message with user id: 
+When valid returns message with user id and parsed TubeArchivist version (Family, Major, Minor): 
 ```json
 {
     "response": "pong",
-    "user": 1
+    "user": 1,
+    "version": [
+        0,
+        3,
+        6
+    ]
 }
-```

@@ -1,3 +1,7 @@
+---
+description: Create users, reset passwords, acces the admin interface.
+---
+
 # User Management
 
 For now, **Tube Archivist** is a single user application. You can create multiple users with different names and passwords, they will share the same videos and permissions but some interface configurations are on a per user basis. *More is on the roadmap*.

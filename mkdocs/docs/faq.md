@@ -1,3 +1,7 @@
+---
+description: Frequently asked questions about what this project is, what it tries and what it doesn't try to do.
+---
+
 # Frequently Asked Questions
 
 ## What is the scope of this project?
@@ -25,7 +29,8 @@ Although there are similarities between these excellent projects and Tube Archiv
 
 Part of the scope is to be its own media server, to be able to overcome these limitations, so that's where the focus and effort of this project is. That being said, the nature of self hosted and open source software gives you all the possible freedom to use your media as you wish.
 
-- **Jellyfin**: There is a proof of concept script for linking these two APIs together and to populate metadata from Tube Archivist to Jellyfin: [tubearchivist/jellyfin](https://github.com/tubearchivist/jellyfin). Please contribute to improve this integration.
+- **Jellyfin**: There is an API to API integration available to sync metadata from Tube Archivist to Jellyfin: [tubearchivist/tubearchivist-jf](https://github.com/tubearchivist/tubearchivist-jf). Follow the instructions there. Please contribute to improve this integration.
+- **Plex**: There is a Plex Scanner and Agent combination that allows integration between Tube Archivist and Plex: [tubearchivist/tubearchivist-plex](https://github.com/tubearchivist/tubearchivist-plex). Follow the instructions there. Please contribute to improve this integration.
 
 ## How do I install this natively?
 This project is a classical Docker application: There are multiple moving parts that need to be able to interact with each other and need to be compatible with multiple architectures and operating systems. Additionally Docker also drastically reduces development complexity which is highly appreciated.  
@@ -43,9 +48,9 @@ That might be an unconventional choice at first glance. Tube Archivist is built 
 That comes at a price: ES can use a lot of memory, particularly on a big index, and will heavily use in memory cached queries to be able to respond within milliseconds, even when searching through multiple GBs of raw text.
 
 ## Why does subscribing to a channel not download the complete channel?
-For Tube Archivist, these are two different things: To download a complete channel, add it to the [download queue](downloads/#add-to-download-queue) with the form or with [Tube Archivist Companion](https://github.com/tubearchivist/browser-extension), the browser extension. This is meant for a complete archival.  
+For Tube Archivist, these are two different things: To download a complete channel, add it to the [download queue](downloads.md#add-to-download-queue) with the form or with [Tube Archivist Companion](https://github.com/tubearchivist/browser-extension), the browser extension. This is meant for a complete archival.  
 
-Subscribing to a channel is for downloading new videos as they come out. That is designed to be as quick as possible, to allow you to efficiently rescan your favourite channels frequently. This will add videos to your download queue based on your [channel page size](settings/#subscriptions).
+Subscribing to a channel is for downloading new videos as they come out. That is designed to be as quick as possible, to allow you to efficiently rescan your favourite channels frequently. This will add videos to your download queue based on your [channel page size](settings/application.md#subscriptions).
 
 If you want to archive the complete channel **and** any future videos, you can do both.
 
@@ -55,3 +60,12 @@ Using a Proxy/VPN can be advantages for heavy users of this project. Some users 
 This project doesn't make any recommendations: Some people prefer to convert their home router to a VPN client, some have a home firewall capable of routing traffic, some prefer to set up their host network as a client and others prefer to use a networking container to tunnel container traffic through. Some prefer one of the many proxy protocols, others use various OpenVPN configurations, others use WireGuard.
 
 There are too many variations of that problem to be implemented in this project, use any of the various solutions out there that fits your needs.
+
+## Why is there no flexible naming structure?
+Unlike other similar projects, Tube Archivist needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly and the metadata refresh task kept failing because of that.
+
+This project tries to be compatible with as many filesystem/OS variations out there as possible. Using channel names and titles to build file paths that can be any Unicode character is a flawed and highly error prone approach of doing that, there is always a filesystem/OS out there that proves to be incompatible with how something is named.
+
+That's why this project has landed on `<channel-id>/<video-id>.mp4`. These values are guaranteed to be static, are guaranteed to be compatible with every filesystem out there and make things predictable where all files will go on every instance of Tube Archivist indefinitely.
+
+For browsing these files you have the fancy interface provided by this project, or use a supported integration as stated above. If you really want to you could easily also create your own file naming structure with the API and symlinks, but that is not part of the scope of this project.

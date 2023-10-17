@@ -1,8 +1,8 @@
 !!! note
-    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing-and-updating). If you see any issues here while using these instructions, please contribute. 
+    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
 
-There are several different methods to install TubeArchivist on Synology platforms. This will focus on the available `docker` package and `docker-compose` implementations.
+There are several different methods to install TubeArchivist on Synology platforms. This will focus on the available `docker` package implementation.<!--  and `docker-compose` implementations. -->
 
 ### Prepare Directories/Folders
 Before we setup TubeArchivist, we need to setup the directories/folders. You are assumed to be logged into the Synology NAS.
@@ -57,7 +57,9 @@ Once all of the folders have been created, it should have a folder structure wit
 ![Synology - Docker Folder Structure](../assets/Synology_0.2.0_Docker-Folder-Structure.png)
 
 #### 8. Change Permissions - CLI Required
-> If you do not have SSH access enabled for CLI, [enable it](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) before continuing.
+!!! note
+    If you do not have SSH access enabled for CLI, [enable it](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) before continuing.
+
    1. Open the SSH connection to the Synology. Login as your primary `Admin` user, or the user that was enabled for SSH access.
    2. Elevate your access to `root`. Steps are provided [here](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet).
    3. Change directories to the **Volume** where the "Docker" folder resides.
@@ -69,10 +71,10 @@ Once all of the folders have been created, it should have a folder structure wit
    6. Change the owner of the "redis" folder. *If correct, this does not have an output.*
       </br>Example: `chown 999:100 redis`
    7. Change the owner of the "es" folder. *If correct, this does not have an output.*
-      </br>Example: `chown 1000:1000 es`
+      </br>Example: `chown 1000:0 es`
    8. Confirm that the folders have the correct permissions.
       </br>Example: `ls -hl`
-![Synology - Docker Folder Permissions Command](../assets/Synology_0.2.0_Docker-Folder-Permissions-Commands.png)
+![Synology - Docker Folder Permissions Command](../assets/Synology_0.3.6_Docker-Folder-Permissions-Commands.png)
    9. Logout from root.
       </br>Example: `logout`
    10. Disconnect from the SSH connection.
@@ -96,12 +98,14 @@ Once all of the folders have been created, it should have a folder structure wit
    2. After `Docker` is installed, open the `Docker` utility.
       3. Go to the `Registry` tab.
       4. Search for the following `images` and download them. Follow the recommended versions for each of the images.
-         - `redislabs/rejson`
-         ![Synology - Redis Image Search](../assets/Synology_0.2.0_Docker-Redis-Search.png)
+         - `redis/redis-stack-server`
+         ![Synology - Redis Image Search](../assets/Synology_0.3.6_Docker-Redis-Search.png)
          - `bbilly1/tubearchivist-es`
          ![Synology - ElasticSearch Image Search](../assets/Synology_0.2.0_Docker-ES-Search.png)
          - `bbilly1/tubearchivist`
          ![Synology - TubeArchivist Image Search](../assets/Synology_0.2.0_Docker-TA-Search.png)
+         > !!! note
+               "Upgrades in Synology require use of the `latest` tag."
 
 #### 3. Configure ElasticSearch
 
@@ -162,12 +166,12 @@ Once all of the folders have been created, it should have a folder structure wit
    9. In the **Port Settings** tab, replace the "Auto" entry under **Local Port** with the port that will be used to connect to TubeArchivist (default is 8000).
    10. In the **Links** tab, select the "tubearchivist-es" container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-es".
    11. In the **Links** tab, select the "tubearchivist-redis" container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-redis".
-   12. In the **Environment** tab, add in the following TubeArchivist specific environment variables that may apply. **Change the variables as-is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#tube-archivist) for details on what to set each variable.**
+   12. In the **Environment** tab, add in the following TubeArchivist specific environment variables that may apply. **Change the variables as is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#installing) for details on what to set each variable.**
       - `TA_HOST=synology.local`
       - `ES_URL=http://tubearchivist-es:9200`
       - `REDIS_HOST=tubearchivist-redis`
       - `HOST_UID=1000`
-      - `HOST_GID=1000`
+      - `HOST_GID=0`
       - `TA_USERNAME=tubearchivist`
       - `TA_PASSWORD=verysecret`
       - `ELASTIC_PASSWORD=verysecret`
@@ -176,6 +180,7 @@ Once all of the folders have been created, it should have a folder structure wit
             - Do not use the default password as it is very insecure.
             - Ensure that ELASTIC_PASSWORD matches the password used on the tubearchivist-es container.
       ![Synology - TubeArchivist Environment Configurations](../assets/Synology_0.2.0_Docker-TA-Env-Conf.png)
+
    13. Click on the **Apply** button.
    14. Back on the **Create Container** screen, click the **Next** button.
    15. Review the settings to confirm, then click the **Apply** button.
@@ -189,5 +194,25 @@ Once all of the folders have been created, it should have a folder structure wit
 <!-- This section is a Work In Progress -->
 
 **From there, you should be able to start up your containers and you're good to go!**
+
+### Synology Docker Upgrade
+When a new version of the image is available, you can follow the following steps to more easily upgrade your previous instance.
+!!!note "If you did not use the `latest` tag, you may have some variances in your upgrade steps. Those are detailed below these instructions."
+1. Go to the Registry Tab and download the newest instance of the `:latest` tag, as seen in the Installation Instructions earlier.
+2. Go to Image Tab and confirm that you have the newer version available.
+3. Stop the running `tubearchivist` container.
+4. Click on the **Action🔽** button and choose "Reset".
+5. This will load the newer image we downloaded earlier. This should not delete any files if all of your volumes were setup correctly.
+6. If it doesn't start automatically, start the `tubearchivist` container. Monitor the upgrade in the logs and confirm that the service starts up successfully.
+7. Once you are able to login successfully to the web page for TubeArchivist, you have successfully upgraded your container!
+
+
+!!! note "If you did not use the `latest` tag for the `tubearchivist` container, then you will instead do the following:"
+   1. Shut down the old container.
+   2. Download the new image.
+   3. Follow the Installation instructions again *for just the TubeArchivist image*, using the same configurations as the existing container. It'll have to be named slightly differently.
+   4. After the image is now running and the upgrade of the backend files occurs, shut down the new container. Rename or delete the old container. Rename the new container to have the intended name.
+
+!!! note "Links are incredibly important if you upgrade or change the ES or Redis container images. You will either need to remove the links, create the new containers, then re-add the links or rebuild all of the images with the same instructions as Installation, starting at Step 3."
 
 If you're still having trouble, join us on [discord](https://www.tubearchivist.com/discord) and come to the #support channel.

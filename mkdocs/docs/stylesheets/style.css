@@ -40,6 +40,10 @@ footer {
     border-color: var(--accent-font-light);
 }
 
+.highlight .nv {
+    color: var(--highlight-error-light);
+}
+
 [data-md-color-scheme="tubearchivist"] {
     --md-default-bg-color: var(--main-bg);
     --md-default-fg-color: var(--main-font);
@@ -60,6 +64,7 @@ footer {
     --md-code-hl-string-color: var(--accent-font-dark);
     --md-code-hl-number-color: var(--highlight-error-light);
     --md-code-hl-operator-color: var(--highlight-error);
+    --md-code-nv-color: var(--highlight-error);
 }
 
 :root {

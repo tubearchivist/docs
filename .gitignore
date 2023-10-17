@@ -3,3 +3,6 @@ mkdocs/site
 
 # ignore local cache
 mkdocs/.cache/
+
+# python
+.venv

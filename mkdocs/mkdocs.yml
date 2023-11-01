@@ -39,6 +39,7 @@ nav:
         - 'Backup': 'api/backup.md'
         - 'Task': 'api/task.md'
         - 'Stats': 'api/stats.md'
+        - 'Config': 'api/config.md'
         - 'Additional': 'api/additional.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com

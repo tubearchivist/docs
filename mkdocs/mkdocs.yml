@@ -36,6 +36,7 @@ nav:
         - 'Playlist': 'api/playlist.md'
         - 'Download': 'api/download.md'
         - 'Snapshot': 'api/snapshot.md'
+        - 'Backup': 'api/backup.md'
         - 'Task': 'api/task.md'
         - 'Stats': 'api/stats.md'
         - 'Additional': 'api/additional.md'

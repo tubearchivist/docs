@@ -69,3 +69,14 @@ This project tries to be compatible with as many filesystem/OS variations out th
 That's why this project has landed on `<channel-id>/<video-id>.mp4`. These values are guaranteed to be static, are guaranteed to be compatible with every filesystem out there and make things predictable where all files will go on every instance of Tube Archivist indefinitely.
 
 For browsing these files you have the fancy interface provided by this project, or use a supported integration as stated above. If you really want to you could easily also create your own file naming structure with the API and symlinks, but that is not part of the scope of this project.
+
+## Does this project implement feature X?
+Generic answer to that question is:
+
+- If it's documented, it's implemented.
+
+And the reverse would be:
+
+- If it's *not* documented, it's (probably) *not* implemented.
+
+Read the [docs](https://docs.tubearchivist.com/) with a comprehensive overview of what this project does. If something is missing in the docs, add it there. Check the roadmap and open feature requests on GH for what is planned. Make sure to read how to open a [feature request](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md) before adding your own.

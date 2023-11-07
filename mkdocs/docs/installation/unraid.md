@@ -13,6 +13,7 @@ Tube Archivist, and all if it's dependencies are located in the [community appli
 This is the easiest container to setup of the thee, just make sure that you do not have any port conflicts, and that your `/data` is mounted to the correct path. The other containers will map to the same root directory (/mnt/user/appdata/TubeArchivist).
 
 If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](docker-compose.md#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.
+If you're running into port collision, recreate the steps outline in the [docker compose installation instructions.](https://docs.tubearchivist.com/installation/docker-compose/#redis-on-a-custom-port)
 
 Make sure and start Redis and the ElasticSearch containers approximately one minute before starting `TubeArchivist`
 

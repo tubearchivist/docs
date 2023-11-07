@@ -13,6 +13,7 @@ Tube Archivist, and all if it's dependencies are located in the [community appli
 This is the easiest container to setup of the thee, just make sure that you do not have any port conflicts, and that your `/data` is mounted to the correct path. The other containers will map to the same root directory (/mnt/user/appdata/TubeArchivist).
 
 If you need to install `TubeArchivist-RedisJSON`on a different port, you'll have to follow [these steps](docker-compose.md#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.
+If you're running into port collision, recreate the steps outline in the [docker compose installation instructions.](https://docs.tubearchivist.com/installation/docker-compose/#redis-on-a-custom-port)
 
 Make sure and start Redis and the ElasticSearch containers approximately one minute before starting `TubeArchivist`
 
@@ -50,6 +51,8 @@ It's finally time to set up TubeArchivist!
  - `TA Password:`This will be your password for TubeArchivist.
    
  - `Redis` This will be JUST the ip address of your redis container.
+ - If you want to host Redis on a differnt port than the default 6379, simply add a new a new variable as show below.
+   ![TubeArchivist](../assets/unraid_redis_port.png)
 
  - `ElasticSearch Password:`This is the password you defined in the `TubeArchivist-ES` container.
  - `ElasticSearch:` This seems to cause some confusion, but it's a pretty simple step, just replace the IP and Port to match you `TubeArchivist-ES` container.

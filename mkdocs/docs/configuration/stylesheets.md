@@ -8,6 +8,61 @@ A new stylesheet can be added by running the command `docker cp /path/to/custom/
 
 Note that stylesheets will not be saved upon container removal. For example, when the command `docker compose down` is run, the containers will be removed. Tube Archivist will default to the Dark (`dark.css`) stylesheet.
 
+To prevent custom stylesheets from being deleted, the `/app/static/css` directory can be mounted either externally or through a Docker volume. A new volume needs to be added to the `tubearchivist` section in the `docker-compose.yml` file.
+
+### External Directory
+
+An example external directory, `/path/to/local/css` is added to the `docker-compose.yml` file.
+
+```yaml
+version: '3.5'
+
+services:
+  tubearchivist:
+    container_name: tubearchivist
+    restart: unless-stopped
+    image: bbilly1/tubearchivist
+    ports:
+      - 8000:8000
+    volumes:
+      - media:/youtube
+      - cache:/cache
+      - /path/to/local/css:/app/static/css/
+```
+
+Note that an empty external directory will result in errors. `style.css` and `dark.css` are required at the minimum, which can be copied from the Tube Archivist repository.
+
+### Docker Volume
+
+An example Docker volume, `css`, is added to the `docker-compose.yml` file.
+
+```yaml
+version: '3.5'
+
+services:
+  tubearchivist:
+    container_name: tubearchivist
+    restart: unless-stopped
+    image: bbilly1/tubearchivist
+    ports:
+      - 8000:8000
+    volumes:
+      - media:/youtube
+      - cache:/cache
+      - css:/app/static/css/
+
+...
+
+volumes:
+    media:
+    cache:
+    redis:
+    es:
+    css:
+```
+
+The newly created volume will contain all stylesheets included with Tube Archivist.
+
 ## Creating Stylesheets
 
 Tube Archivist applies the `style.css` stylesheet before applying the user's selected stylesheet.

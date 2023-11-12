@@ -142,7 +142,7 @@ pip install \
 This is obviously particularly likely to create problems. Also note that the `--version` command will only show the latest regular release, not a nightly mention.
 
 ## Erase errors from download queue
-Sometimes the download queue might have some videos that have errored due to rate limits. Videos that have errors won't be retried in a future download queue re-run unless you individually click "Download now" for each individual video. In order to bulk clear the errors from the download queue one needs to execute the following command:
+Sometimes the download queue might have some videos that have errored due to rate limits. Videos that have errors won't be retried in a future download queue re-run unless you individually click "Download now" for each individual video. In order to bulk clear the errors from the download queue one needs to execute the following command from within the Tube Archivist container:
 ```bash
 curl -X POST "$ES_URL/ta_download/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H 'Content-Type: application/json' -d'
 {

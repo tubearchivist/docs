@@ -4,15 +4,22 @@ You can change the appearance of Tube Archivist by selecting a stylesheet in Set
 
 Assuming a default configuration, stylesheets are stored in `/app/static/css` in the `tubearchivist` container. This is where additional stylesheets should be added.
 
-A new stylesheet can be added by running the command `docker cp /path/to/custom/stylesheet.css <container-id>:/app/static/css`. The container will need to be restarted for changes to take effect, which can be accomplished by running the command `docker compose restart`.
+The recommended method for adding new stylesheets is to mount them in the `docker-compose.yml` file. New mounts need to be added to the `tubearchivist` volume section. For example, `test.css` is added. `test.css` is located in the same directory as the `docker-compose.yml` file.
 
-Note that stylesheets will not be saved upon container removal. For example, when the command `docker compose down` is run, the containers will be removed. Tube Archivist will default to the Dark (`dark.css`) stylesheet.
+```yaml
+volumes:
+  - media:/youtube
+  - cache:/cache
+  - ./test.css:/app/static/css/test.css
+```
+
+The container will need to be restarted for changes to take effect, which can be accomplished by running the command `docker compose restart`.
 
 ## Creating Stylesheets
 
 Tube Archivist applies the `style.css` stylesheet before applying the user's selected stylesheet.
 
-The default stylesheet, `dark.css`, contains the following (as of v0.4.2):
+The default stylesheet, `dark.css`, contains the following (as of v0.4.3):
 
 ```css
 :root {

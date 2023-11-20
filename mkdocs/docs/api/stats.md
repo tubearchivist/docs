@@ -1,16 +1,33 @@
 # Statistics API endpoints
 
-## Primary
+⚠️ **Experimental**  
+All stats endpoints are considered experimental.
 
-⚠️ **Experimental**
+## Video
 
-**GET** `/api/stats/primary/`
+**GET** `/api/stats/video/`
 
-Get primary statistics for your videos, channels, playlists and download queue.
+Get stats for your downloaded videos.
+
+## Channel
+
+**GET** `/api/stats/channel/`
+
+Get stats for your channels.
+
+## Playlist
+
+**GET** `/api/stats/playlist/`
+
+Get stats for your playlists.
+
+## Download
+
+**GET** `/api/stats/download/`
+
+Get stats for your download queue.
 
 ## Watch Progress
-
-⚠️ **Experimental**
 
 **GET** `/api/stats/watch/`
 
@@ -18,15 +35,11 @@ Get statistics over your watch progress.
 
 ## Download History
 
-⚠️ **Experimental**
-
 **GET** `/api/stats/downloadhist/`
 
 Get statistics for last days download history.
 
 ## Biggest Channels
-
-⚠️ **Experimental**
 
 **GET** `/api/stats/biggestchannels/`
 

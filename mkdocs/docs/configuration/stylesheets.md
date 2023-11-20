@@ -19,26 +19,7 @@ The container will need to be restarted for changes to take effect, which can be
 
 Tube Archivist applies the `style.css` stylesheet before applying the user's selected stylesheet.
 
-The default stylesheet, `dark.css`, contains the following (as of v0.4.3):
-
-```css
-:root {
-    --main-bg: #00202f;
-    --highlight-bg: #00293b;
-    --highlight-error: #990202;
-    --highlight-error-light: #c44343;
-    --highlight-bg-transparent: #00293baf;
-    --main-font: #eeeeee;
-    --accent-font-dark: #259485;
-    --accent-font-light: #97d4c8;
-    --img-filter: invert(50%) sepia(9%) saturate(2940%) hue-rotate(122deg) brightness(94%) contrast(90%);
-    --img-filter-error: invert(16%) sepia(60%) saturate(3717%) hue-rotate(349deg) brightness(86%) contrast(120%);
-    --banner: url("../img/banner-tube-archivist-dark.png");
-    --logo: url("../img/logo-tube-archivist-dark.png");
-}
-```
-
-Assuming a default configuration, the `dark.css` file can be retrieved via the command `docker cp <container-id>:/app/static/css/dark.css /path/to/local/directory`.
+You can use the default `dark.css` theme as a template to create your own. You can get it from the repo [here](https://github.com/tubearchivist/tubearchivist/blob/master/tubearchivist/static/css/dark.css).
 
 The `:root` pseudo-class contains variables that are frequently used in `style.css` for consistent theming. However, not all changes need to be made in `:root`. Classes, IDs, and HTML tags can have their properties overrridden by simply declaring new properties.
 

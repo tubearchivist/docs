@@ -49,6 +49,10 @@ Additional settings passed to yt-dlp.
 Archiving comments is slow as only very few comments get returned per request with yt-dlp. Choose your configuration above wisely. Tube Archivist will download comments after the download queue finishes, your videos will be already available while the comments are getting downloaded.
 
 ## Cookie
+
+!!! note "Cookie Expire"
+	Using cookies can have unintended consequences. Multiple users have reported that their account got flagged and cookies will expire within a few hours. It appears that YT has some detection mechanism that will invalidate your cookie if it's being used outside of a browser. That is happening server side on YT. If you are affected, you might be better off to not use this functionality.
+
 Importing your YouTube Cookie into Tube Archivist allows yt-dlp to bypass age restrictions, gives access to private videos and your *watch later* or *liked videos*.
 
 ### Security concerns

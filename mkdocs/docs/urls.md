@@ -13,7 +13,7 @@ A video ID is **11** characters long, e.g. `2tdiKTSdE9Y`.
 
 Urls can have several forms:  
 
-- Watch URL: Regular URLs so will see while browsing YouTube, with the path */watch* and a *v* parameter, e.g. `https://www.youtube.com/watch?v=2tdiKTSdE9Y`
+- Watch URL: Regular URLs you will see while browsing YouTube, with the path */watch* and a *v* parameter, e.g. `https://www.youtube.com/watch?v=2tdiKTSdE9Y`
 - Share URL: Link you will get when you click on *share* on a video, e.g. `https://youtu.be/2tdiKTSdE9Y`
 - Shorts URL: e.g. `https://www.youtube.com/shorts/U80grnZJm_8`
 

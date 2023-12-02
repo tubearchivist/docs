@@ -80,3 +80,18 @@ And the reverse would be:
 - If it's *not* documented, it's (probably) *not* implemented.
 
 Read the [docs](https://docs.tubearchivist.com/) with a comprehensive overview of what this project does. If something is missing in the docs, add it there. Check the roadmap and open feature requests on GH for what is planned. Make sure to read how to open a [feature request](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md) before adding your own.
+
+## Am I getting blocked/throttled?
+
+Heavy users of this project can run into danger of getting blocked / throttled or soft banned from YT. Symptoms might not be obvious and the error messages cryptic. Users have reported messages and behavior like:
+
+- `Playlists that require authentication may not extract correctly without a successful webpage download` but you aren't downloading a private playlist, a sign that YT is blocking your requests behind authentication.
+- `Requested format is not available. Use --list-formats for a list of available formats` but your download format is valid, a sign that yt-dlp can't extract available streams because your request gets blocked.
+- `Got error: HTTP Error 403: Forbidden` a generic HTTP message that YT is blocking your request.
+- Your download speed suddenly drops to a few KB/s.
+
+**Solutions**
+
+- Wait and try again, these blocks might get lifted somewhere between a day or a week.
+- As described above, use a VPN or proxy to change your public IP, rotate every so often.
+- In some cases if you are using [your cookie](settings/application.md#cookie), this can be an account level ban and YT will block all requests from that cookie/account. Sometimes refreshing your cookie will work around that, but most likely only temporarily. Only known solution is to remove your cookie.

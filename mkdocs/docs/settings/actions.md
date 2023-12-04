@@ -24,6 +24,33 @@ Add a matching *.info.json* file with the media file. Both files need to have th
 
 The import process then looks for the 'id' key within the JSON file to identify the video.
 
+
+Sometimes you may need to create this file manually, The following are the absolute minimum required tags for manual importing.
+
+`thumbnail` can be left blank or null, however it is required to be present. If blank the thumbnail will be extracted from the video file on import.
+```
+{
+  "id": "",
+  "channel_id": "",
+  "title": "",
+  "upload_date": "",
+  "thumbnail": null
+}
+```
+However, you may fill out additional tags if they are known for a more complete result.
+```
+{
+  "id": "",
+  "channel_id": "",
+  "title": "",
+  "upload_date": "",
+  "description": null,
+  "categories": null,
+  "thumbnail": null,
+  "tags": null,
+  "view_count": null
+}
+```
 ### Method 2:
 Detect the YouTube ID from filename, this accepts the default yt-dlp naming convention for file names like:
 

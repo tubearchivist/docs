@@ -28,7 +28,7 @@ The import process then looks for the 'id' key within the JSON file to identify 
 Sometimes you may need to create this file manually, The following are the absolute minimum required tags for manual importing.
 
 `thumbnail` can be left blank or null, however it is required to be present. If blank the thumbnail will be extracted from the video file on import.
-```
+```json
 {
   "id": "",
   "channel_id": "",
@@ -38,7 +38,7 @@ Sometimes you may need to create this file manually, The following are the absol
 }
 ```
 However, you may fill out additional tags if they are known for a more complete result.
-```
+```json
 {
   "id": "",
   "channel_id": "",

@@ -12,6 +12,9 @@ The button **Delete all queued** will delete all pending videos from the downloa
 !!! note
     This is inherently error prone, as there are many variables, some outside of the control of this project. Read this carefully and use at your own risk.
 
+!!! note
+    The importer will *try* to fetch metadata from YouTube after identifying the video, as it is assumed this is newer, even if you add the info json file as described below.
+
 Add the files you'd like to import to the */cache/import* folder. Only add files, don't add subdirectories. All files you are adding, need to have the same *base name* as the media file. Then start the process from the settings page *Manual Media Files Import*.
 
 Valid media extensions are *.mp4*, *.mkv* or *.webm*. If you have other file extensions or incompatible codecs, convert them first to mp4. **Tube Archivist** can identify the videos with one of the following methods.

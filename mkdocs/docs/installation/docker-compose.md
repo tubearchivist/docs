@@ -89,6 +89,10 @@ Should you need to change the port for Elasticsearch to for example `9500`, foll
   - For the Tube Archivist container, change the `ES_URL` environment variable, e.g. `ES_URL=http://archivist-es:9500`  
 
 ## Redis  
+
+!!! note
+    You most likely can't use the same Redis instance between other services, especially if they also use Celery as a task scheduler.
+
 Functions as a cache and temporary link between the application and the file system. Used to store and display messages and configuration variables.
 
   - Needs to be accessible over the default port `6379`

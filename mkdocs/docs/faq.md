@@ -94,4 +94,5 @@ Heavy users of this project can run into danger of getting blocked / throttled o
 
 - Wait and try again, these blocks might get lifted somewhere between a day or a week.
 - As described above, use a VPN or proxy to change your public IP, rotate every so often.
-- In some cases if you are using [your cookie](settings/application.md#cookie), this can be an account level ban and YT will block all requests from that cookie/account. Sometimes refreshing your cookie will work around that, but most likely only temporarily. Only known solution is to remove your cookie.
+- In some cases if you are using [your cookie](settings/application.md#cookie), this can be an account level ban and YT will block all requests from that cookie/account. Sometimes refreshing your cookie will work around that, but most likely only temporarily. Only known solution for these cases is to remove your cookie.
+- Conversely in some cases, adding your cookie can be a solution if you didn't use your cookie previously, as user authenticated requests are sometimes allowed to pass.

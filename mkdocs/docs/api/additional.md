@@ -143,3 +143,4 @@ When valid returns message with user id and parsed TubeArchivist version (Family
         6
     ]
 }
+```

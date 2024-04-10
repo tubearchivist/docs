@@ -3,6 +3,10 @@
 ## Playlist List
 **GET** `/api/playlist/`
 
+Parameter:
+
+- playlist_type: filter py playlist type.
+
 Subscribe/Unsubscribe to a list of playlists:  
 **POST** `/api/playlist/`
 ```json
@@ -15,6 +19,8 @@ Subscribe/Unsubscribe to a list of playlists:
 
 ## Playlist Item
 **GET** `/api/playlist/<playlist_id>/`
+
+**POST**: Update Playlist item, only valid for custom playlists
 
 Delete playlist, metadata only:  
 **DELETE** `/api/playlist/<playlist_id>/`  

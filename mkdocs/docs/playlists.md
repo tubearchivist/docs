@@ -12,10 +12,13 @@ Accessible at `/playlist/` of your Tube Archivist, this **Overview Page** shows 
 
 You can index playlists of a channel from the channel detail page as described [here](channels.md#channel-detail).
 
-The **Subscribe to Playlist** button <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to subscribe to playlists. You have a few options:
+To add a playlist click on the <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> button. There you can **Subscribe to Playlist**:
 
-- Enter a playlist [playlist](urls.md#playlist)
+- Enter a playlist [playlist](urls.md#playlist).
 - Add one per line.
+
+*or* you can **Create Custom Playlist**. That is a local only playlist. Add videos from their [video detail page](video.md).
+
 
 !!! note
     It doesn't make sense to subscribe to a playlist if you are already subscribed the corresponding channel as this will slow down the **Rescan Subscriptions** [task](downloads.md#rescan-subscriptions).

@@ -40,16 +40,16 @@ footer {
     border-color: var(--accent-font-light);
 }
 
-.md-typeset .table::not {
+.md-typeset table::not {
     border-color: .075rem solid #448aff;
     border-radius: 0.2rem;
 }
 
-.md-typeset .tr::hover {
+.md-typeset tr::hover {
     background-color: var(--md-admonition-bg-color);
 }
 
-.md-typeset .td::not {
+.md-typeset td::not {
     border-top: .05rem solid white;
 }
 

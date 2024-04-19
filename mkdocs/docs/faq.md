@@ -22,7 +22,7 @@ Defining the scope is important for the success of any project:
 - A scope too narrow will make this project uninteresting and will exclude audiences that could also benefit from this project.
 - Not defining a scope will easily lead to misunderstandings and false hopes of where this project tries to go.
 
-Of course this is subject to change: The scope can be expanded as this project continues to grow and more people contribute.
+Of course, this is subject to change: The scope can be expanded as this project continues to grow and more people contribute.
 
 ## How do I import my videos to Emby-Plex-Jellyfin-Kodi?
 Although there are similarities between these excellent projects and Tube Archivist, they have a very different use case. Trying to fit the metadata relations and database structure of a YouTube archival project into these media servers that specialize in Movies and TV shows is always going to be limiting.
@@ -36,6 +36,12 @@ Part of the scope is to be its own media server, to be able to overcome these li
 This project is natively a container-based Docker application: There are multiple moving parts that need to be able to interact with each other and need to be compatible with multiple architectures and operating systems. Additionally, Docker also drastically reduces development complexity which is highly appreciated.
 
 Docker is the only supported installation method. If you don't have any experience with Docker, consider investing the time to learn this very useful technology. Alternatively, you can find user provided installation instructions for Podman [here](installation/podman.md).
+
+## How do I install this on Windows?
+The only supported methodology is through Docker on Windows. We don't currently have installation instructions provided, however it has been reported that some users have been successful in getting it to work with modification of the base `docker-compose.yml`. Try following the [Docker Compose](installation/docker-compose.md) instructions.
+
+## Where is the .exe/.rpm/.pkg/.msi/<insert installer here>?
+As noted [here](faq.md#how-do-i-install-this-natively), this project is largely focused on container-based applications. We are not looking to support cross-platform for a small user base. It is not on our roadmap to support any additional installation types or be included as part of additional installation package manager solutions. However, this is an open source project and we won't stop the community from providing those packages. If you do decide to do so, please contribute to our installation instructions and point to your created resources. Pay attention to any licensing requirements for dependencies.
 
 ## How do I finetune Elasticsearch?
 A recommended configuration of Elasticsearch (ES) is provided in the example docker-compose.yml file. ES is highly configurable and very interesting to learn more about. Refer to the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) if you want to get into it.

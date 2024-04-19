@@ -40,7 +40,7 @@ Docker is the only supported installation method. If you don't have any experien
 ## How do I install this on Windows?
 The only supported methodology is through Docker on Windows. We don't currently have installation instructions provided, however it has been reported that some users have been successful in getting it to work with modification of the base `docker-compose.yml`. Try following the [Docker Compose](installation/docker-compose.md) instructions.
 
-## Where is the .exe/.rpm/.pkg/.msi/&lt;insert installer here&rt;?
+## Where is the .exe/.rpm/.pkg/.msi/&lt;insert installer here&gt;?
 As noted [here](faq.md#how-do-i-install-this-natively), this project is largely focused on container-based applications. We are not looking to support cross-platform for a small user base. It is not on our roadmap to support any additional installation types or be included as part of additional installation package manager solutions. However, this is an open source project and we won't stop the community from providing those packages. If you do decide to do so, please contribute to our installation instructions and point to your created resources. Pay attention to any licensing requirements for dependencies.
 
 ## How do I finetune Elasticsearch?

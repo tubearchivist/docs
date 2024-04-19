@@ -40,6 +40,19 @@ footer {
     border-color: var(--accent-font-light);
 }
 
+.md-typeset .table::not {
+    border-color: .075rem solid #448aff;
+    border-radius: 0.2rem;
+}
+
+.md-typeset .tr::hover {
+    background-color: var(--md-admonition-bg-color);
+}
+
+.md-typeset .td::not {
+    border-top: .05rem solid white;
+}
+
 .highlight .nv {
     color: var(--highlight-error-light);
 }
@@ -65,6 +78,7 @@ footer {
     --md-code-hl-number-color: var(--highlight-error-light);
     --md-code-hl-operator-color: var(--highlight-error);
     --md-code-nv-color: var(--highlight-error);
+    --md-typeset-table-color: var(--main-font);
 }
 
 :root {

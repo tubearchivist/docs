@@ -3,10 +3,10 @@ description: How URLs from YouTube get parsed
 ---
 
 # URLs
-This document describes how Tube Archivist identifies and treats links from YouTube.
+This document describes how **Tube Archivist** identifies and treats links from YouTube.
 
 !!! note
-    Application logic of Tube Archivist is tied only to the IDs, not the names.
+    Application logic of **Tube Archivist** is tied only to the IDs, not the names.
 
 ## Video
 A video ID is **11** characters long, e.g. `2tdiKTSdE9Y`.
@@ -26,8 +26,8 @@ Channel URLs can have these forms, all will get translated to the ID:
 - Channel Handle: Starting with a `@` this handle is personal and unique, e.g. `@TomScottGo`
 - Alias URL: Based off the channel handle, e.g. `https://www.youtube.com/@TomScottGo`
 
-### Channel sub pages
-Tube archivist can separate between different subpages:
+### Channel subpages
+**Tube Archivist** can differentiate between the primary subpages:
 
 - Videos only: `https://www.youtube.com/@IBRACORP/videos`
 - Shorts only: `https://www.youtube.com/@IBRACORP/shorts`
@@ -40,4 +40,4 @@ A playlist ID can be `34`, `26` or `18` characters long, e.g. `PL96C35uN7xGLLeET
 - Playlist URLs start with a *playlist* path and has a *list* parameter, e.g. `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`
 
 ### Playlist vs Video URLs
-While browsing YouTube videos in Playlists, you might encounter URLs looking like that: `https://www.youtube.com/watch?v=QPZ0pIK_wsc&list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`. As established above, based on the */watch* path and the *v* parameter, Tube Archivist will treat this as a video with the ID `QPZ0pIK_wsc` and **not** as a playlist. If you mean the playlist, you can easily grab the correct ID from the URL, e.g. `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`.
+While browsing YouTube videos in Playlists, you might encounter URLs looking like that: `https://www.youtube.com/watch?v=QPZ0pIK_wsc&list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`. As established above, based on the */watch* path and the *v* parameter, **Tube Archivist** will treat this as a video with the ID `QPZ0pIK_wsc` and **not** as a playlist. If you mean the playlist, you can easily grab the correct ID from the URL, e.g. `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`.

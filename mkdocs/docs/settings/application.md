@@ -85,7 +85,7 @@ All third party integrations of **Tube Archivist** will **always** be *opt in*.
 !!! info
     This will make a snapshot of your metadata index only. No media files or additional configuration variables you have set on the settings page will be backed up.
 
-System snapshots will automatically make daily snapshots of the Elasticsearch index. The task will start at 12pm your local time. Snapshots are deduplicated, meaning that each snapshot will only have to backup changes since the last snapshot. Old snpshots will automatically get deleted after 30 days.
+System snapshots will automatically make daily snapshots of the Elasticsearch index. The task will start at 12pm your local time. Snapshots are deduplicated, meaning that each snapshot will only have to backup changes since the last snapshot. Old snapshots will automatically get deleted after 30 days.
 
 - **Create snapshot now**: Will start the snapshot process now and outside of the regular daily schedule.
 - **Restore**: Restore your index to that point in time. Select one of the available snapshots to restore from.

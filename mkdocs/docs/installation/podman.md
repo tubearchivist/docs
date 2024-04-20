@@ -1,4 +1,4 @@
-!!! note
+!!! abstract "Installation Instructions - Community Guides"
     These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
 Podman handles container hostname resolution slightly differently than Docker, so you need to make a few changes to the `docker-compose.yml` to get up and running.
@@ -11,29 +11,29 @@ Edit the `docker-compose.yml` with these additional changes:
 
 #### Tube Archivist
 
-  - under `tubearchivist`->`image`:
+  - under `tubearchivist` > `image`:
     prefix the container name with `docker.io/` (or the url of your container registry of choice).
-  - under `tubearchivist`->`environment`:
+  - under `tubearchivist` > `environment`:
     `ES_URL`: change `archivist-es` to reflect the internal IP of the computer that will be running the containers.
     `REDIS_HOST`: change `archivist-redis` to reflect the internal IP of the computer that will be running the containers (should be the same as above).
 
 #### Redis
 
-  - under `archivist-redis`->`image`: 
+  - under `archivist-redis` > `image`: 
  	  prefix the container name with `docker.io/` again.
-  - under `archivist-redis`->`expose`: 
+  - under `archivist-redis` > `expose`: 
     change the whole entry from `expose: ["<PORT>"]` into `ports: ["<PORT>:<PORT>"]`.
     ???+ example
-        `ports: ["6379:6379"]`
+         `ports: ["6379:6379"]`
 
 #### Elasticsearch
 
-  - under `archivist-es`->`image`: 
+  - under `archivist-es` > `image`: 
  	  prefix the container name with `docker.io/` again.
-  - under `archivist-es`->`expose`: 
+  - under `archivist-es` > `expose`: 
     change the whole entry from `expose: ["<PORT>"]` into `ports: ["<PORT>:<PORT>"]`.
     ???+ example
-        `ports: ["9200:9200"]`
+         `ports: ["9200:9200"]`
 
 ### Create service files (optional)
 

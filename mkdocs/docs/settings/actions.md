@@ -80,7 +80,7 @@ If the video you are trying to import is not available on YouTube any more, **Tu
 - For best file transcoding quality, convert your media files with desired settings first before importing.
 - A notification box will show with progress, follow the docker logs to monitor for errors.
 
-!!! tip
+!!! tip "Start Small"
     Starting with a small subset of the files to import to test and confirm that your settings, configurations, and files will work is recommended.
 
 ## Embed thumbnails into media file

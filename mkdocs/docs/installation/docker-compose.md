@@ -65,7 +65,7 @@ Should that not be an option, the TA container takes these two additional enviro
 Changing any of these two environment variables will change the files *nginx.conf* and *uwsgi.ini* at startup, using `sed` in your container.  
 
 ## ElasticSearch  
-!!! success
+!!! success "Elasticsearch Version"
     **Tube Archivist** depends on Elasticsearch 8. 
 
 Use `bbilly1/tubearchivist-es` to automatically get the recommended version, or use the official image with the version tag in the `docker-compose.yml` file.
@@ -88,7 +88,7 @@ Should you need to change the port for Elasticsearch to, for example `9500`, fol
 
 ## Redis  
 
-!!! danger
+!!! danger "BE AWARE"
     You most likely can't use the same Redis instance between other services, especially if they also use Celery as a task scheduler.
 
 Redis functions as a cache and temporary link between the application and the file system. Redis is used to store and display messages and configuration variables.

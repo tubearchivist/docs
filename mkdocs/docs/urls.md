@@ -11,7 +11,8 @@ This document describes how **Tube Archivist** identifies and treats links from 
 ## Video
 A video ID is **11** characters long, e.g. `2tdiKTSdE9Y`.
 
-Urls can have several forms:  
+Urls can have several forms:
+
 | URL Type | Example | Description |
 | :------- | :------ | :---------- |
 | Watch URL | `https://www.youtube.com/watch?v=2tdiKTSdE9Y` | Regular URLs you will see while browsing YouTube, with the path */watch* and a *v* parameter |
@@ -22,6 +23,7 @@ Urls can have several forms:
 A channel ID is **24** characters long, e.g. `UCBa659QWEk1AI4Tg--mrJ2A`.
 
 Channel URLs can have these forms, all will get translated to the ID:
+
 | URL Type | Example | Description |
 | :------- | :------ | :---------- |
 | ID URL | `https://www.youtube.com/channel/UCBa659QWEk1AI4Tg--mrJ2A` | With a *channel* path |

@@ -4,7 +4,7 @@ description: Collection of advanced concepts and debug info.
 
 # Advanced Notes
 
-!!! warning
+!!! warning "Check Your Backups"
 	As a general rule of thumb, make sure your backups are up to date before continuing with anything here.
 
 A loose collection of advanced debug info and actions for experienced users for troubleshooting and resolving issues. The situation or command may or may not apply to you, so only use this when you know what you are doing or as directed. Some of the below functionality might get implemented in the future in the regular UI.
@@ -118,7 +118,7 @@ and you should get:
 Then you can restart the container and the migration will run again. If your error persists, the ES and TA logs should give additional debug info.
 
 ## Manual yt-dlp update
-!!! warning
+!!! warning 
 	Doing this is **very likely** going to break things for you. You will want to try this out on a testing instance first. There are have regularly been subtle changes in the yt-dlp API, so only do this if you know how to debug this project by yourself, but obviously share your fixes so any problems can be dealt with before release.
 This project strives for timely updates when yt-dlp makes a new release, but sometimes ideals meet reality. Also, sometimes yt-dlp has a fix published, but not yet released.
 

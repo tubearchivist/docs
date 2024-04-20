@@ -13,4 +13,4 @@ Note that this automatically creates new users in the database if they do not al
 | `TA_AUTH_PROXY_LOGOUT_URL` | | The URL that **Tube Archivist** should redirect to after a logout. By default, the logout redirects to the login URL, which means the user will be automatically authenticated again. Instead, you might want to configure the logout URL of the auth proxy here. |
 
 [^1]:
-    The request headers are rewritten within **Tube Archivist**: all HTTP headers are prefixed with `HTTP_`, all letters are in uppercase, and dashes are replaced with underscores.For example, for Authelia, which passes the `Remote-User` HTTP header, the `TA_AUTH_PROXY_USERNAME_HEADER` needs to be configured as `HTTP_REMOTE_USER`. 
+    The request headers are rewritten within **Tube Archivist**: all HTTP headers are prefixed with `HTTP_`, all letters are in uppercase, and dashes are replaced with underscores. For example, for Authelia, which passes the `Remote-User` HTTP header, the `TA_AUTH_PROXY_USERNAME_HEADER` needs to be configured as `HTTP_REMOTE_USER`. 

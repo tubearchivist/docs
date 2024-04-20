@@ -23,8 +23,9 @@ Edit the `docker-compose.yml` with these additional changes:
  	  prefix the container name with `docker.io/` again.
   - under `archivist-redis` > `expose`: 
     change the whole entry from `expose: ["<PORT>"]` into `ports: ["<PORT>:<PORT>"]`.
-    > ???+ example
-           `ports: ["6379:6379"]`
+    
+    ???+ example
+        `ports: ["6379:6379"]`
 
 #### Elasticsearch
 
@@ -32,8 +33,9 @@ Edit the `docker-compose.yml` with these additional changes:
  	  prefix the container name with `docker.io/` again.
   - under `archivist-es` > `expose`: 
     change the whole entry from `expose: ["<PORT>"]` into `ports: ["<PORT>:<PORT>"]`.
-    > ???+ example
-           `ports: ["9200:9200"]`
+    
+    ???+ example
+        `ports: ["9200:9200"]`
 
 ### Create service files (optional)
 

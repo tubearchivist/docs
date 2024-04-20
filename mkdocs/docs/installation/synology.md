@@ -71,21 +71,37 @@ Once all of the folders have been created, it should have a folder structure wit
    1. Open an SSH connection to the Synology. Login as your primary `Admin` user, or the user that was enabled for SSH access.
    2. Elevate your access to `root`. Steps are provided [here](https://kb.synology.com/en-sg/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet).
    3. Change directories to the **Volume** where the "Docker" folder resides.
+      
       > !!! example "`cd /volume1`"
+
    4. Change directories to the "Docker" folder.
+      
       > !!! example "`cd Docker`"
+
    5. Change directories to the "TubeArchivist" folder.
+      
       > !!! example "`cd TubeArchivist`"
+
    6. Change the owner of the "redis" folder. *If correct, this does not have an output.*
+      
       > !!! example "`chown 999:100 redis`"
+
    7. Change the owner of the "es" folder. *If correct, this does not have an output.*
+      
       > !!! example "`chown 1000:0 es`"
+
    8. Confirm that the folders have the correct permissions.
+      
       > !!! example "`ls -hl`"
+
       ![Synology - Docker Folder Permissions Command](../assets/Synology_0.3.6_Docker-Folder-Permissions-Commands.png)
+
    9. Logout from root.
+      
       > !!! example "`logout`"
+
    10. Disconnect from the SSH connection.
+      
       > !!! example "`exit`"
 
 
@@ -124,6 +140,7 @@ Once all of the folders have been created, it should have a folder structure wit
 #### 3. Configure ElasticSearch
 
 **ElasticSearch**
+
 1. Select the associated image.
 2. Click the **Launch** button in the top.
 3. Edit the **Container Name** to be "tubearchivist-es".
@@ -136,28 +153,30 @@ Once all of the folders have been created, it should have a folder structure wit
 10. The **Links** tab does not require configuration for this container.
 11. In the **Environment** tab, add in the following ElasticSearch specific environment variables that may apply.
 
-| Environment Variable | Setting |
-| :------------------- | :------ |
-| `discovery.type | single-node` |
-| `ES_JAVA_OPTS | -Xms512m -Xmx512m` |
-| `UID | 1000` |
-| `GID | 0` |
-| `xpack.security.enabled | true` |
-| `ELASTIC_PASSWORD | verysecret` |
-| `path.repo | /usr/share/elasticsearch/data/snapshot` |
+   | Environment Variable | Setting |
+   | :------------------- | :------ |
+   | `discovery.type` | `single-node` |
+   | `ES_JAVA_OPTS` | `-Xms512m -Xmx512m` |
+   | `UID` | `1000` |
+   | `GID` | `0` |
+   | `xpack.security.enabled` | `true` |
+   | `ELASTIC_PASSWORD` | `verysecret` |
+   | `path.repo` | `/usr/share/elasticsearch/data/snapshot` |
 
-!!! danger "BE AWARE"
-    - Do not use the default password, as it is very insecure.
-    - Activating snapshots for backups should only be done *after* setting the `path.repo` setting.
+   !!! danger "BE AWARE"
+      - Do not use the default password, as it is very insecure.
+      - Activating snapshots for backups should only be done *after* setting the `path.repo` setting.
 
-![Synology - ElasticSearch Environment Configurations](../assets/Synology_0.2.0_Docker-ES-Env-Conf.png)
+   ![Synology - ElasticSearch Environment Configurations](../assets/Synology_0.2.0_Docker-ES-Env-Conf.png)
 
 12. Click on the **Apply** button.
 13. Back on the **Create Container** screen, click the **Next** button.
 14. Review the settings to confirm, then click the **Apply** button.
 
 #### 4. Configure Redis
+
 **Redis**
+
 1. Select the associated image.
 2. Click the **Launch** button in the top.
 3. Edit the **Container Name** to be "tubearchivist-redis".
@@ -173,7 +192,9 @@ Once all of the folders have been created, it should have a folder structure wit
 13. Review the settings to confirm, then click the **Apply** button.
 
 #### 5. Configure Tube Archivist
+
 **Tube Archivist**
+
 1. Select the associated image.
 2. Click the **Launch** button in the top.
 3. Edit the **Container Name** to be "tubearchivist".
@@ -187,23 +208,23 @@ Once all of the folders have been created, it should have a folder structure wit
 11. In the **Links** tab, select the `tubearchivist-redis` container from the **Container Name** dropdown and provide it the same alias, "tubearchivist-redis".
 12. In the **Environment** tab, add in the following **Tube Archivist** specific environment variables that may apply. **Change the variables as is appropriate to your use case. Follow the [README section](https://github.com/tubearchivist/tubearchivist#installing) for details on what to set each variable.**
 
-| Environment Variable | Setting |
-| :------------------- | :------ |
-| `TA_HOST | synology.local` |
-| `ES_URL | http://tubearchivist-es:9200` |
-| `REDIS_HOST | tubearchivist-redis` |
-| `HOST_UID | 1000` |
-| `HOST_GID | 0` |
-| `TA_USERNAME | tubearchivist` |
-| `TA_PASSWORD | verysecret` |
-| `ELASTIC_PASSWORD | verysecret` |
-| `TZ | America/New_York` |
+   | Environment Variable | Setting |
+   | :------------------- | :------ |
+   | `TA_HOST` | `synology.local` |
+   | `ES_URL` | `http://tubearchivist-es:9200` |
+   | `REDIS_HOST` | `tubearchivist-redis` |
+   | `HOST_UID` | `1000` |
+   | `HOST_GID` | `0` |
+   | `TA_USERNAME` | `tubearchivist` |
+   | `TA_PASSWORD` | `verysecret` |
+   | `ELASTIC_PASSWORD` | `verysecret` |
+   | `TZ` | `America/New_York` |
 
-!!! danger "BE AWARE"
-    - Do not use the default password as it is very insecure.
-    - Ensure that ELASTIC_PASSWORD matches the password used on the `tubearchivist-es` container.
+   !!! danger "BE AWARE"
+      - Do not use the default password as it is very insecure.
+      - Ensure that ELASTIC_PASSWORD matches the password used on the `tubearchivist-es` container.
 
-![Synology - Tube Archivist Environment Configurations](../assets/Synology_0.2.0_Docker-TA-Env-Conf.png)
+   ![Synology - Tube Archivist Environment Configurations](../assets/Synology_0.2.0_Docker-TA-Env-Conf.png)
 
 13. Click on the **Apply** button.
 14. Back on the **Create Container** screen, click the **Next** button.
@@ -211,14 +232,14 @@ Once all of the folders have been created, it should have a folder structure wit
 
 ### 6. Post-Installation Monitoring
 
-6. After the containers have been configured and started, you can go to the **Container** tab and monitor the containers.
-7. To review the logs to ensure that the system has started successfully, select the `tubearchivist` container and click on the **Details** button. In the new window, go to the **Log** tab. Monitor the logs until either an error occurs or the message `celery@tubearchivist ready.` is in the logs. This may take a few minutes, especially for a first time setup.
+1. After the containers have been configured and started, you can go to the **Container** tab and monitor the containers.
+2. To review the logs to ensure that the system has started successfully, select the `tubearchivist` container and click on the **Details** button. In the new window, go to the **Log** tab. Monitor the logs until either an error occurs or the message `celery@tubearchivist ready.` is in the logs. This may take a few minutes, especially for a first time setup.
    
    > !!! note "Reviewing Logs"
          Synology Docker presents the logs in a paginated format, showing in historical order (oldest first).
          If you are not seeing the logs update, check if there are additional pages.
 
-8. After it has started, go to the location provided in the `TA_HOST`. This should give you the standard **Tube Archivist** login screen.
+3. After it has started, go to the location provided in the `TA_HOST`. This should give you the standard **Tube Archivist** login screen.
 <!-- 
 ### Docker-Compose Setup -->
 <!-- This section is a Work In Progress -->

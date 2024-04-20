@@ -147,16 +147,16 @@ This is obviously particularly likely to create problems. Also note that the `--
 ## Erase errors from download queue
 Sometimes the download queue might have some videos that have errored due to rate limits or other issues during the download process. Videos that have errors won't be retried in a future download queue re-run unless you individually click "Download now" for each individual video or until the container is fully restarted. In order to bulk clear the errors from the download queue without restarting the container, you need to execute the following command from within the TA container:
 ???+ bug "Erase Errors"
-```bash
-curl -X POST "$ES_URL/ta_download/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H 'Content-Type: application/json' -d'
-{
-  "script": {
-    "source": "ctx._source.message = null",
-    "lang": "painless"
-  },
-  "query": {
-    "match_all": {}
-  }
-}
-'
-```
+	```bash
+	curl -X POST "$ES_URL/ta_download/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H 'Content-Type: application/json' -d'
+	{
+	"script": {
+		"source": "ctx._source.message = null",
+		"lang": "painless"
+	},
+	"query": {
+		"match_all": {}
+	}
+	}
+	'
+	```

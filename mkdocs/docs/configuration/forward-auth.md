@@ -7,6 +7,7 @@ Check the documentation of your auth proxy and your reverse proxy on how to corr
 Note that this automatically creates new users in the database if they do not already exist.
 
 | Environment Variable | Example | Description |
+| :------------------- | :------ | :---------- |
 | `TA_ENABLE_AUTH_PROXY` | `true` | Set to anything besides empty string to use forward proxy authentication. |
 | `TA_AUTH_PROXY_USERNAME_HEADER` | `HTTP_REMOTE_USER` | The name of the request header that the auth proxy passes to the proxied application (**Tube Archivist** in this case), so that the application can identify the user. Check the documentation of your auth proxy to get this information.
     ??? note

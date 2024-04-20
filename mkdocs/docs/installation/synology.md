@@ -163,9 +163,9 @@ Once all of the folders have been created, it should have a folder structure wit
    | `ELASTIC_PASSWORD` | `verysecret` |
    | `path.repo` | `/usr/share/elasticsearch/data/snapshot` |
 
-   !!! danger "BE AWARE"
-       - Do not use the default password, as it is very insecure.
-       - Activating snapshots for backups should only be done *after* setting the `path.repo` setting.
+   > !!! danger "BE AWARE"
+         - Do not use the default password, as it is very insecure.
+         - Activating snapshots for backups should only be done *after* setting the `path.repo` setting.
 
    ![Synology - ElasticSearch Environment Configurations](../assets/Synology_0.2.0_Docker-ES-Env-Conf.png)
 
@@ -220,9 +220,9 @@ Once all of the folders have been created, it should have a folder structure wit
    | `ELASTIC_PASSWORD` | `verysecret` |
    | `TZ` | `America/New_York` |
 
-   !!! danger "BE AWARE"
-       - Do not use the default password as it is very insecure.
-       - Ensure that ELASTIC_PASSWORD matches the password used on the `tubearchivist-es` container.
+   > !!! danger "BE AWARE"
+         - Do not use the default password as it is very insecure.
+         - Ensure that ELASTIC_PASSWORD matches the password used on the `tubearchivist-es` container.
 
    ![Synology - Tube Archivist Environment Configurations](../assets/Synology_0.2.0_Docker-TA-Env-Conf.png)
 

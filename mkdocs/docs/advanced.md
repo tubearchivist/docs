@@ -145,18 +145,32 @@ pip install \
 This is obviously particularly likely to create problems. Also note that the `--version` command will only show the latest regular release, not a nightly version mentioned.
 
 ## Erase errors from download queue
-Sometimes the download queue might have some videos that have errored due to rate limits or other issues during the download process. Videos that have errors won't be retried in a future download queue re-run unless you individually click "Download now" for each individual video or until the container is fully restarted. In order to bulk clear the errors from the download queue without restarting the container, you need to execute the following command from within the TA container:
+Sometimes videos will fail to download. That can be because of expected errors:
+
+- A video is no longer available for download.
+
+That is not recoverable.
+
+Other kind of errors *are* recoverable, for example:
+
+- You got temporarily rate limited.
+- Your internet connection dropped out.
+
+Failed downloads won't get retried again as they require your intervention. You can click on **Download Now** on a video in the queue to verify, if a video became available again.
+
+If you know that all errors are resolved you can bulk clear. Run this from within the TA container:
+
 ???+ bug "Erase Errors"
 	```bash
 	curl -X POST "$ES_URL/ta_download/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H 'Content-Type: application/json' -d'
 	{
-	"script": {
-		"source": "ctx._source.message = null",
-		"lang": "painless"
-	},
-	"query": {
-		"match_all": {}
-	}
+		"script": {
+			"source": "ctx._source.message = null",
+			"lang": "painless"
+		},
+		"query": {
+			"match_all": {}
+		}
 	}
 	'
 	```

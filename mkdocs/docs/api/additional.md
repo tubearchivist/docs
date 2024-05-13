@@ -140,3 +140,30 @@ When valid returns message with user id and TubeArchivist version:
     "version": "v0.4.7"
 }
 ```
+
+## Notification List
+Get all current notifications.
+**GET** `/api/notification/`  
+
+Parameter:
+
+- filter: "download" | "settings" | "channel"
+
+```json
+[
+  {
+    "title": "Rescan your Subscriptions",
+    "group": "download:scan",
+    "api-start": true,
+    "api-stop": true,
+    "level": "info",
+    "id": "1111111-1111-1111-1111-1111111",
+    "command": false,
+    "messages": ["Task completed successfully"],
+    "progress": 0.000001
+  }
+]
+```
+
+"command" can be false || "STOP" || "KILL".
+

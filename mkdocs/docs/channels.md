@@ -52,7 +52,7 @@ The channel customize form gives options to change settings on a per channel bas
 
 - **Download Format**: Overwrite the download quality for videos from this channel.
 - **Auto Delete**: Automatically delete watched videos from this channel after selected days.
-- **Index Playlists**: Automatically add all Playlists with at least a video downloaded to your index. Only do this for channels where you care about playlists as this will slow down indexing new videos because each video will need to check if it belongs to each indexed playlist.
+- **Index Playlists**: Automatically add all Playlists with at least a video downloaded to your index. Only do this for channels where you care about playlists as this will slow down indexing new videos because each video will need to check if it belongs to each indexed playlist. This works best if a channel creates playlists containing videos from that channel. Also see [subscribing to Playlist](playlists.md/#playlist-overview).
 - **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. Customize per channel: You can *disable* or *enable* SponsorBlock for certain channels only to overwrite the behavior set on the [settings](settings/application.md) page. Selecting *unset* will remove the overwrite and your setting will fall back to the default on the settings page.
 
 ### Downloads

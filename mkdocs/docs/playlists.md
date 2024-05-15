@@ -6,6 +6,15 @@ description: Subscribe to playlists, browse your playlists and access additional
 Playlists are organized in two different levels, similar to [Channels](channels.md):
 
 ## Playlist Overview
+
+!!! note
+    There is an overlap in functionality with [index playlists on channel](channels.md/#about):
+
+    - Subscribe to a playlist of the playlist contains videos from **mixed channels**.
+    - Subscribe to a playlist if you only want to add **a few** playlists from a chanel.
+    - Use [index playlists on channel](channels.md/#about) if you want to add **all** playlists of a channel.
+    - Avoid subscribing to a playlist if the channel already monitors that playlist.
+
 Accessible at `/playlist/` of your **Tube Archivist** instance, this **Overview Page** shows a list of all playlists you have indexed over all your channels.
 
 - You can filter that list to show only subscribed playlists with the toggle.
@@ -19,10 +28,6 @@ To add a playlist click on the <img src="/assets/icon-add.png?raw=true" alt="add
 - Add one per line.
 
 *or* you can **Create Custom Playlist**. That is a local only playlist. Add videos from their [video detail page](video.md).
-
-
-!!! note
-    It doesn't make sense to subscribe to a playlist if you are already subscribed to the corresponding channel as this will slow down the **Rescan Subscriptions** [task](downloads.md#rescan-subscriptions).
 
 You can search your indexed playlists by clicking on the search icon <img src="/assets/icon-search.png?raw=true" alt="search icon" width="20px" style="margin:0 5px;">. This will open a dedicated page.
 

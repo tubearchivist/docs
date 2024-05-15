@@ -10,6 +10,7 @@ Clicking on the channel name or the channel icon will bring you to the dedicated
 - The button **Reindex** will reindex the metadata of this video.
 - The button **Download File** will download the media file in the browser.
 - The button **Delete Video** will delete that video entry and the media file.
+- The button **Delete and ignore** will also add the video to the [ignore list](downloads.md/#the-download-queue), so it won't get added again with a rescan.
 - The button **Add to Playlist** opens a list of your available [custom playlists](playlists.md/#playlist-overview). Check the box to add the video to the list.
 
 If available, a tag cloud will show, representing the tags set by the uploader.

@@ -22,3 +22,26 @@ Return task status by task ID
 }
 ```
 Send command to a task, valid commands: `stop` and `kill`. Not all tasks implement these commands `home.tasks.BaseTask.TASK_CONFIG` for details.
+
+## Schedule View
+**DEL** `/api/schedule/`  
+
+Delete schedule by task name
+
+Parameter:
+
+- `task_name`: See task config module
+
+## Schedule Notification View
+**GET** `/api/schedule/notification/`
+
+Get a list of all task schedule notifications 
+
+**DEL** `/api/schedule/notification/`
+
+Delete notification of a task.
+
+Parameter:
+
+- `task_name`: See task config module
+- `url`: Url to be deleted

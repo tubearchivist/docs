@@ -30,7 +30,7 @@ You have a few options:
 Add a [video](urls.md#video) URL to download a single video.
 
 ### Channels
-Add a [channel](urls.md#channel) to download the complete channel, or a [channel sub page](urls.md#channel-sub-pages) to download a partial channel.
+Add a [channel](urls.md#channel) to download the complete channel, or a [channel sub page](urls.md#channel-subpages) to download a partial channel.
 
 ### Playlist
 Add a [playlist](urls.md#playlist) to download all videos in the list. When adding a playlist to the queue, this playlist will automatically get [indexed](playlists.md#playlist-detail).

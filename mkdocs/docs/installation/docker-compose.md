@@ -8,6 +8,10 @@ For minimal system requirements, the **Tube Archivist** stack needs around 2GB o
 !!! info
     For **arm64**: **Tube Archivist** is built as a multi-architecture (multi-arch) container, same for Redis. Elasticsearch should use the official image for arm64 support. Other architectures are not supported.
 
+!!! bug "Untested"
+    ARM64 builds are essentially untested, as none of the devs have access to any ARM64 devices. There are regular unstable builds, for both architecture platforms. Help with testing to verify things are working as expected, also on ARM64.
+
+
 Save the [docker-compose.yml](https://github.com/tubearchivist/tubearchivist/blob/master/docker-compose.yml) file from the **Tube Archivist** repository somewhere permanent on your system, keeping it named `docker-compose.yml`. You'll need to refer to it whenever starting this application.
 
 ## Overview  

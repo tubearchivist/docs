@@ -92,6 +92,7 @@ Read the [docs](https://docs.tubearchivist.com/) with a comprehensive overview o
 
 Heavy users of this project can run into the danger of getting blocked / throttled or soft banned from YouTube. Symptoms might not be obvious and the error messages cryptic. Users have reported messages and behavior like:
 
+- `Sign in to confirm you’re not a bot. This helps protect our community.`
 - `Playlists that require authentication may not extract correctly without a successful webpage download` but you aren't downloading a private playlist, a sign that YouTube is blocking your requests behind authentication.
 - `Requested format is not available. Use --list-formats for a list of available formats` but your download format is valid, a sign that yt-dlp can't extract available streams because your request gets blocked.
 - `Got error: HTTP Error 403: Forbidden` a generic HTTP message that YouTube is blocking your request.

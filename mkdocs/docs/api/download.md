@@ -21,6 +21,8 @@ Parameter:
 
 - autostart: true
 
+This value must be posted with the header `"Content-Type: application/json"`
+
 Delete download queue items by filter:  
 **DELETE** `/api/download/?filter=ignore`  
 **DELETE** `/api/download/?filter=pending`
@@ -52,3 +54,9 @@ Download existing video now:
 
 **DELETE** `/api/download/<video_id>/`  
 Forget or delete from download queue
+
+Add a new item to queue, not previously ignored or pending:
+```json
+{
+	"youtube_id"
+}

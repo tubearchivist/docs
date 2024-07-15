@@ -35,6 +35,9 @@ Save the [docker-compose.yml](https://github.com/tubearchivist/tubearchivist/blo
   - For the scheduler to know what time it is, set your timezone with the `TZ` environment variable, defaults to *UTC*.
   - Set `ENABLE_CAST`, a boolean value, to enable sending videos to your cast-ready devices, [read more](../configuration/cast.md). 
 
+!!! info
+    There is a check at application startup comparing the `TZ` value with your existing schedules. Your schedules will update automatically to reflect the change in timezone.
+
 
 ## Configuring Tube Archivist  
 Edit the following values in your local `docker-compose.yml` file:  

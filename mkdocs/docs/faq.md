@@ -69,11 +69,11 @@ This project doesn't make any recommendations: Some people prefer to convert the
 There are too many variations of that problem to be implemented in this project, use any of the various solutions out there that fits your needs.
 
 ## Why is there no flexible naming structure?
-Unlike other similar projects, **Tube Archivist** needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly and the metadata refresh task kept failing because of that.
+Unlike other similar projects, **Tube Archivist** needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly, breaking things and causing other unexpected behavior.
 
-This project tries to be compatible with as many filesystem/OS variations out there as possible. Using channel names and titles to build file paths that can be any Unicode character is a flawed and highly error prone approach of doing that, there is always a filesystem/OS out there that proves to be incompatible with how something is named.
+This project tries to be compatible with as many filesystem/OS variations out there as possible. Using channel names and titles to build file paths that can be any Unicode character is a flawed and highly error prone approach of doing that. There is always a filesystem/OS out there that proves to be incompatible with how something is named.
 
-That's why this project has landed on `<channel-id>/<video-id>.mp4`. These values are guaranteed to be static, are guaranteed to be compatible with every filesystem out there and make things predictable where all files will go on every instance of **Tube Archivist** indefinitely.
+That's why this project has landed on `<channel-id>/<video-id>.mp4`. These values are guaranteed to be static, unique and compatible with every file system out there and make things predictable where all files will go on every instance of **Tube Archivist** indefinitely.
 
 For browsing these files you have the fancy interface provided by this project, or use a supported integration as stated above. If you really want to, you could easily also create your own file naming structure with the API and symlinks, but that is not part of the scope of this project.
 

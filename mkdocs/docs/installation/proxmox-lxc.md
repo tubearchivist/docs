@@ -5,11 +5,13 @@ This guide assumed you know how to setup an LXC, CLI, and use "advanced" setup u
 This guide will also walk you through exactly how I did it, in my specific setup which is a bit extra. I add in a ZFS Pool mount and drivers for my 1060 6GB. Sections exclusive to me that may not partain to you will be marked as **OPTIONAL**.
 
 **NOTE:** I have a static IP from my ISP, I'm not sure if that matters or not, but I didn't have to do any port forwarding or anything funny. It may be different for you, but it shouldn't be to my knowledge.
+
 ---
 
 **Original requirements from For Docker Compose:** minimal system requirements, the **Tube Archivist** stack needs around 2GB of available memory for a small testing setup and around 4GB of available memory for a mid to large sized installation. Minimum requirements for CPU are usually expected to be dual core with 4 threads, with better performance coming from quad core and higher, and more available threads.
 
 **Requirements for ProxMox LXC:** In my testing, 4 cores, 8GB disk, and 5GB RAM is what I went with in a Debian 12 container with static IP (set in my router). At idle it is using 0.09-0.20% of the 4 CPUs, 47.91% of the 5GB RAM (2.40GB), and 3.09GB of disk. Your mileage may vary, but this is a good place to start and see where you land.
+
 ---
 
 !!! info
@@ -17,6 +19,7 @@ This guide will also walk you through exactly how I did it, in my specific setup
 
 !!! bug "Untested"
     ARM64 builds are essentially untested, as none of the devs have access to any ARM64 devices. There are regular unstable builds, for both architecture platforms. Help with testing to verify things are working as expected, also on ARM64.
+
 ---
 
 1. To setup docker in a LXC, please use [tteck's easy helper script](https://tteck.github.io/Proxmox/#docker-lxc) (you may also add in portainer if you wish with the same script).
@@ -46,6 +49,7 @@ This guide will also walk you through exactly how I did it, in my specific setup
 13. Now you're ready to edit your settings, grab the fancy [TubeArchivist Browser Companion](https://github.com/tubearchivist/browser-extension), and full send your hard drive space into oblivion grabbing all the videos so if they get deleted you'll still have your fancy tutorials and cat videos.
 
 **NOTE:** I had issues with cookie syncing so I just turned it off, I'm not downloading restricted videos and it's not impacting me at this time.
+
 ---
 
 ### Support

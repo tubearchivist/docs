@@ -55,7 +55,7 @@ Curl commands to run within the TA container to reactivate documents:
 ??? bug "Playlists"
 
 	```bash
-	curl -XPOST "$ES_URL/ta_video/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
+	curl -XPOST "$ES_URL/ta_playlist/_update_by_query?pretty" -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -d '
 	{
 	"query": {
 		"term": {

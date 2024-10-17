@@ -8,6 +8,9 @@ This document describes how **Tube Archivist** identifies and treats links from 
 !!! info
     Application logic of **Tube Archivist** is tied only to the IDs, not the names.
 
+!!! warning "ID length matters"
+	When deciding if an ID is a video, playlist or a channel the length of the ID is key. Other lengths of IDs as documented here are explicitly **not** supported.
+
 ## Video
 A video ID is **11** characters long, e.g. `2tdiKTSdE9Y`.
 
@@ -44,6 +47,9 @@ A playlist ID can be `34`, `26` or `18` characters long, e.g. `PL96C35uN7xGLLeET
 | URL Type | Example | Description |
 | :------- | :------ | :---------- |
 | Playlist URL | `https://www.youtube.com/playlist?list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha` | Playlist URLs start with a *playlist* path and have a *list* parameter |
+
+### Old Playlists
+Some old Youtube profiles will have playlists with other lengths that here, notably some old accounts have a "Favorites" playlist, the ID starts with `FL`. Unfortunatly these Playlist IDs are 24 characters long. That collides with the length of channel IDs. As established above, these playlists are not supported.
 
 ### Playlist vs Video URLs
 While browsing YouTube videos in Playlists, you might encounter URLs looking like this: `https://www.youtube.com/watch?v=QPZ0pIK_wsc&list=PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`. As established above, based on the */watch* path and the *v* parameter, **Tube Archivist** will treat this as a video with the ID `QPZ0pIK_wsc` and **not** as a playlist. If you mean the playlist, you can easily grab the correct ID from the URL, e.g. `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`.

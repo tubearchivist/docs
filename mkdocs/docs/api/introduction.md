@@ -11,6 +11,9 @@ This page has a generic overview with how the Tube Archivist API functions. This
 !!! note
     Not all endpoints will return expected status codes for errors, e.g. sometimes you'll see an error **500 Server Error** even though it should be **400 Bad request**. If you encounter any such cases, [please fix them](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md#how-to-make-a-pull-request) as you find them, no need to clutter up the issue queue.
 
+!!! note
+    If you are sending POST requests to the API, you'll have to specify the content type as json like so: `"Content-Type: application/json"`.
+
 ## Context
 - All changes to the API are marked with a `[API]` keyword for easy searching, for example search for [commits](https://github.com/tubearchivist/tubearchivist/search?o=desc&q=%5Bapi%5D&s=committer-date&type=commits). You'll find the same in the [release notes](https://github.com/tubearchivist/tubearchivist/releases).
 - Check the commit history and release notes to see if a documented feature is already in your release. The documentation might be ahead of the regular release schedule.

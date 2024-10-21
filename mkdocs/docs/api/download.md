@@ -21,8 +21,6 @@ Parameter:
 
 - autostart: true
 
-This value must be posted with the header `"Content-Type: application/json"`
-
 Delete download queue items by filter:  
 **DELETE** `/api/download/?filter=ignore`  
 **DELETE** `/api/download/?filter=pending`

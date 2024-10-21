@@ -25,6 +25,15 @@ Delete download queue items by filter:
 **DELETE** `/api/download/?filter=ignore`  
 **DELETE** `/api/download/?filter=pending`
 
+???+ "Curl Example"
+    ```bash
+    # add video to download queue
+    curl -XPOST -v /api/download/ \
+      -H "Authorization: Token xxxxxxxxxx" \
+      -H 'Content-Type: application/json' \
+      -d '{"data":[{"youtube_id": "<video-id>", "status":"pending"}]}'
+    ```
+
 ## Download Queue Item
 **GET** `/api/download/<video_id>/`  
 **POST** `/api/download/<video_id>/`

@@ -78,6 +78,7 @@ footer {
     --md-code-hl-number-color: var(--highlight-error-light);
     --md-code-hl-operator-color: var(--highlight-error);
     --md-code-nv-color: var(--highlight-error);
+    --md-code-hl-comment-color: var(--secondary-font);
     --md-typeset-table-color: var(--main-font);
 }
 
@@ -88,6 +89,7 @@ footer {
     --highlight-error-light: #c44343;
     --highlight-bg-transparent: #00293baf;
     --main-font: #eeeeee;
+    --secondary-font: #858585;
     --accent-font-dark: #259485;
     --accent-font-light: #97d4c8;
     --img-filter: invert(50%) sepia(9%) saturate(2940%) hue-rotate(122deg) brightness(94%) contrast(90%);

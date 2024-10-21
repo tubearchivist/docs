@@ -1,3 +1,6 @@
+!!! abstract "Installation Instructions - Community Guides"
+    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
+
 # Setting up Tube Archivist with ProxMox LXC
 
 This guide assumed you know how to setup an LXC, CLI, and use "advanced" setup using tteck's easy helper scripts. This is out of scope for this project, if you need help with it reach out to me (Niicholai) in the discord and I will walk you through it.
@@ -11,14 +14,6 @@ This guide will also walk you through exactly how I did it, in my specific setup
 **Original requirements from For Docker Compose:** minimal system requirements, the **Tube Archivist** stack needs around 2GB of available memory for a small testing setup and around 4GB of available memory for a mid to large sized installation. Minimum requirements for CPU are usually expected to be dual core with 4 threads, with better performance coming from quad core and higher, and more available threads.
 
 **Requirements for ProxMox LXC:** In my testing, 4 cores, 8GB disk, and 5GB RAM is what I went with in a Debian 12 container with static IP (set in my router). At idle it is using 0.09-0.20% of the 4 CPUs, 47.91% of the 5GB RAM (2.40GB), and 3.09GB of disk. Your mileage may vary, but this is a good place to start and see where you land.
-
----
-
-!!! info
-    For **arm64**: **Tube Archivist** is built as a multi-architecture (multi-arch) container, same for Redis. Elasticsearch should use the official image for arm64 support. Other architectures are not supported.
-
-!!! bug "Untested"
-    ARM64 builds are essentially untested, as none of the devs have access to any ARM64 devices. There are regular unstable builds, for both architecture platforms. Help with testing to verify things are working as expected, also on ARM64.
 
 ---
 

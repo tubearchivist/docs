@@ -20,10 +20,11 @@ nav:
         - 'Advanced': 'advanced.md'
     - Installation:
         - 'Docker-Compose (default)': 'installation/docker-compose.md'
-        - 'Unraid': 'installation/unraid.md'
-        - 'Synology': 'installation/synology.md'
-        - 'Podman': 'installation/podman.md'
         - 'Helm Charts': 'installation/helm-charts.md'
+        - 'Podman': 'installation/podman.md'
+        - 'Proxmox LXC': 'installation/proxmox-lxc.md'
+        - 'Synology': 'installation/synology.md'
+        - 'Unraid': 'installation/unraid.md'
     - Configuration:
         - 'LDAP Authentication': 'configuration/ldap.md'
         - 'Forward Authentication': 'configuration/forward-auth.md'

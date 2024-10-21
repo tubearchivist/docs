@@ -19,15 +19,9 @@ This page has a generic overview with how the Tube Archivist API functions. This
 API token will get automatically created, accessible on the settings page. Token needs to be passed as an authorization header with every request. Additionally session based authentication is enabled too: When you are logged into your TubeArchivist instance, you'll have access to the api in the browser for testing.
 
 Curl example:
-```sh
-token="<...>"
-data='{"data":[{"youtube_id": "jNQXAC9IVRw", "status":"pending"}]}'
-
-curl \
-"http://tubearchive.local:80/api/download/" \
--H "Authorization: Token $token" \
--H 'Content-Type: application/json' \
---data "$data"
+```shell
+curl -v /api/video/<video-id>/ \
+    -H "Authorization: Token xxxxxxxxxx"
 ```
 
 Python requests example:

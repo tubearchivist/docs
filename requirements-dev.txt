@@ -1,2 +1,2 @@
 -r requirements.txt
-requirementscheck==0.0.2
+requirementscheck==0.0.4

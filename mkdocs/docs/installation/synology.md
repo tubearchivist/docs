@@ -1,6 +1,11 @@
 !!! abstract "Installation Instructions - Community Guides"
     These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
+!!! danger "Compatibility Problems"
+	- As Synology is running their old kernel (currently 4.4.302+), you might face problems running Elasticsearch on your device, as newer Elasticsearch version require kernel modules not available and not backported by Synology.
+	- You will see errors like: `seccomp unavailable` and `CONFIG_SECCOMP not compiled into kernel`, `CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed`.
+	- Workaround is to pin the Elasticsearch image to an older version, not requiring these modules: `docker.elastic.co/elasticsearch/elasticsearch:8.14.3`.
+	- That is likely going to break in the future, as this project develops, new functionality might depend on new ES versions.
 
 There are several different methods to install **Tube Archivist** on Synology platforms. This will focus on the available `docker` package manager implementation for Synology 7.1 and prior.<!--  and `docker-compose` implementations. -->
 
@@ -129,7 +134,7 @@ Once all of the folders have been created, it should have a folder structure wit
          `redis/redis-stack-server`
          ![Synology - Redis Image Search](../assets/Synology_0.3.6_Docker-Redis-Search.png)
          
-         `bbilly1/tubearchivist-es`
+         `docker.elastic.co/elasticsearch/elasticsearch:8.14.3`
          ![Synology - ElasticSearch Image Search](../assets/Synology_0.2.0_Docker-ES-Search.png)
          
          `bbilly1/tubearchivist`

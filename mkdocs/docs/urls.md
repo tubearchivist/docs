@@ -21,6 +21,7 @@ Urls can have several forms:
 | Watch URL | `https://www.youtube.com/watch?v=2tdiKTSdE9Y` | Regular URLs you will see while browsing YouTube, with the path */watch* and a *v* parameter |
 | Share URL | `https://youtu.be/2tdiKTSdE9Y` | Link you will get when you click on *share* on a video |
 | Shorts URL | `https://www.youtube.com/shorts/U80grnZJm_8` | Video links for YouTube shorts |
+| Live URL | `https://www.youtube.com/live/ix5XSbY8Zo4` | Video live stream URL |
 
 ## Channel
 A channel ID is **24** characters long, e.g. `UCBa659QWEk1AI4Tg--mrJ2A`.

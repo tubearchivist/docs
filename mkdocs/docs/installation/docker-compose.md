@@ -14,6 +14,10 @@ For minimal system requirements, the **Tube Archivist** stack needs around 2GB o
 
 Save the [docker-compose.yml](https://github.com/tubearchivist/tubearchivist/blob/master/docker-compose.yml) file from the **Tube Archivist** repository somewhere permanent on your system, keeping it named `docker-compose.yml`. You'll need to refer to it whenever starting this application.
 
+## Environment Variables
+
+For a comprehensive list of environment variables, see [installation/Environment Variables](/installation/env-vars/).
+
 ## Overview  
 **Tube Archivist** is a Python application that displays and serves your video collection, built with Django.  
 
@@ -35,8 +39,7 @@ Save the [docker-compose.yml](https://github.com/tubearchivist/tubearchivist/blo
   - For the scheduler to know what time it is, set your timezone with the `TZ` environment variable, defaults to *UTC*.
   - Set `ENABLE_CAST`, a boolean value, to enable sending videos to your cast-ready devices, [read more](../configuration/cast.md). 
 
-!!! info
-    There is a check at application startup comparing the `TZ` value with your existing schedules. Your schedules will update automatically to reflect the change in timezone.
+
 
 
 ## Configuring Tube Archivist  

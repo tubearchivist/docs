@@ -19,6 +19,7 @@ nav:
           - 'Actions': 'settings/actions.md'
         - 'Advanced': 'advanced.md'
     - Installation:
+        - 'Environment Variables': 'installation/env-vars.md'
         - 'Docker-Compose (default)': 'installation/docker-compose.md'
         - 'Helm Charts': 'installation/helm-charts.md'
         - 'Podman': 'installation/podman.md'

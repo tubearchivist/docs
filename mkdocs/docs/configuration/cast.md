@@ -1,4 +1,4 @@
-As Cast doesn't support authentication, enabling this functionality will make your static files, like artwork and media files, accessible by guessing the links. Those only require read-only access and the application itself is still protected.
+As Cast doesn't support authentication for static files, you'll also need to set [`DISABLE_STATIC_AUTH`](/installation/env-vars/#disable_static_auth) to disable authentication for your static files.
 
 Enabling this integration will embed an additional third-party JS library from **Google**.  
 

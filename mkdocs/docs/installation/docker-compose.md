@@ -16,7 +16,7 @@ Save the [docker-compose.yml](https://github.com/tubearchivist/tubearchivist/blo
 
 ## Environment Variables
 
-For a comprehensive list of environment variables, see [installation/Environment Variables](/installation/env-vars/).
+For a comprehensive list of environment variables, see [installation/Environment Variables](env-vars.md).
 
 ## Overview  
 **Tube Archivist** is a Python application that displays and serves your video collection, built with Django.  

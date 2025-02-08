@@ -28,6 +28,30 @@ footer {
     margin-top: 2rem;
 }
 
+.tag-alert {
+    color: white;
+    background-color: var(--highlight-error);
+    border-radius: 4px;
+    padding: 0.3em 0.5em;
+    font-size: 0.85em;
+}
+
+.tag-optional {
+    color: white;
+    background-color: var(--accent-font-dark);
+    border-radius: 4px;
+    padding: 0.3em 0.5em;
+    font-size: 0.85em;
+}
+
+.tag-neutral {
+    color: white;
+    background-color: var(--secondary-font);
+    border-radius: 4px;
+    padding: 0.3em 0.5em;
+    font-size: 0.85em;
+}
+
 .md-typeset .note > .admonition-title {
     background-color: var(--accent-font-dark);
 }

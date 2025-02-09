@@ -35,7 +35,7 @@ Additional settings passed to yt-dlp.
 
 ## Subtitles
 
-- **Download Setting**: Select the subtitle language you like to download. Add a comma separated list for multiple languages. For Chinese you must specify `zh-Hans` or `zh-Hant`, specifying "zh" is invalid, otherwise the subtitle won't download successfully.
+- **Download Setting**: Select the subtitle languages you like to download. Add a comma separated list for multiple languages (can be regex) or `all`, e.g. `en.*,ja` (where `en.*` is a regex pattern that matches `en` followed by 0 or more of any character). You can prefix the language code with a `-` to exclude it from the requested languages, e.g. `all,-fr`. For Chinese you must specify `zh-Hans` or `zh-Hant`, specifying "zh" is invalid, otherwise the subtitle won't download successfully. However, you can use `zh.*` to get both. Check [IANA's language subtag registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for the right language code.
 - **Source Settings**: User created subtitles are provided from the uploader and are usually the video script. Auto generated is from YouTube. The quality varies, particularly for auto translated tracks.
 - **Index Settings**: Enabling subtitle indexing will add the lines to Elasticsearch and will make subtitles searchable. This will increase the index size and is not recommended on low-end hardware.
 

@@ -21,6 +21,7 @@ nav:
     - Installation:
         - 'Environment Variables': 'installation/env-vars.md'
         - 'Docker-Compose (default)': 'installation/docker-compose.md'
+        - 'Docker for Beginners': 'installation/docker-for-beginners.md'
         - 'Helm Charts': 'installation/helm-charts.md'
         - 'Podman': 'installation/podman.md'
         - 'Proxmox LXC': 'installation/proxmox-lxc.md'

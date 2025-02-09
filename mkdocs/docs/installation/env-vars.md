@@ -32,18 +32,7 @@ Username for your initial credentials. Changing that after first time starting t
 <span class="tag-neutral">Type: String</span>  
 Password for your initial user. Changing that after creating the user, does not have any effect. Use the admin interface to change your password.
 
-!!! info
-    If you forgot your password, you can change it directly with:
-    
-    ```python manage.py ta_change_password username password```
-    
-    e.g.:
-
-    ```bash
-    docker compose exec -it tubearchivist python manage.py ta_change_password tubearchivist 123456
-    ```
-
-    to change the password of the user `tubearchivist` to `123456`.
+If you forgot your password, see [User Management/#Forgot Password](../users.md#forgot-password).
 
 ## TZ
 <span class="tag-optional">Optional</span>

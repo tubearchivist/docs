@@ -35,3 +35,16 @@ Delete all user configurations by deleting the file `cache/db.sqlite3` and resta
 
 !!! danger "BE AWARE"
 	Future feature improvements here may require resetting the user administration database.
+
+## Forgot Password
+If you forgot your password, you can change it directly over the CLI with:
+
+```python manage.py ta_change_password username password```
+
+e.g.:
+
+```bash
+docker compose exec -it tubearchivist python manage.py ta_change_password tubearchivist 123456
+```
+
+to change the password of the user `tubearchivist` to `123456`.

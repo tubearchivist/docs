@@ -80,7 +80,7 @@ services:
     [...]
 ```
 
-- For the **Tube Archivist** service make sure to also update the [REDIS_CON](env-vars/#redis_con) value. e.g.: `redis://archivist-redis:6380`
+- For the **Tube Archivist** service make sure to also update the [REDIS_CON](env-vars.md#redis_con) value. e.g.: `redis://archivist-redis:6380`
 
 ## Install **ElasticSearch**
 !!! success "Elasticsearch Version"

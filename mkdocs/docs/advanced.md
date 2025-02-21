@@ -83,7 +83,7 @@ ES will not start, if the data is corrupted. So, stop all containers, delete eve
 
 **Tube Archivist** will apply mapping changes at application startup for certain versions. That usually is needed when changing how an existing field is indexed. This action should be seamless and automatic, but can leave your index in a messed up state if that process gets interrupted for any reason. Common reasons could be that if you artificially limit the memory to the container, disabling the OS to dynamically manage that, or if you don't have enough available storage on the ES volume, or if you interrupt that because of your impatience (don't do that).
 
-In general the process is:
+In general the mapping update process is as follows:
 
 1. Compare existing mapping with predefined expected mapping
 	1. If that is identical, there is nothing to do

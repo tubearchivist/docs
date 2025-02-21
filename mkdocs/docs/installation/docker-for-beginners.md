@@ -109,7 +109,7 @@ This mounts the docker managed volume called `media` inside the container at `/y
 
     You'll run into this problem when using a bind mount for the ElasticSearch volume. See [here](https://github.com/tubearchivist/tubearchivist?tab=readme-ov-file#permissions-for-elasticsearch) with instructions how to fix that.
 
-If you prefere, you can define where each volume should be stored on the file system by modifying the path **infront** of the `:`. Remember, you usually can't change the path _inside_ the container, only the path on the host system.
+If you prefere, you can define where each volume should be stored on the file system by modifying the path **infront** of the `:`. Remember, you usually can't change the path _inside_ the container (right side of the `:`), only the path on the host system.
 
 If you define a bind mount, you can remove the docker managed volume definition from the `volumes` key at the bottom of the docker-compose file.
 
@@ -156,7 +156,7 @@ Similar to volumes, the colon symbol `:` splits the network definition:
 - The right side of the `:` defines the port used _inside_ the container, aka `CONTAINER_PORT`. You _usually_ can't change that and you need to use the port as defined in the documentation. If a service allows you to customize that, you should see a mention in the docs as well.
 
 !!! info
-    You can't have more than one service using the same port. You'll see an error if you try to do that. The simplest way to rectify that is to change the `HOST_PORT` to something not in use, but keep the `CONTAINER_PORT` as is.
+    You can't have more than one service using the same port on your machine. You'll see an error if you try to do that. The simplest way to rectify that is to change the `HOST_PORT` to something not in use, but keep the `CONTAINER_PORT` as is.
 
     E.g.: `"8008:8000"` to use the port 8008 on the host.
 

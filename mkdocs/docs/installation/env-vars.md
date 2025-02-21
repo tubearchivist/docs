@@ -89,7 +89,7 @@ Enable casting support. See [configuration/cast](../configuration/cast.md) for m
 This will disable authentication for static assets like your video mp4 files, subtitles and artwork. This might be required if you need to access the media files over the HTTP server but you are not able to pass authentication headers.
 
 !!! info
-    This is `read only` access and does not allow for deleting/modifying any media files. But it is still limit exposure or add additional protections if you enable that.
+    This is `read only` access and does not allow for deleting/modifying any media files. But it is still recommended limit exposure or add additional protections if you enable that.
 
 ## DJANGO_DEBUG
 <span class="tag-optional">Optional</span>

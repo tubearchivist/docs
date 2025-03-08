@@ -30,7 +30,6 @@ nav:
     - Configuration:
         - 'LDAP Authentication': 'configuration/ldap.md'
         - 'Forward Authentication': 'configuration/forward-auth.md'
-        - 'Cast Support': 'configuration/cast.md'
         - 'Stylesheets': 'configuration/stylesheets.md'
     - API:
         - 'Introduction': 'api/introduction.md'

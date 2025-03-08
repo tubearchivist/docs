@@ -71,9 +71,12 @@ Enabling subtitle indexing will add the lines to Elasticsearch and will make sub
 ## Comments
 
 ### Index Comments
-Set your configuration for downloading and indexing comments. This takes the same values as documented in the `max_comments` section for the youtube extractor of [yt-dlp](https://github.com/yt-dlp/yt-dlp#youtube). Add, without spaces, between the four different fields: *max-comments,max-parents,max-replies,max-replies-per-thread*. Example:
-    - `all,100,all,30`: Get 100 max-parents and 30 max-replies-per-thread.
-    - `1000,all,all,50`: Get a total of 1000 comments over all, 50 replies per thread.
+Set your configuration for downloading and indexing comments. This takes the same values as documented in the `max_comments` section for the youtube extractor of [yt-dlp](https://github.com/yt-dlp/yt-dlp#youtube). Add, without spaces, between the four different fields: *max-comments,max-parents,max-replies,max-replies-per-thread*.  
+
+Example:  
+
+- `all,100,all,30`: Get 100 max-parents and 30 max-replies-per-thread.
+- `1000,all,all,50`: Get a total of 1000 comments over all, 50 replies per thread.
 
 ### Comment sort method
 Change sort method between *top* or *new*. The default is *top*, as decided by YouTube.
@@ -123,6 +126,9 @@ This will return dislikes and average ratings for each video by integrating with
 
 ### SponsorBlock
 Using [SponsorBlock](https://sponsor.ajay.app/) to retrieve timestamps for, and skip, sponsored content. If a video doesn't have timestamps, or has unlocked timestamps, use the browser addon to contribute to this excellent project. Can also be activated and deactivated on a per [channel overwrite](../channels.md#about).
+
+### Cast
+For more details see [configuration/cast](../configuration/cast.md).
 
 ## Snapshots
 !!! info

@@ -16,7 +16,7 @@ This is a comprehensive list of environment variables for the **Tube Archivist**
 Set the environment variable `TA_HOST` to match with the expected origin from where you will access your **Tube Archivist** instance. That is whatever you input into your browser URL bar.   
 
 - This can be a domain like *example.com*, a subdomain like *ta.example.com* or an IP address like *192.168.1.20*.
-- If you are running **Tube Archivist** behind a SSL reverse proxy, specify the protocol (`https://`).
+- Define the protocol, e.g. `https://` oder `http://`.
 - Specify the port If you are using a nonstandard port.
 - You can add multiple hostnames separated with a space.
 - Any wrong configurations here will result in a `Bad Request (400)` response.
@@ -74,14 +74,6 @@ Configure TA to authenticate with a auth proxy. See [configuration/forward-auth]
 <span class="tag-optional">Optional</span>
 <span class="tag-neutral">Type: Boolean</span>  
 Configure TA to use LDAP for authentication. See [configuration/ldap](../configuration/ldap.md) for more details.
-
-## ENABLE_CAST
-<span class="tag-optional">Optional</span>
-<span class="tag-neutral">Type: Boolean</span>  
-Enable casting support. See [configuration/cast](../configuration/cast.md) for more details.
-
-!!! info
-    Enabling Cast also requires to disable authentication for your static files by setting the `DISABLE_STATIC_AUTH` variable.
 
 ## DISABLE_STATIC_AUTH
 <span class="tag-optional">Optional</span>

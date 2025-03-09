@@ -15,7 +15,7 @@ Please help improve these documentations. To make changes, fork this repo and ma
 
 ## Development Environment
 
-To just make simple changes, edit the markdown files within *mkdocs/docs* direclty.
+To just make simple changes, edit the markdown files within *mkdocs/docs* directly.
 
 To setup a local development server:
 

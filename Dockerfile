@@ -13,5 +13,5 @@ COPY mkdocs /mkdocs
 WORKDIR mkdocs
 RUN mkdocs build
 
-FROM nginx as srv
+FROM nginx AS srv
 COPY --from=builder /mkdocs/site /usr/share/nginx/html

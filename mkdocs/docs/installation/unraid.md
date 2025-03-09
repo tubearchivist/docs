@@ -1,6 +1,9 @@
 !!! abstract "Installation Instructions - Community Guides"
     These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
+!!! warning "Outdated"
+	  Please review these instructions and update it to the changes introduced in [v0.5.0](https://github.com/tubearchivist/tubearchivist/releases/tag/v0.5.0).
+
 **Tube Archivist**, and all if it's dependencies, are located in the [community applications](https://unraid.net/community/apps?q=tubearchivist) store. The three containers you will need are as follows:
 
 -   **TubeArchivist-RedisJSON**: Redis functions as a cache and temporary link between the application and the file system. Redis is used to store and display messages and configuration variables.

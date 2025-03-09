@@ -1,3 +1,7 @@
+---
+description: Docker and docker compose for beginners.
+---
+
 A collection of generic knowledge about Docker targeted at beginners. These concepts do not _only_ apply to this project but this project is used as an example.
 
 ## Compose File

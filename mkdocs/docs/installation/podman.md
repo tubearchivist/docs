@@ -1,6 +1,9 @@
 !!! abstract "Installation Instructions - Community Guides"
     These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
 
+!!! warning "Outdated"
+	  Please review these instructions and update it to the changes introduced in [v0.5.0](https://github.com/tubearchivist/tubearchivist/releases/tag/v0.5.0).
+
 Podman handles container hostname resolution slightly differently than Docker, so you need to make a few changes to the `docker-compose.yml` to get up and running.
 
 ### Installation Changes from Compose Instructions

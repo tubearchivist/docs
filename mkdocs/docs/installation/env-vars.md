@@ -1,3 +1,7 @@
+---
+description: Documentation for each available environment variable.
+---
+
 # Environment Variables
 
 This is a comprehensive list of environment variables for the **Tube Archivist** container accessible to users. Unless stated otherwise, these environment variables apply to all documented installation instructions.

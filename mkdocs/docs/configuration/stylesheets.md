@@ -14,8 +14,6 @@ The recommended method for adding new stylesheets is to mount them in the `docke
       - ./test.css:/app/static/css/test.css
     ```
 
-The container will need to be rebuilt for changes to take effect, which can be accomplished by running the command `docker compose up -d`.
-
 ## Creating Stylesheets
 
 **Tube Archivist** applies the `style.css` stylesheet before applying the user's selected stylesheet.

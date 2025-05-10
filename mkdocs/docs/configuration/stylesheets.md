@@ -1,17 +1,17 @@
 You can change the appearance of **Tube Archivist** by selecting a stylesheet in Settings under User Configurations.
 
-## Adding Stylesheets
+## Adding a Stylesheet
 
 Assuming a default configuration, stylesheets are stored in `/app/static/css` in the `tubearchivist` container. This is where the `custom.css` stylesheet can be added and selected as `Custom` in the user settings.
 
-The recommended method for adding new stylesheets is to mount them in the `docker-compose.yml` file. New mounts need to be added to the `tubearchivist` volume section. For example, `custom.css` is added. If `custom.css` is located in the same directory as the `docker-compose.yml` file.
+The recommended method for adding this stylesheet is to mount it in the `docker-compose.yml`, to the `tubearchivist` volume section. If `custom.css` is located in the same directory as the `docker-compose.yml` file you can use:
 
 ???+ example
     ```yaml
     volumes:
       - media:/youtube
       - cache:/cache
-      - ./test.css:/app/static/css/test.css
+      - ./custom.css:/app/static/css/custom.css
     ```
 
 ## Creating Stylesheets

@@ -18,7 +18,7 @@ The recommended method for adding this stylesheet is to mount it in the `docker-
 
 **Tube Archivist** applies the `style.css` stylesheet before applying the user's selected stylesheet.
 
-You can use the default `dark.css` theme as a template to create your own. You can get it from the repo [here](https://github.com/tubearchivist/tubearchivist/blob/master/tubearchivist/static/css/dark.css).
+You can use the default `dark.css` theme as a template to create your own. You can get it from the repo [here](https://github.com/tubearchivist/tubearchivist/blob/master/frontend/public/css/dark.css).
 
 The `:root` pseudo-class contains variables that are frequently used in `style.css` for consistent theming. However, not all changes need to be made in `:root`. Classes, IDs, and HTML tags can have their properties overridden by simply declaring new properties.
 

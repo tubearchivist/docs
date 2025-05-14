@@ -1,26 +1,24 @@
 You can change the appearance of **Tube Archivist** by selecting a stylesheet in Settings under User Configurations.
 
-## Adding Stylesheets
+## Adding a Stylesheet
 
-Assuming a default configuration, stylesheets are stored in `/app/static/css` in the `tubearchivist` container. This is where additional stylesheets should be added.
+Assuming a default configuration, stylesheets are stored in `/app/static/css` in the `tubearchivist` container. This is where the `custom.css` stylesheet can be added and selected as `Custom` in the user settings.
 
-The recommended method for adding new stylesheets is to mount them in the `docker-compose.yml` file. New mounts need to be added to the `tubearchivist` volume section. For example, `test.css` is added. If `test.css` is located in the same directory as the `docker-compose.yml` file.
+The recommended method for adding this stylesheet is to mount it in the `docker-compose.yml`, to the `tubearchivist` volume section. If `custom.css` is located in the same directory as the `docker-compose.yml` file you can use:
 
 ???+ example
     ```yaml
     volumes:
       - media:/youtube
       - cache:/cache
-      - ./test.css:/app/static/css/test.css
+      - ./custom.css:/app/static/css/custom.css
     ```
-
-The container will need to be rebuilt for changes to take effect, which can be accomplished by running the command `docker compose up -d`.
 
 ## Creating Stylesheets
 
 **Tube Archivist** applies the `style.css` stylesheet before applying the user's selected stylesheet.
 
-You can use the default `dark.css` theme as a template to create your own. You can get it from the repo [here](https://github.com/tubearchivist/tubearchivist/blob/master/tubearchivist/static/css/dark.css).
+You can use the default `custom.css` theme as a template to create your own. You can get it from the repo [here](https://github.com/tubearchivist/tubearchivist/blob/master/frontend/public/css/custom.css).
 
 The `:root` pseudo-class contains variables that are frequently used in `style.css` for consistent theming. However, not all changes need to be made in `:root`. Classes, IDs, and HTML tags can have their properties overridden by simply declaring new properties.
 

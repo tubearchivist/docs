@@ -120,6 +120,10 @@ Then you can restart the container and the migration will run again. If your err
 ## Manual yt-dlp update
 !!! warning 
 	Doing this is **very likely** going to break things for you. You will want to try this out on a testing instance first. Regularly there have been subtle changes in the yt-dlp API, so only do this if you know how to debug this project by yourself, but obviously share your fixes so any problems can be dealt with before release.
+
+!!! info
+	There are also [unstable builds](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md#beta-testing) available, they might already have the latest yt-dlp version.
+
 This project strives for timely updates when yt-dlp makes a new release, but sometimes ideals meet reality. Also, sometimes yt-dlp has a fix published, but not yet released.
 
 **Build your own image**: Update the version in `requirements.txt` and rebuild the image from `Dockerfile`. This will use your own image, even on container rebuild.

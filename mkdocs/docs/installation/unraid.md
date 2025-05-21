@@ -12,6 +12,7 @@
 ### Install  `TubeArchivist-Redis`
 
 ![TubeArchivist-Redis](../assets/unraid_redis_install.png)
+
 This is the easiest container to setup of the three, just make sure that you do not have any port conflicts and `/data` is mounted to the correct path. The other containers will map to the same root directory (/mnt/user/appdata/TubeArchivist).
 
 If you need to install `TubeArchivist-Redis` on a different port, you'll have to follow [these steps](docker-compose.md#redis-on-a-custom-port) later on when installing the `TubeArchivist` container.

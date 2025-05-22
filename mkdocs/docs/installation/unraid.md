@@ -37,15 +37,14 @@ There are four additional settings in the "show more settings" area that you sho
 
 It's finally time to set up TubeArchivist!
 
- - `HOST:` This is a list of IP addresses that you will host TA from. Example, 192.168.0.14 is the IP address of my Unraid server. If I was going to access TA from a VPN, or domain name, I'd put those next to my host IP with a space separating the different addresses. More information [here.](../installation/env-vars/#ta_host)
-
+ - `HOST:` This is a list of IP addresses that you will host TA from. Example, 192.168.0.14 is the IP address of my Unraid server. If I was going to access TA from a VPN, or domain name, I'd put those next to my host IP with a space separating the different addresses. More information [here.](env-vars.md#ta_host).
 
  - `Port:` Again, make sure that you have no port conflicts on 8000.
    
  - `Youtube Media Path:` is where you'll download all of your videos to.
    Make sure that this is an empty directory to not cause confusion when
    starting the application. If you have existing videos that you'd like
-   to import into Tube Archivist, please checkout the [Manual Import Documentation.](../settings/actions/#manual-media-files-import)
+   to import into Tube Archivist, please checkout the [Manual Import Documentation.](../settings/actions.md#manual-media-files-import)
    
 - `Appdata:` This should be the root path from the other two containers (/mnt/user/appdata/TubeArchivist).
    
@@ -55,8 +54,7 @@ It's finally time to set up TubeArchivist!
    
  - `Redis:`Connection string to your Redis container. replace `archivist-redis` with your host IP address, and port.
     E.g.: if your unraid has the IP 192.168.0.14 it would be `redis://192.168.0.14:6379`
-    ![TubeArchivist](../assets/unraid_redis_port.png)
-
+    
  - `ElasticSearch Password:` This is the password you defined in the `TubeArchivist-ES` container.
  - `ElasticSearch:` similar to the Redis variable, just replace the IP and Port to match your `TubeArchivist-ES` container. E.g.: `http://192.168.0.14:9200`
 

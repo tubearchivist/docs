@@ -127,7 +127,7 @@ volumes:
 ```
 That will persist the data at `volume/youtube` where the content of the `/youtube` folder will get stored on your host system.
 
-#### Absolut Path
+#### Absolute Path
 Alternatively you can also specify an absolute path on your host system.
 
 E.g.:  

@@ -13,5 +13,20 @@ You can enable and configure LDAP with the following environment variables:
 | `TA_LDAP_USER_ATTR_MAP_EMAIL` | `mail` |`mail` | Bind attribute used to match LDAP user's EMail address |
 | `TA_LDAP_USER_BASE` | `null` | `ou=users,dc=your-server` | Search base for user filter. |
 | `TA_LDAP_USER_FILTER` | `null` | `(objectClass=user)` | Filter for valid users. Login usernames are matched using the attribute specified in `TA_LDAP_USER_ATTR_MAP_USERNAME` and should not be specified in this filter. |
+| `TA_LOGIN_AUTH_MODE` | `ldap` | `ldap_local` | Selects authentication backends. Valid values: `ldap` (LDAP only), `local` (local database only), `ldap_local` (both active). Overrides `TA_LDAP`/`TA_ENABLE_AUTH_PROXY`. |
 
-While LDAP authentication is enabled, the django-managed passwords (e.g. the password defined in TA_PASSWORD), will not allow you to login. Only the LDAP server is used for authentication.
+**Important Notes:**
+- When using `ldap_local` mode:
+  - Users can log in with credentials from either system
+  - Shared usernames can use either password (consider password policy alignment)
+  - Local database accounts can be created to manage LDAP user privileges
+- Recommended workflow:
+  1. Use `ldap_local` during initial setup
+  2. Create local admin accounts
+  3. Assign privileges to LDAP users via the admin interface
+  4. Switch to `ldap` mode for production
+
+When using LDAP authentication, the `TA_LOGIN_AUTH_MODE` setting controls backend behavior:
+- `ldap`: Only LDAP authentication
+- `ldap_local`: Both LDAP and local database authentication (allows using either backend's credentials)
+The `TA_USERNAME`/`TA_PASSWORD` credentials provide admin access when `ldap_local` is active.

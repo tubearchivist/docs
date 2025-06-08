@@ -19,7 +19,9 @@ nav:
           - 'Actions': 'settings/actions.md'
         - 'Advanced': 'advanced.md'
     - Installation:
+        - 'Environment Variables': 'installation/env-vars.md'
         - 'Docker-Compose (default)': 'installation/docker-compose.md'
+        - 'Docker for Beginners': 'installation/docker-for-beginners.md'
         - 'Helm Charts': 'installation/helm-charts.md'
         - 'Podman': 'installation/podman.md'
         - 'Proxmox LXC': 'installation/proxmox-lxc.md'
@@ -28,20 +30,10 @@ nav:
     - Configuration:
         - 'LDAP Authentication': 'configuration/ldap.md'
         - 'Forward Authentication': 'configuration/forward-auth.md'
-        - 'Cast Support': 'configuration/cast.md'
         - 'Stylesheets': 'configuration/stylesheets.md'
     - API:
         - 'Introduction': 'api/introduction.md'
-        - 'Video': 'api/video.md'
-        - 'Channel': 'api/channel.md'
-        - 'Playlist': 'api/playlist.md'
-        - 'Download': 'api/download.md'
-        - 'Snapshot': 'api/snapshot.md'
-        - 'Backup': 'api/backup.md'
-        - 'Task': 'api/task.md'
-        - 'Stats': 'api/stats.md'
-        - 'Config': 'api/config.md'
-        - 'Additional': 'api/additional.md'
+        - 'Docs': 'api/docs.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com
         - 'Join us on Discord!': https://www.tubearchivist.com/discord

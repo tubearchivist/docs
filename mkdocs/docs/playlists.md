@@ -10,7 +10,7 @@ Playlists are organized in two different levels, similar to [Channels](channels.
 !!! note
     There is an overlap in functionality with [index playlists on channel](channels.md/#about):
 
-    - Subscribe to a playlist of the playlist contains videos from **mixed channels**.
+    - Subscribe to a playlist if the playlist contains videos from **various channels**.
     - Subscribe to a playlist if you only want to add **a few** playlists from a chanel.
     - Use [index playlists on channel](channels.md/#about) if you want to add **all** playlists of a channel.
     - Avoid subscribing to a playlist if the channel already monitors that playlist.

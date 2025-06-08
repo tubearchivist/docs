@@ -50,11 +50,20 @@ If available, you can find the channel description and channel tags here.
 
 The channel customize form gives options to change settings on a per channel basis. Any configurations here will overwrite your configurations from the [settings](settings/application.md) page.
 
-- **Download Format**: Overwrite the download quality for videos from this channel.
-- **Auto Delete**: Automatically delete watched videos from this channel after selected days.
-- **Index Playlists**: Automatically add all Playlists with at least a video downloaded to your index. Only do this for channels where you care about playlists as this will slow down indexing new videos because each video will need to check if it belongs to each indexed playlist. This works best if a channel creates playlists containing videos from that channel. Also see [subscribing to Playlist](playlists.md/#playlist-overview).
-- **SponsorBlock**: Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. Customize per channel: You can *disable* or *enable* SponsorBlock for certain channels only to overwrite the behavior set on the [settings](settings/application.md) page. Selecting *unset* will remove the overwrite and your setting will fall back to the default on the settings page.
-- **Page Size**: This will overwrite the page size per channel as described in the [settings](settings/application.md#subscriptions). Setting a value to `0` (zero) you can deactivate shorts on this channel, for example.
+#### Download Format
+Overwrite the download quality for videos from this channel.
+
+#### Auto Delete
+Automatically delete watched videos from this channel after selected days.
+
+#### Index Playlists
+Automatically add all Playlists with at least a video downloaded to your index. Only do this for channels where you care about playlists as this will slow down indexing new videos because each video will need to check if it belongs to each indexed playlist. This works best if a channel creates playlists containing videos from that channel. Also see [subscribing to Playlist](playlists.md/#playlist-overview).
+
+#### SponsorBlock
+Using [SponsorBlock](https://sponsor.ajay.app/) to get and skip sponsored content. Customize per channel: You can *disable* or *enable* SponsorBlock for certain channels only to overwrite the behavior set on the [settings](settings/application.md) page. Selecting *reset* will remove the overwrite and your setting will fall back to the default on the settings page.
+
+#### Page Size Overrides
+This will overwrite the page size per channel as described in the [settings](settings/application.md#subscriptions). By setting a value to `0` (zero) you can effectively deactivate shorts on this channel, for example.
 
 ### Downloads
 If you have any videos from this channel pending in the download queue, a *Downloads* link will show, bringing you directly to the [downloads](downloads.md) page, filtering the list by the selected channel.

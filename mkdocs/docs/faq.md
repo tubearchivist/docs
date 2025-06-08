@@ -38,7 +38,7 @@ This project is natively a container-based Docker application: There are multipl
 Docker is the only supported installation method. If you don't have any experience with Docker, consider investing the time to learn this very useful technology. Alternatively, you can find user provided installation instructions for Podman [here](installation/podman.md).
 
 ## How do I install this on Windows?
-The only supported methodology is through Docker on Windows. We don't currently have installation instructions provided, however it has been reported that some users have been successful in getting it to work with modification of the base `docker-compose.yml`. Try following the [Docker Compose](installation/docker-compose.md) instructions.
+The only supported methodology is through Docker on Windows. We don't currently have dedicated installation instructions for Windows, however users have reported that they have been successful in getting it to work using docker and docker-compose through WSL (Windows Subsystem for Linux) with modification of the base `docker-compose.yml`. Try following the [Docker Compose](installation/docker-compose.md) instructions.
 
 <!-- This question uses &lt; for `<` and &gt; for `>` because Makedocs doesn't handle the characters properly. -->
 ## Where is the .exe/.rpm/.pkg/.msi/&lt;insert installer here&gt;?
@@ -69,7 +69,7 @@ This project doesn't make any recommendations: Some people prefer to convert the
 There are too many variations of that problem to be implemented in this project, use any of the various solutions out there that fits your needs.
 
 ## Why is there no flexible naming structure?
-Unlike other similar projects, **Tube Archivist** needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly, breaking things and causing other unexpected behavior.
+Unlike other similar projects, **Tube Archivist** needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly, causing data loss in some edge cases and breaking things and causing other unexpected behavior.
 
 This project tries to be compatible with as many filesystem/OS variations out there as possible. Using channel names and titles to build file paths that can be any Unicode character is a flawed and highly error prone approach of doing that. There is always a filesystem/OS out there that proves to be incompatible with how something is named.
 

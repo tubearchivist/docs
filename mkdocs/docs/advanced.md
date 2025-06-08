@@ -83,7 +83,7 @@ ES will not start, if the data is corrupted. So, stop all containers, delete eve
 
 **Tube Archivist** will apply mapping changes at application startup for certain versions. That usually is needed when changing how an existing field is indexed. This action should be seamless and automatic, but can leave your index in a messed up state if that process gets interrupted for any reason. Common reasons could be that if you artificially limit the memory to the container, disabling the OS to dynamically manage that, or if you don't have enough available storage on the ES volume, or if you interrupt that because of your impatience (don't do that).
 
-In general the process is:
+In general the mapping update process is as follows:
 
 1. Compare existing mapping with predefined expected mapping
 	1. If that is identical, there is nothing to do
@@ -120,6 +120,10 @@ Then you can restart the container and the migration will run again. If your err
 ## Manual yt-dlp update
 !!! warning 
 	Doing this is **very likely** going to break things for you. You will want to try this out on a testing instance first. Regularly there have been subtle changes in the yt-dlp API, so only do this if you know how to debug this project by yourself, but obviously share your fixes so any problems can be dealt with before release.
+
+!!! info
+	There are also [unstable builds](https://github.com/tubearchivist/tubearchivist/blob/master/CONTRIBUTING.md#beta-testing) available, they might already have the latest yt-dlp version.
+
 This project strives for timely updates when yt-dlp makes a new release, but sometimes ideals meet reality. Also, sometimes yt-dlp has a fix published, but not yet released.
 
 **Build your own image**: Update the version in `requirements.txt` and rebuild the image from `Dockerfile`. This will use your own image, even on container rebuild.

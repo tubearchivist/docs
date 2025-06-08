@@ -7,6 +7,9 @@
 	- Workaround is to pin the Elasticsearch image to an older version, not requiring these modules: `docker.elastic.co/elasticsearch/elasticsearch:8.14.3`.
 	- That is likely going to break in the future, as this project develops, new functionality might depend on new ES versions.
 
+!!! warning "Outdated"
+	  Please review these instructions and update it to the changes introduced in [v0.5.0](https://github.com/tubearchivist/tubearchivist/releases/tag/v0.5.0).
+
 There are several different methods to install **Tube Archivist** on Synology platforms. This will focus on the available `docker` package manager implementation for Synology 7.1 and prior.<!--  and `docker-compose` implementations. -->
 
 !!! note

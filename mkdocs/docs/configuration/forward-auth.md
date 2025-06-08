@@ -24,7 +24,8 @@ Note that this automatically creates new users in the database if they do not al
     For Authentik behind NPM Proxy Manager:
     
        1. Set the 'TA_AUTH_PROXY_USERNAME_HEADER' TO:
-            - TA_AUTH_PROXY_USERNAME_HEADER=HTTP_X_AUTHENTIK_USERNAME
+            - `TA_AUTH_PROXY_USERNAME_HEADER=X_AUTHENTIK_USERNAME` (without the HTTP_ prefix)
+            - Please note that as of Tube Archivist >= 0.5.3, the forward authentication header name will be prefixed with `HTTP_` by Django, so you must omit it in `TA_AUTH_PROXY_USERNAME_HEADER`            
 
        2. In NPM Proxy Manager in the advance tab of your Proxy host modify the default sections of the setup script that was pulled from your proxy provider that starts with: '# This section should be uncommented when the "Send HTTP Basic authentication" option is 
           enabled in the proxy provider' with the following:

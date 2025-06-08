@@ -67,3 +67,6 @@ This will overwrite the page size per channel as described in the [settings](set
 
 ### Downloads
 If you have any videos from this channel pending in the download queue, a *Downloads* link will show, bringing you directly to the [downloads](downloads.md) page, filtering the list by the selected channel.
+
+### Ignored
+If you have any videos ignored from downloading, a *Ignored* link will show, bringing you directly to the [downloads](downloads.md) page, filtering the list by the selected channel.

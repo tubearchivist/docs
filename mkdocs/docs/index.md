@@ -28,6 +28,7 @@ When available, the <img src="assets/icon-gridview.png?raw=true" alt="gridview i
 You can control the video player with the following keyboard shortcuts:
 
 - `?`: Show help
+- `p`: Toggle play/pause
 - `m`: toggle mute
 - `f`: toggle fullscreen
 - `c`: toggle subtitles if available

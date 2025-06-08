@@ -60,7 +60,7 @@ This saves the thumbnail into the media file by passing `--embed-thumbnail` to y
 ## Subtitles
 
 ### Subtitle Language
-Select the subtitle language you like to download. Add a comma separated list for multiple languages. For Chinese you must specify `zh-Hans` or `zh-Hant`, specifying "zh" is invalid, otherwise the subtitle won't download successfully.
+Select the subtitle languages you like to download. Add a comma separated list for multiple languages (can be regex) or `all`, e.g. `en.*,ja` (where `en.*` is a regex pattern that matches `en` followed by 0 or more of any character). You can prefix the language code with a `-` to exclude it from the requested languages, e.g. `all,-fr`. For Chinese you must specify `zh-Hans` or `zh-Hant`, specifying "zh" is invalid, otherwise the subtitle won't download successfully. However, you can use `zh.*` to get both. Check [IANA's language subtag registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for the right language code.
 
 ### Enable Auto Generated
 This will fallback to from YouTube auto generated subtitles if subtitles from the uploader are not available. Auto generated subtitles are usually less accurate, particularly for auto translated tracks.

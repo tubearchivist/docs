@@ -14,18 +14,19 @@ Note that this automatically creates new users in the database if they do not al
 | :-------------------- | :-------- | :-------- | :------------ |
 | `TA_LOGIN_AUTH_MODE`  | `single`  | `forwardauth` | Selects authentication backends. See potential values below. Overrides `TA_LDAP`/`TA_ENABLE_AUTH_PROXY`. |
 | `TA_ENABLE_AUTH_PROXY` | `null` | `true` | *deprecated* (see below) Set to anything besides empty string to use forward proxy authentication. |
-| `TA_AUTH_PROXY_USERNAME_HEADER`| `null` | `HTTP_REMOTE_USER` | The name of the request header that the auth proxy passes to the proxied application (**Tube Archivist** in this case), so that the application can identify the user. Check the documentation of your auth proxy to get this information.[^1][^2] |
+| `TA_AUTH_PROXY_USERNAME_HEADER`| `null` | `HTTP_REMOTE_USER` | The name of the request header that the auth proxy passes to the proxied application (**Tube Archivist** in this case), so that the application can identify the user. The format of this variable's value can vary depending on the specific header and version of Tube Archivist used.[^1] Check the documentation of your auth proxy for how to configure the forwarding of header.[^2] |
 | `TA_AUTH_PROXY_LOGOUT_URL` | `null` | | The URL that **Tube Archivist** should redirect to after a logout. By default, the logout redirects to the login URL, which means the user will be automatically authenticated again. Instead, you might want to configure the logout URL of the auth proxy here. |
 
 [^1]:
-    The request headers are rewritten within **Tube Archivist**: all HTTP headers are prefixed with `HTTP_`, all letters are in uppercase, and dashes are replaced with underscores. For example, for Authelia, which passes the `Remote-User` HTTP header, the `TA_AUTH_PROXY_USERNAME_HEADER` needs to be configured as `HTTP_REMOTE_USER`.
+    The request headers are generally rewritten within **Tube Archivist**: all HTTP headers are prefixed with `HTTP_`, all letters are in uppercase, and dashes are replaced with underscores. For example, for Authelia, which passes the `Remote-User` HTTP header, the `TA_AUTH_PROXY_USERNAME_HEADER` needs to be configured as `HTTP_REMOTE_USER`.
+
+    However, as of Tube Archivist >= 0.5.3, custom headers (i.e. non-standard, which typically start with `X-`) are prefixed with `HTTP_` by Django automatically, meaning you should not include the prefix in `TA_AUTH_PROXY_USERNAME_HEADER` if using one. When in doubt, try setting this environment variable with and without the `HTTP_` prefix to see which one works for your configuration.
 
 [^2]:
     For Authentik behind NPM Proxy Manager:
     
        1. Set the 'TA_AUTH_PROXY_USERNAME_HEADER' TO:
-            - `TA_AUTH_PROXY_USERNAME_HEADER=X_AUTHENTIK_USERNAME` (without the HTTP_ prefix)
-            - Please note that as of Tube Archivist >= 0.5.3, the forward authentication header name will be prefixed with `HTTP_` by Django, so you must omit it in `TA_AUTH_PROXY_USERNAME_HEADER`            
+            - `TA_AUTH_PROXY_USERNAME_HEADER=X_AUTHENTIK_USERNAME` (without the HTTP_ prefix, unless using an older version of Tube Archivist, see above)
 
        2. In NPM Proxy Manager in the advance tab of your Proxy host modify the default sections of the setup script that was pulled from your proxy provider that starts with: '# This section should be uncommented when the "Send HTTP Basic authentication" option is 
           enabled in the proxy provider' with the following:

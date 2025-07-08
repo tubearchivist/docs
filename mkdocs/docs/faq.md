@@ -106,3 +106,4 @@ There are other error messages that show up from time to time and may affect onl
 - As described above, use a VPN or proxy to change your public IP, rotate every so often.
 - In some cases if you are using [your cookie](settings/application.md#cookie), this can be an account level ban and YouTube will block all requests from that cookie/account. Sometimes refreshing your cookie will work around that, but most likely only temporarily. Only known solution for these cases is to remove your cookie.
 - Conversely in some cases, adding your cookie can be a solution if you didn't use your cookie previously, as user authenticated requests are sometimes allowed to pass.
+- Sometimes a newer version of yt-dlp has fixes and workarounds.

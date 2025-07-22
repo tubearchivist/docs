@@ -22,7 +22,13 @@ The **Start Download** icon <img src="/assets/icon-download.png?raw=true" alt="d
 After downloading, **Tube Archivist** tries to add new videos to already indexed playlists and, if activated on the settings page, get comments for the new videos.
 
 ## Add to Download Queue
-The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to manually add videos to the download queue. Add one item per line. The *Add to queue* will add the videos as regular items to the queue, where you'll be able to ignore undesired videos before starting the queue. If you add them with *Download Now*, this will start the download automatically with priority. 
+The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to manually add videos to the download queue. Add one item per line. This will _not_ add videos already in the queue, previously ignored or already indexed.
+
+### Fast add
+This will add videos in bulk to the queue, at the expense of having less metadata and no thumbnail available in the download queue. The full metadata will get index as usual after downloading. Particularly usefull to add whole channels and playlists in bulk, has no effect when just adding a single video.
+
+### Auto download
+If you add them with *Download Now*, this will start the download automatically with priority. 
 
 You have a few options:
 
@@ -38,7 +44,22 @@ Add a [playlist](urls.md#playlist) to download all videos in the list. When addi
 ## The Download Queue
 Below the three action buttons is the download queue. New items will get added to the end of the queue, the next video to download once you click on **Start Download** will be the first in the list.
 
-You can filter the download queue with the **filter** dropdown box, the filter will show once you have more than one channel in the download queue. Select the channel to filter by name, the number in parentheses indicates how many videos you have pending from this channel. Reset the filter by selecting *all* from the dropdown. This will generate links for the top 30 channels with pending videos.
+### Advanced Filtering and Bulk Actions
+Clicking on **Show Advanced** opens additional filter and bulk action options:  
+
+- Filter by types: Shorts, Streams or regular Videos
+- Filter by channel: If there are videos from more than one channel in the queue. This generates links for the top 30 channels in the queue.
+- Filter by error state: Filter by videos with or without any errors
+- Search by video title
+- All these are filters are applied combined and you'll see the intersections
+
+Then the **Bulk Actions** are applied to the filters as indicated:
+
+- Ignore: Bulk ignore, shows when showing **Pending Videos** only.
+- Add to queue: Bulk add ignored videos back to queue, shows when showing **Ignored Videos** only.
+- Download now: Start downloading selected videos with priority
+- Clear errors: Clear any error messages from
+- Forget: This forgets the videos from the queue
 
 Every video in the download queue has two buttons:
 
@@ -52,5 +73,3 @@ Every video in the ignored list has two buttons:
 
 - **Forget**: This will delete the item from the ignored list.
 - **Add to Queue**: This will add the ignored video back to the download queue.  
-
-You can delete your download queue from the [Settings](settings/actions.md) page.

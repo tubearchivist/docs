@@ -62,7 +62,8 @@ docker exec -it tubearchivist apprise -b "Hello from TA" <link>
 ```
 
 !!! note "Notes:"
-    - This will only send notifications when a task returns anything, e.g. if a [Rescan Subscriptions](#rescan-subscriptions) task doesn't find any new videos to add, **no** notification will will be sent.
+    - This will only send notifications when a task returns anything, e.g. if a [Rescan Subscriptions](#rescan-subscriptions) task doesn't find any new videos to add, **no** notification will be sent.
     - Due to the fact that Apprise is running inside a container, [desktop notifications](https://github.com/caronc/apprise/wiki#desktop-notification-services) will not work.
-    - Notification services that require additional libraries that what is provided by Apprise are not supported. If you really *need* to use services that require additional libraries, you can use Apprise in a standalone server as a proxy or manually install what you need in the container.
-    - You can add mutiple notifications for the same task by saving and selecting the same task multiple times.
+    - Notification services that require additional libraries then what is provided by Apprise are not supported. If you really *need* to use services that require additional libraries, you can use Apprise in a standalone server as a proxy or manually install what you need in the container.
+    - You can add multiple notifications for the same task by saving and selecting the same task multiple times.
+    - When adding a new URL, you can click on **Test** to send a test notification to verify your URL is working. Monitor the container logs for errors.

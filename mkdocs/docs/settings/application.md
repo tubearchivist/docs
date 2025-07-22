@@ -21,8 +21,20 @@ Same as above, but for a channel's live streams. *Disable by setting to 0.*
 ### Shorts page Size
 Same as above, but for a channel's shorts videos. *Disable by setting to 0.*
 
+### Playlist page size
+Page size used for playlist subscriptions.
+
 ### Auto Start
 This will prioritize and automatically start downloading videos from your subscriptions over regular videos added to the download queue.
+
+### Fast add
+Activating that will add videos from channels and playlists in bulk instead of one by one. That is significantly faster but can't extract all metadata. Notably this won't extract: 
+
+- Thumbnails: As the thumbnails returned from the channel and playlist pages are much lower resolution.
+- Date published: Although the sort order will be correct, e.g. newer videos will be on top.
+- Duration: In most cases duration will not be available.
+
+This only applies to the download queue. All metadata is extracted and indexed after downloading.
 
 ## Downloads
 Settings related to the download process.

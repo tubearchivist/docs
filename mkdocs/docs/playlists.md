@@ -38,4 +38,5 @@ Each playlist will get a dedicated playlist detail page accessible at `/playlist
 - The **Mark as Watched** and **Mark as Unwatched** buttons will mark all videos of this playlist as watched/unwatched.
 - The **Reindex** button will reindex the playlist metadata.
 - The **Reindex Videos** button will reindex all videos from this playlist.
+- The **Switch sort order** toggle will change the sort order from top to bottom to bottom to top. This might be needed if you are subscribed to the playlists and the playlist owner adds new videos to the bottom.
 - The **Delete Playlist** button will give you the option to delete just the *metadata*, which won't delete any media files, or *delete all*, which will delete the metadata plus all videos belonging to this playlist.

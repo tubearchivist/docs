@@ -126,7 +126,7 @@ Then you can restart the container and the migration will run again. If your err
 
 This project strives for timely updates when yt-dlp makes a new release, but sometimes ideals meet reality. Also, sometimes yt-dlp has a fix published, but not yet released.
 
-To update, set the [TA_AUTO_UPDATE_YTDLP](https://docs.tubearchivist.com/installation/env-vars/#ta_auto_update_ytdlp) environment variable and restart your container. If this makes things worse and you wish to undo the update, unset the variable and recreate your container.
+To update, set the [TA_AUTO_UPDATE_YTDLP](installation/env-vars.md#ta_auto_update_ytdlp) environment variable and restart your container. If this makes things worse and you wish to undo the update, unset the variable and recreate your container.
 
 ## Erase errors from download queue
 Sometimes videos will fail to download. That can be because of expected errors:

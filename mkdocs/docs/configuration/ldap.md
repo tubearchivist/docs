@@ -14,6 +14,8 @@ You can enable and configure LDAP with the following environment variables:
 | `TA_LDAP_USER_ATTR_MAP_EMAIL` | `mail` |`mail` | Bind attribute used to match LDAP user's EMail address |
 | `TA_LDAP_USER_BASE` | `null` | `ou=users,dc=your-server` | Search base for user filter. |
 | `TA_LDAP_USER_FILTER` | `null` | `(objectClass=user)` | Filter for valid users. Login usernames are matched using the attribute specified in `TA_LDAP_USER_ATTR_MAP_USERNAME` and should not be specified in this filter. |
+| `TA_LDAP_PROMOTE_USERNAMES_TO_SUPERUSER` | `null` | `alice,bob` | Comma separated list of users (matched based on TA_LDAP_USER_ATTR_MAP_USERNAME) which will automatically be promoted to superuser when they login. Users given superuser access will also be given staff permissions. |
+| `TA_LDAP_PROMOTE_USERNAMES_TO_STAFF` | `null` | `lisa,tom` | Comma separated list of users (matched based on TA_LDAP_USER_ATTR_MAP_USERNAME) which will automatically be promoted to staff when they login. |
 
 ## Auth Login Modes
 
@@ -37,7 +39,11 @@ For installations which require secure enforcement of LDAP-only credentials, use
 
 LDAP modes automatically create new users in the database if they do not already exist.
 
-If those accounts are  successfully authenticated using this method, they will not have administrative rights to the Dashboard (including ability to add downloads). To fix this, the preferred method is to switch to `ldap_local` and add privileges as described in the next section.
+If those accounts are  successfully authenticated using this method, they will not have administrative rights to the Dashboard (including ability to add downloads). There are two options for providing LDAP users permissions for downloading videos or performing user administration:
+- Use `ldap_local` mode and add privileges as described in the next section.
+- Use `TA_LDAP_PROMOTE_USERNAMES_TO_SUPERUSER` and `TA_LDAP_PROMOTE_USERNAMES_TO_STAFF` to configure TA to promote known usernames to have additional privileges when they first login.
+
+The `TA_LDAP_PROMOTE_USERNAMES_*` settings are based on the username matched in the `TA_LDAP_USER_ATTR_MAP_USERNAME` setting. Some configurations may allow a user to login with multiple alternative "usernames" based on LDAP attributes, but only the matched username will be promoted.
 
 ### LDAP + Local Considerations
 

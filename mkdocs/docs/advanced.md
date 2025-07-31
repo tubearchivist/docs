@@ -126,24 +126,4 @@ Then you can restart the container and the migration will run again. If your err
 
 This project strives for timely updates when yt-dlp makes a new release, but sometimes ideals meet reality. Also, sometimes yt-dlp has a fix published, but not yet released.
 
-**Build your own image**: Update the version in `requirements.txt` and rebuild the image from `Dockerfile`. This will use your own image, even on container rebuild.
-
-**Update yt-dlp on its own**: You can also update the yt-dlp library alone in the container.
-
-- Restart your container for changes to take effect.
-- These changes won't persist a container rebuild from image.
-
-Update to newest regular yt-dlp release:
-
-```bash
-pip install --upgrade yt-dlp
-```
-
-To update to nightly you'll have to specify the correct `--target` folder:
-```bash
-pip install \
-    --upgrade \
-    --target=/root/.local/bin \
-    https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
-```
-This is obviously particularly likely to create problems. Also note that the `--version` command will only show the latest regular release, not a nightly version mentioned.
+To update, set the [TA_AUTO_UPDATE_YTDLP](installation/env-vars.md#ta_auto_update_ytdlp) environment variable and restart your container. If this makes things worse and you wish to undo the update, unset the variable and recreate your container.

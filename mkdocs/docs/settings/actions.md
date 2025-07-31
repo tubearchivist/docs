@@ -68,7 +68,7 @@ If the video you are trying to import is not available on YouTube any more, **Tu
 
 - The file `<base-name>.info.json` is required to extract the required information.
 - Add the thumbnail as `<base-name>.<ext>`, where valid file extensions are *.jpg*, *.png* or *.webp*. If there is no thumbnail file, **Tube Archivist** will try to extract the embedded cover from the media file or will fallback to a default thumbnail.
-- Add subtitles as `<base-name>.<lang>.vtt` where *lang* is the two letter ISO country code. This will archive all subtitle files you add to the import folder, independent from your configurations. Subtitles can be archived and used in the player, but they can't be indexed or made searchable due to the fact, that they have a very different structure than the subtitles as **Tube Archivist** needs them.
+- Add subtitles as `<base-name>.<lang>.vtt` where *lang* is the appropriate two letter ISO 639 language code. This will archive all subtitle files you add to the import folder, independent from your configurations. Subtitles can be archived and used in the player, but they can't be indexed or made searchable due to the fact, that they have a very different structure than the subtitles as **Tube Archivist** needs them.
 - For videos, where the whole channel is not available any more, TA will extract as much info as possible from the info json file.
 
 ### Some notes:

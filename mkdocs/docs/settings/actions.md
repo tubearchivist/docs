@@ -78,7 +78,7 @@ If the video you are trying to import is not available on YouTube any more, **Tu
 - A notification box will show with progress, follow the docker logs to monitor for errors.
 
 !!! tip "Start Small"
-    Starting with a small subset of the files to import to test and confirm that your settings, configurations, and files will work is recommended.
+    Starting with a small subset of the files to import to test and confirm that your settings, configurations and files will work as recommended.
 
 ## Embed thumbnails into media file
 This will write or overwrite all thumbnails in the media file using the downloaded thumbnail. This is only necessary if you didn't download the files with the option *Embed Thumbnail* enabled or you want to make sure all media files get the newest thumbnail.

@@ -65,7 +65,7 @@ Clicking the play button on the thumbnail will open the in-place player at the t
 
 Narrow down your search with these secondary keywords:
 
-- `lang`: Search for matches only within a language. Use the same two letter ISO country code as you have set on the settings page.
+- `lang`: Search for matches only within a language. Use the same two letter ISO 639 language code as you have set on the settings page.
 - `source`: Can either be *auto* to search through auto generated subtitles only or *user* to search through user uploaded subtitles only.
 
 **Example**:

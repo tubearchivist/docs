@@ -1,6 +1,6 @@
 # build the docs and load static files into nginx
 
-FROM python:3.11.8-slim-bookworm AS builder
+FROM python:3.11.13-slim-bookworm AS builder
 ENV PATH=/root/.local/bin:$PATH
 
 RUN apt-get update -y && apt-get install -y libcairo2

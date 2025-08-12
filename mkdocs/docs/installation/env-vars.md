@@ -84,10 +84,12 @@ Configure TA to use LDAP for authentication. See [configuration/ldap](../configu
 ## TA_AUTO_UPDATE_YTDLP
 <span class="tag-optional">Optional</span>
 <span class="tag-neutral">Type: String</span>  
-Configure TA to automatically install the latest yt-dlp on container start. Enable by setting to `release` or `nightly` depending on which version you would like to install.
-
 !!! warning "Potential Incompatibility"
-    Future versions of yt-dlp may not be compatible with your current Tube Archivist version. If you encounter errors while downloading, remove the value and recreate your container to restore the default version.
+    Future versions of yt-dlp may not be compatible with your current Tube Archivist version. Subtle changes in yt-dlp might lead to unexpected, incomplete or wrong data getting indexed. If you use this, make sure to have your backup up to date and monitor that the metadata indexed is as expected.
+
+    If you are experiencing any problems, please report them, so we can address them ahead of a regular relese.
+
+Configure TA to automatically install the latest yt-dlp on container start. Enable by setting to `release` or `nightly` depending on which version you would like to install.
 
 ## DISABLE_STATIC_AUTH
 <span class="tag-optional">Optional</span>

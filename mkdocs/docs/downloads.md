@@ -25,7 +25,14 @@ After downloading, **Tube Archivist** tries to add new videos to already indexed
 The **Add to Download Queue** icon <img src="/assets/icon-add.png?raw=true" alt="add icon" width="20px" style="margin:0 5px;"> opens a text field to manually add videos to the download queue. Add one item per line. This will _not_ add videos already in the queue, previously ignored or already indexed.
 
 ### Fast add
-This will add videos in bulk to the queue, at the expense of having less metadata and no thumbnail available in the download queue. The full metadata will get index as usual after downloading. Particularly usefull to add whole channels and playlists in bulk, has no effect when just adding a single video.
+This will add videos in bulk to the queue, at the expense of having less metadata and no thumbnail available in the download queue. The full metadata will get index as usual after downloading. Particularly usefull when adding whole channels and playlists, has no effect when adding single videos.
+
+### Re-Download
+In some cases you might want to re-download videos. For example if you unexpectedly got a lower resolution or if you want to upgrade the archive with better quality media files.
+
+- This will add, download and index videos again, even if they are already in your archive.
+- This will _not_ add videos already in the queue or previously ignored.
+- Also see [multiselect](index.md#multiselect).
 
 ### Auto download
 If you add them with *Download Now*, this will start the download automatically with priority. 

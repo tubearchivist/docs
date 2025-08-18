@@ -58,7 +58,7 @@ Clicking on **Show Advanced** opens additional filter and bulk action options:
 - Filter by channel: If there are videos from more than one channel in the queue. This generates links for the top 30 channels in the queue.
 - Filter by error state: Filter by videos with or without any errors
 - Search by video title
-- All these are filters are applied combined and you'll see the intersections
+- All these filters are applied in combination and you'll see the intersections. E.g. All failed streams from the selected channel.
 
 Then the **Bulk Actions** are applied to the filters as indicated:
 

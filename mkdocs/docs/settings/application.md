@@ -152,6 +152,16 @@ Enabling this integration will embed an additional third-party JS library from *
   - You need the following headers: `Content-Type`, `Accept-Encoding`, and `Range`. Note that the last two headers, `Accept-Encoding` and `Range`, are additional headers that you may not have needed previously.
   - Wildcards "*" can not be used for the `Access-Control-Allow-Origin` header. If the page has protected media content, it must use a domain instead of a wildcard.  
 
+## Membership
+Become a sponsor of this project to unlock additional membership perks. See [members.tubearchivist.com](https://members.tubearchivist.com) for more details.
+
+- Enter the membership API key here available from [members.tubearchivist.com/profile](https://members.tubearchivist.com/profile).
+- Once entered, click on "Validate" to check your profile.
+- Click on "Sync Subscriptions" to mirror your local subscriptions with the membership platform.
+  - This only works if your local subscriptions are within the limits of your sponsor tier.
+  - This automatically syncs your video, shorts and streams preferences.
+  - Alternatively go to [members.tubearchivist.com/subscriptions](https://members.tubearchivist.com/subscriptions) and add your channels there.
+
 ## Snapshots
 !!! info
     This will make a snapshot of your metadata index only. No media files or additional configuration variables you have set on the settings page will be backed up.

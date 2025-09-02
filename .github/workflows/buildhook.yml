@@ -1,0 +1,17 @@
+name: Send docs rebuild webhook
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  send-hook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send docs build webhook
+        uses: bbilly1/docker-delivery-hook-action@v1
+        with:
+          payload: '{"container_name": "docs"}'
+          secret_key: ${{ secrets.SECRET_KEY }}
+          api_endpoint: ${{ vars.API_ENDPOINT }}

@@ -10,7 +10,9 @@ description: Collection of advanced concepts and debug info.
 A loose collection of advanced debug info and actions for experienced users for troubleshooting and resolving issues. The situation or command may or may not apply to you, so only use this when you know what you are doing or as directed. Some of the below functionality might get implemented in the future in the regular UI.
 
 ## Reactivate documents
-As part of the metadata refresh task, **Tube Archivist** will mark videos, channels and playlists as deactivated if they are no longer available on YouTube. Sometimes, they may be marked as deactivated when they shouldn't have, for example if a video got reinstated after a copyright strike on YT. You can reactivate all items in bulk so the refresh task will check them again and deactivate the ones that are actually not available anymore.
+As part of the metadata refresh task, **Tube Archivist** will mark videos, channels and playlists as deactivated if they are no longer available on YouTube. Sometimes, they may be marked as deactivated when they shouldn't have, for example if a video got reinstated after a copyright strike on YT or because your requests from yt-dlp are getting blocked.  
+
+You can reactivate all items in bulk so the refresh task will check them again and deactivate the ones that are actually not available anymore.
 
 Curl commands to run within the TA container to reactivate documents:
 

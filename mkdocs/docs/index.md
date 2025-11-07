@@ -51,6 +51,7 @@ Additionally you can change the sort order to:
 The filter icon <img src="assets/icon-filter.png?raw=true" alt="gridview icon" width="20px" style="margin:0 5px;"> Shows options for filtering:
 
 - Watched state: Show watched only, unwatched only or all.
+    - That filter is individually between home page, channel and playlist videos.
 - Types: By video types, that's regular videos, shorts or streams.
 - Height: Media file height in pixels. That is useful for upgrading video resolutions or to verify if you downloaded the expected resolution. Works best in table view: <img src="assets/icon-tableview.png?raw=true" alt="gridview icon" width="20px" style="margin:0 5px;">.
 

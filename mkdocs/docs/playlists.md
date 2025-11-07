@@ -32,6 +32,10 @@ To add a playlist click on the <img src="/assets/icon-add.png?raw=true" alt="add
 You can search your indexed playlists by clicking on the search icon <img src="/assets/icon-search.png?raw=true" alt="search icon" width="20px" style="margin:0 5px;">. This will open a dedicated page.
 
 ## Playlist Detail
+
+!!! note
+    Playlist content is intented to be archived as is on YT. If the playlist owner on YT adds or removes a video from the playlist, that change will also be applied to the playlist in TA with the next metadata refresh task. If you want to decouple that, you can create a custom playlist local to your TA instance only or create your own playlists on YT.
+
 Each playlist will get a dedicated playlist detail page accessible at `/playlist/<playlist-id>/` of your **Tube Archivist** instance. This page shows all the videos you have downloaded from this playlist.
 
 - If you are subscribed to the playlist, an Unsubscribe button will show, otherwise the Subscribe button will show.

@@ -99,6 +99,8 @@ The `ta` tag is a json object and contains the complete metadata as indexed in T
     print(metadata)
     ```
 
+Also see [settings/embed-metadata-into-media-file](actions.md/#embed-metadata-into-media-file) to update metadata into existing files.
+
 ### Embed Thumbnail
 This saves the thumbnail into the media file by passing `--embed-thumbnail` to yt-dlp.
 

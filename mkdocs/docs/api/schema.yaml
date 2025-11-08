@@ -1,0 +1,4408 @@
+openapi: 3.0.3
+info:
+  title: Tube Archivist API
+  version: v0.5.8
+  description: API documentation for Tube Archivist backend.
+paths:
+  /api/appsettings/backup/:
+    get:
+      operationId: appsettings_backup_retrieve
+      description: get list of available backup files
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BackupFile'
+          description: ''
+    post:
+      operationId: appsettings_backup_create
+      description: start new backup file task
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
+  /api/appsettings/backup/{filename}/:
+    get:
+      operationId: appsettings_backup_retrieve_2
+      description: get single backup
+      parameters:
+      - in: path
+        name: filename
+        schema:
+          type: string
+        required: true
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BackupFile'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: file not found
+    post:
+      operationId: appsettings_backup_create_2
+      description: start new task to restore backup file
+      parameters:
+      - in: path
+        name: filename
+        schema:
+          type: string
+        required: true
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: file not found
+    delete:
+      operationId: appsettings_backup_destroy
+      description: delete backup file
+      parameters:
+      - in: path
+        name: filename
+        schema:
+          type: string
+        required: true
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: file deleted
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: file not found
+  /api/appsettings/config/:
+    get:
+      operationId: appsettings_config_retrieve
+      description: get app config
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfig'
+          description: ''
+    post:
+      operationId: appsettings_config_create
+      description: update config values, allows partial update
+      tags:
+      - appsettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppConfig'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AppConfig'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AppConfig'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppConfig'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+  /api/appsettings/cookie/:
+    get:
+      operationId: appsettings_cookie_retrieve
+      description: get cookie validation status
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CookieValidation'
+          description: ''
+    post:
+      operationId: appsettings_cookie_create
+      description: validate cookie
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CookieValidation'
+          description: ''
+    put:
+      operationId: appsettings_cookie_update
+      description: handle put request
+      tags:
+      - appsettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CookieUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CookieUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CookieUpdate'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CookieValidation'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+    delete:
+      operationId: appsettings_cookie_destroy
+      description: delete the cookie
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: Cookie revoked
+  /api/appsettings/membership/profile/:
+    get:
+      operationId: appsettings_membership_profile_retrieve
+      description: get profile
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MembershipProfile'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+  /api/appsettings/membership/sync/:
+    post:
+      operationId: appsettings_membership_sync_create
+      description: post request
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/appsettings/membership/token/:
+    get:
+      operationId: appsettings_membership_token_retrieve
+      description: get token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: appsettings_membership_token_create
+      description: add token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: appsettings_membership_token_destroy
+      description: delete token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/appsettings/potoken/:
+    get:
+      operationId: appsettings_potoken_retrieve
+      description: get PO token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PoToken'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: PO token not found
+    post:
+      operationId: appsettings_potoken_create
+      description: Update PO token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PoToken'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+    delete:
+      operationId: appsettings_potoken_destroy
+      description: delete PO token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: PO token revoked
+  /api/appsettings/snapshot/:
+    get:
+      operationId: appsettings_snapshot_retrieve
+      description: get available snapshots with metadata
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotList'
+          description: ''
+    post:
+      operationId: appsettings_snapshot_create
+      description: take snapshot now
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotCreateResponse'
+          description: ''
+  /api/appsettings/snapshot/{snapshot_id}/:
+    get:
+      operationId: appsettings_snapshot_retrieve_2
+      description: handle get request
+      parameters:
+      - in: path
+        name: snapshot_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotItem'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: snapshot not found
+    post:
+      operationId: appsettings_snapshot_create_2
+      description: restore snapshot
+      parameters:
+      - in: path
+        name: snapshot_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotRestoreResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+    delete:
+      operationId: appsettings_snapshot_destroy
+      description: delete snapshot from index
+      parameters:
+      - in: path
+        name: snapshot_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: delete snapshot from index
+  /api/appsettings/token/:
+    get:
+      operationId: appsettings_token_retrieve
+      description: get your API token
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: ''
+    delete:
+      operationId: appsettings_token_destroy
+      description: delete your API token, new will get created on next get
+      tags:
+      - appsettings
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: delete token
+  /api/channel/:
+    get:
+      operationId: channel_retrieve
+      description: get request
+      parameters:
+      - in: query
+        name: filter
+        schema:
+          enum:
+          - subscribed
+          - unsubscribed
+          type: string
+          minLength: 1
+        description: |-
+          * `subscribed` - subscribed
+          * `unsubscribed` - unsubscribed
+      - in: query
+        name: page
+        schema:
+          type: integer
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelList'
+          description: ''
+    post:
+      operationId: channel_create
+      description: subscribe/unsubscribe to list of channels
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/channel/{channel_id}/:
+    get:
+      operationId: channel_retrieve_2
+      description: get channel detail
+      parameters:
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Channel not found
+    post:
+      operationId: channel_create_2
+      description: modify channel
+      parameters:
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChannelUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChannelUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ChannelUpdate'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelUpdate'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Channel not found
+    delete:
+      operationId: channel_destroy
+      description: delete channel
+      parameters:
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: Channel deleted
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Channel not found
+  /api/channel/{channel_id}/aggs/:
+    get:
+      operationId: channel_aggs_retrieve
+      description: get channel aggregations
+      parameters:
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelAgg'
+          description: ''
+  /api/channel/{channel_id}/nav/:
+    get:
+      operationId: channel_nav_retrieve
+      description: get navigation
+      parameters:
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelNav'
+          description: ''
+  /api/channel/search/:
+    get:
+      operationId: channel_search_retrieve
+      description: search for local channel ID
+      parameters:
+      - in: query
+        name: q
+        schema:
+          type: string
+        description: Search query string
+        required: true
+      tags:
+      - channel
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+          description: ''
+        '400':
+          description: Bad Request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Channel not found
+  /api/download/:
+    get:
+      operationId: download_retrieve
+      description: get download queue list
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+          minLength: 1
+        description: channel ID
+      - in: query
+        name: error
+        schema:
+          type: boolean
+          nullable: true
+      - in: query
+        name: filter
+        schema:
+          enum:
+          - pending
+          - ignore
+          type: string
+          minLength: 1
+        description: |-
+          * `pending` - pending
+          * `ignore` - ignore
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: q
+        schema:
+          type: string
+          minLength: 1
+        description: Search Query
+      - in: query
+        name: vid_type
+        schema:
+          enum:
+          - videos
+          - streams
+          - shorts
+          type: string
+          minLength: 1
+        description: |-
+          * `videos` - videos
+          * `streams` - streams
+          * `shorts` - shorts
+      tags:
+      - download
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadList'
+          description: ''
+    post:
+      operationId: download_create
+      description: add list of videos to download queue
+      parameters:
+      - in: query
+        name: autostart
+        schema:
+          type: boolean
+      - in: query
+        name: flat
+        schema:
+          type: boolean
+      - in: query
+        name: force
+        schema:
+          type: boolean
+      tags:
+      - download
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddToDownloadList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AddToDownloadList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AddToDownloadList'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: New async task started
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+    patch:
+      operationId: download_partial_update
+      description: bulk update status
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: error
+        schema:
+          type: boolean
+          nullable: true
+      - in: query
+        name: filter
+        schema:
+          enum:
+          - pending
+          - ignore
+          - priority
+          type: string
+          minLength: 1
+        description: |-
+          * `pending` - pending
+          * `ignore` - ignore
+          * `priority` - priority
+        required: true
+      - in: query
+        name: vid_type
+        schema:
+          enum:
+          - videos
+          - streams
+          - shorts
+          type: string
+          minLength: 1
+        description: |-
+          * `videos` - videos
+          * `streams` - streams
+          * `shorts` - shorts
+      tags:
+      - download
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedBulkUpdateDowloadData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedBulkUpdateDowloadData'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedBulkUpdateDowloadData'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: Status updated
+    delete:
+      operationId: download_destroy
+      description: bulk delete download queue items by filter
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+          minLength: 1
+        description: channel ID
+      - in: query
+        name: filter
+        schema:
+          enum:
+          - pending
+          - ignore
+          type: string
+          minLength: 1
+        description: |-
+          * `pending` - pending
+          * `ignore` - ignore
+        required: true
+      - in: query
+        name: vid_type
+        schema:
+          enum:
+          - videos
+          - streams
+          - shorts
+          type: string
+          minLength: 1
+        description: |-
+          * `videos` - videos
+          * `streams` - streams
+          * `shorts` - shorts
+      tags:
+      - download
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: Download items deleted
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+  /api/download/{video_id}/:
+    get:
+      operationId: download_retrieve_2
+      description: get download queue item
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - download
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadItem'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Download item not found
+    post:
+      operationId: download_create_2
+      description: post to video to change status
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - download
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadQueueItemUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DownloadQueueItemUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DownloadQueueItemUpdate'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadQueueItemUpdate'
+          description: Download item update
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Download item not found
+    delete:
+      operationId: download_destroy_2
+      description: delete single video from queue
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - download
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: delete download item
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Download item not found
+  /api/download/aggs/:
+    get:
+      operationId: download_aggs_retrieve
+      description: get aggs
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+          minLength: 1
+        description: channel ID
+      - in: query
+        name: filter
+        schema:
+          enum:
+          - pending
+          - ignore
+          type: string
+          minLength: 1
+        description: |-
+          * `pending` - pending
+          * `ignore` - ignore
+        required: true
+      - in: query
+        name: vid_type
+        schema:
+          enum:
+          - videos
+          - streams
+          - shorts
+          type: string
+          minLength: 1
+        description: |-
+          * `videos` - videos
+          * `streams` - streams
+          * `shorts` - shorts
+      tags:
+      - download
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadAggs'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+  /api/health/:
+    get:
+      operationId: health_retrieve
+      description: health check, no auth needed
+      tags:
+      - health
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/notification/:
+    get:
+      operationId: notification_retrieve
+      description: get all notifications
+      parameters:
+      - in: query
+        name: filter
+        schema:
+          enum:
+          - download
+          - settings
+          - channel
+          type: string
+          minLength: 1
+        description: |-
+          * `download` - download
+          * `settings` - settings
+          * `channel` - channel
+      tags:
+      - notification
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+          description: ''
+  /api/ping/:
+    get:
+      operationId: ping_retrieve
+      description: get pong
+      tags:
+      - ping
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ping'
+          description: ''
+  /api/playlist/:
+    get:
+      operationId: playlist_retrieve
+      description: get playlist list
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: subscribed
+        schema:
+          type: boolean
+          nullable: true
+      - in: query
+        name: type
+        schema:
+          enum:
+          - regular
+          - custom
+          type: string
+          minLength: 1
+        description: |-
+          * `regular` - regular
+          * `custom` - custom
+      tags:
+      - playlist
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaylistList'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+    post:
+      operationId: playlist_create
+      description: async subscribe to list of playlists
+      tags:
+      - playlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaylistBulkAdd'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PlaylistBulkAdd'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PlaylistBulkAdd'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+  /api/playlist/{playlist_id}/:
+    get:
+      operationId: playlist_retrieve_2
+      description: get playlist
+      parameters:
+      - in: path
+        name: playlist_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - playlist
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: playlist not found
+    post:
+      operationId: playlist_create_2
+      description: update subscribed state of playlist
+      parameters:
+      - in: path
+        name: playlist_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - playlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaylistSingleUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PlaylistSingleUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PlaylistSingleUpdate'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: playlist not found
+    delete:
+      operationId: playlist_destroy
+      description: delete playlist
+      parameters:
+      - in: query
+        name: delete_videos
+        schema:
+          type: boolean
+      - in: path
+        name: playlist_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - playlist
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: playlist deleted
+  /api/playlist/custom/:
+    post:
+      operationId: playlist_custom_create
+      description: create new custom playlist
+      tags:
+      - playlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaylistListCustomPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PlaylistListCustomPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PlaylistListCustomPost'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+  /api/playlist/custom/{playlist_id}/:
+    post:
+      operationId: playlist_custom_create_2
+      description: modify custom playlist
+      parameters:
+      - in: path
+        name: playlist_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - playlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaylistCustomPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PlaylistCustomPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PlaylistCustomPost'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Playlist'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: playlist not found
+  /api/refresh/:
+    get:
+      operationId: refresh_retrieve
+      description: get refresh status
+      parameters:
+      - in: query
+        name: id
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: type
+        schema:
+          enum:
+          - video
+          - channel
+          - playlist
+          type: string
+          minLength: 1
+        description: |-
+          * `video` - video
+          * `channel` - channel
+          * `playlist` - playlist
+      tags:
+      - refresh
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+    post:
+      operationId: refresh_create
+      description: add to reindex queue
+      parameters:
+      - in: query
+        name: extract_videos
+        schema:
+          type: boolean
+      tags:
+      - refresh
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshAddData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RefreshAddData'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RefreshAddData'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
+  /api/search/:
+    get:
+      operationId: search_retrieve
+      description: |-
+        handle get request
+        search through all indexes
+      tags:
+      - search
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/stats/biggestchannels/:
+    get:
+      operationId: stats_biggestchannels_retrieve
+      description: get biggest channels stats
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BiggestChannelItem'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+  /api/stats/channel/:
+    get:
+      operationId: stats_channel_retrieve
+      description: get channel stats
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelStats'
+          description: ''
+  /api/stats/download/:
+    get:
+      operationId: stats_download_retrieve
+      description: get download stats
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadStats'
+          description: ''
+  /api/stats/downloadhist/:
+    get:
+      operationId: stats_downloadhist_list
+      description: get download hist items
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DownloadHistItem'
+          description: ''
+  /api/stats/playlist/:
+    get:
+      operationId: stats_playlist_retrieve
+      description: get playlist stats
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaylistStats'
+          description: ''
+  /api/stats/video/:
+    get:
+      operationId: stats_video_retrieve
+      description: get video stats
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoStats'
+          description: ''
+  /api/stats/watch/:
+    get:
+      operationId: stats_watch_retrieve
+      description: get watched stats
+      tags:
+      - stats
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchStats'
+          description: ''
+  /api/task/by-id/{task_id}/:
+    get:
+      operationId: task_by_id_retrieve
+      description: get task by ID
+      parameters:
+      - in: path
+        name: task_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResult'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: task not found
+    post:
+      operationId: task_by_id_create
+      description: post command to task
+      parameters:
+      - in: path
+        name: task_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskIDData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskIDData'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskIDData'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: task command sent
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: task not found
+  /api/task/by-name/:
+    get:
+      operationId: task_by_name_list
+      description: get all stored task results
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskResult'
+          description: ''
+  /api/task/by-name/{task_name}/:
+    get:
+      operationId: task_by_name_retrieve
+      description: get stored task by name
+      parameters:
+      - in: path
+        name: task_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskResult'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: task name not found
+    post:
+      operationId: task_by_name_create
+      description: start new task without args
+      parameters:
+      - in: path
+        name: task_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: task name not found
+  /api/task/notification/:
+    get:
+      operationId: task_notification_retrieve
+      description: handle get request
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DynamicDict'
+          description: ''
+    post:
+      operationId: task_notification_create
+      description: create notification
+      tags:
+      - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskNotificationPost'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskNotificationPost'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskNotificationPost'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DynamicDict'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+    delete:
+      operationId: task_notification_destroy
+      description: delete notification
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: notification url deleted
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+  /api/task/notification/test/:
+    post:
+      operationId: task_notification_test_create
+      description: test notification
+      tags:
+      - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskNotificationTest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskNotificationTest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskNotificationTest'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: test notification sent
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+  /api/task/schedule/:
+    get:
+      operationId: task_schedule_retrieve
+      description: get all schedules
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomPeriodicTask'
+          description: ''
+  /api/task/schedule/{task_name}/:
+    get:
+      operationId: task_schedule_retrieve_2
+      description: get single schedule by task_name
+      parameters:
+      - in: path
+        name: task_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPeriodicTask'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: schedule not found
+    post:
+      operationId: task_schedule_create
+      description: create/update schedule for task
+      parameters:
+      - in: path
+        name: task_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreateData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskCreateData'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskCreateData'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPeriodicTask'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+    delete:
+      operationId: task_schedule_destroy
+      description: delete schedule by task_name
+      parameters:
+      - in: path
+        name: task_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - task
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: schedule deleted
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: schedule not found
+  /api/user/account/:
+    get:
+      operationId: user_account_retrieve
+      description: get user account
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+          description: ''
+  /api/user/login/:
+    post:
+      operationId: user_login_create
+      description: login with username and password
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Login'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: login successful
+  /api/user/logout/:
+    post:
+      operationId: user_logout_create
+      description: logout user from session
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: logout successful
+  /api/user/me/:
+    get:
+      operationId: user_me_retrieve
+      description: get user config
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMeConfig'
+          description: ''
+    post:
+      operationId: user_me_create
+      description: update config, allows partial update
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserMeConfig'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserMeConfig'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserMeConfig'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMeConfig'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+  /api/video/:
+    get:
+      operationId: video_retrieve
+      description: get video list
+      parameters:
+      - in: query
+        name: channel
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: height
+        schema:
+          type: integer
+      - in: query
+        name: order
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+          minLength: 1
+        description: |-
+          * `asc` - asc
+          * `desc` - desc
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: playlist
+        schema:
+          type: string
+          minLength: 1
+      - in: query
+        name: sort
+        schema:
+          enum:
+          - published
+          - downloaded
+          - views
+          - likes
+          - duration
+          - mediasize
+          - width
+          - height
+          type: string
+          minLength: 1
+        description: |-
+          * `published` - published
+          * `downloaded` - downloaded
+          * `views` - views
+          * `likes` - likes
+          * `duration` - duration
+          * `mediasize` - mediasize
+          * `width` - width
+          * `height` - height
+      - in: query
+        name: type
+        schema:
+          enum:
+          - videos
+          - streams
+          - shorts
+          type: string
+          minLength: 1
+        description: |-
+          * `videos` - videos
+          * `streams` - streams
+          * `shorts` - shorts
+      - in: query
+        name: watch
+        schema:
+          enum:
+          - watched
+          - unwatched
+          - continue
+          - null
+          type: string
+          nullable: true
+          minLength: 1
+        description: |-
+          * `watched` - watched
+          * `unwatched` - unwatched
+          * `continue` - continue
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoList'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: bad request
+  /api/video/{video_id}/:
+    get:
+      operationId: video_retrieve_2
+      description: get video
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: video not found
+    delete:
+      operationId: video_destroy
+      description: delete video
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: video deleted
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: video not found
+  /api/video/{video_id}/comment/:
+    get:
+      operationId: video_comment_retrieve
+      description: get video comments
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentItem'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: video not found
+  /api/video/{video_id}/nav/:
+    get:
+      operationId: video_nav_retrieve
+      description: get video playlist nav
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaylistNavItem'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: video not found
+  /api/video/{video_id}/progress/:
+    post:
+      operationId: video_progress_create
+      description: set video progress position in redis
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoProgressUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/VideoProgressUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/VideoProgressUpdate'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: video not found
+    delete:
+      operationId: video_progress_destroy
+      description: delete progress position
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: video progress deleted
+  /api/video/{video_id}/similar/:
+    get:
+      operationId: video_similar_list
+      description: get similar videos
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+          description: ''
+  /api/watched/:
+    post:
+      operationId: watched_create
+      description: change watched state
+      tags:
+      - watched
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchedData'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WatchedData'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WatchedData'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchedData'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+components:
+  schemas:
+    Account:
+      type: object
+      description: serialize account
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        is_staff:
+          type: boolean
+        groups:
+          type: array
+          items:
+            type: integer
+          description: The groups this user belongs to. A user will get all permissions
+            granted to each of their groups.
+        user_permissions:
+          type: array
+          items:
+            type: integer
+          description: Specific permissions for this user.
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+      required:
+      - id
+      - name
+    ActionEnum:
+      enum:
+      - create
+      - remove
+      - up
+      - down
+      - top
+      - bottom
+      type: string
+      description: |-
+        * `create` - create
+        * `remove` - remove
+        * `up` - up
+        * `down` - down
+        * `top` - top
+        * `bottom` - bottom
+    AddDownloadItem:
+      type: object
+      description: serialize single item to add
+      properties:
+        youtube_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/AddDownloadItemStatusEnum'
+      required:
+      - status
+      - youtube_id
+    AddDownloadItemStatusEnum:
+      enum:
+      - pending
+      - ignore-force
+      type: string
+      description: |-
+        * `pending` - pending
+        * `ignore-force` - ignore-force
+    AddToDownloadList:
+      type: object
+      description: serialize add to download queue data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddDownloadItem'
+      required:
+      - data
+    AppConfig:
+      type: object
+      description: serialize appconfig
+      properties:
+        subscriptions:
+          $ref: '#/components/schemas/AppConfigSub'
+        downloads:
+          $ref: '#/components/schemas/AppConfigDownloads'
+        application:
+          $ref: '#/components/schemas/AppConfigApp'
+    AppConfigApp:
+      type: object
+      description: serialize app config
+      properties:
+        enable_snapshot:
+          type: boolean
+        enable_cast:
+          type: boolean
+      required:
+      - enable_cast
+      - enable_snapshot
+    AppConfigDownloads:
+      type: object
+      description: serialize app config downloads config
+      properties:
+        limit_speed:
+          type: integer
+          nullable: true
+        sleep_interval:
+          type: integer
+          nullable: true
+        autodelete_days:
+          type: integer
+          nullable: true
+        format:
+          type: string
+          nullable: true
+        format_sort:
+          type: string
+          nullable: true
+        add_metadata:
+          type: boolean
+        add_thumbnail:
+          type: boolean
+        subtitle:
+          type: string
+          nullable: true
+        subtitle_source:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/SubtitleSourceEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        subtitle_index:
+          type: boolean
+        comment_max:
+          type: string
+          nullable: true
+        comment_sort:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/CommentSortEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        cookie_import:
+          type: boolean
+        potoken:
+          type: boolean
+        throttledratelimit:
+          type: integer
+          nullable: true
+        extractor_lang:
+          type: string
+          nullable: true
+        integrate_ryd:
+          type: boolean
+        integrate_sponsorblock:
+          type: boolean
+      required:
+      - add_metadata
+      - add_thumbnail
+      - autodelete_days
+      - comment_max
+      - comment_sort
+      - cookie_import
+      - extractor_lang
+      - format
+      - format_sort
+      - integrate_ryd
+      - integrate_sponsorblock
+      - limit_speed
+      - potoken
+      - sleep_interval
+      - subtitle
+      - subtitle_index
+      - subtitle_source
+      - throttledratelimit
+    AppConfigSub:
+      type: object
+      description: serialize app config subscriptions
+      properties:
+        channel_size:
+          type: integer
+          nullable: true
+        live_channel_size:
+          type: integer
+          nullable: true
+        shorts_channel_size:
+          type: integer
+          nullable: true
+        playlist_size:
+          type: integer
+          nullable: true
+        auto_start:
+          type: boolean
+        extract_flat:
+          type: boolean
+    AsyncTaskResponse:
+      type: object
+      description: serialize new async task
+      properties:
+        message:
+          type: string
+        task_id:
+          type: string
+        status:
+          type: string
+        filename:
+          type: string
+      required:
+      - task_id
+    BackupFile:
+      type: object
+      description: serialize backup file
+      properties:
+        filename:
+          type: string
+        file_path:
+          type: string
+        file_size:
+          type: integer
+        timestamp:
+          type: string
+        reason:
+          type: string
+      required:
+      - file_path
+      - file_size
+      - filename
+      - reason
+      - timestamp
+    BiggestChannelItem:
+      type: object
+      description: serialize biggest channel item
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        doc_count:
+          type: integer
+        duration:
+          type: integer
+        duration_str:
+          type: string
+        media_size:
+          type: integer
+      required:
+      - doc_count
+      - duration
+      - duration_str
+      - id
+      - media_size
+      - name
+    BulkUpdateDowloadDataStatusEnum:
+      enum:
+      - pending
+      - ignore
+      - priority
+      - clear_error
+      type: string
+      description: |-
+        * `pending` - pending
+        * `ignore` - ignore
+        * `priority` - priority
+        * `clear_error` - clear_error
+    Channel:
+      type: object
+      description: serialize channel
+      properties:
+        channel_id:
+          type: string
+        channel_active:
+          type: boolean
+        channel_banner_url:
+          type: string
+        channel_thumb_url:
+          type: string
+        channel_tvart_url:
+          type: string
+        channel_description:
+          type: string
+        channel_last_refresh:
+          type: string
+        channel_name:
+          type: string
+        channel_overwrites:
+          $ref: '#/components/schemas/ChannelOverwrite'
+        channel_subs:
+          type: integer
+        channel_subscribed:
+          type: boolean
+        channel_tags:
+          type: array
+          items:
+            type: string
+        channel_tabs:
+          type: array
+          items:
+            $ref: '#/components/schemas/VidTypeFilterEnum'
+        channel_views:
+          type: integer
+        _index:
+          type: string
+          title: ' index'
+        _score:
+          type: integer
+          title: ' score'
+      required:
+      - channel_active
+      - channel_banner_url
+      - channel_description
+      - channel_id
+      - channel_last_refresh
+      - channel_name
+      - channel_subs
+      - channel_subscribed
+      - channel_tabs
+      - channel_thumb_url
+      - channel_tvart_url
+      - channel_views
+    ChannelAgg:
+      type: object
+      description: serialize channel aggregation
+      properties:
+        total_items:
+          $ref: '#/components/schemas/ChannelAggBucket'
+        total_size:
+          $ref: '#/components/schemas/ChannelAggBucket'
+        total_duration:
+          $ref: '#/components/schemas/ChannelAggBucket'
+      required:
+      - total_duration
+      - total_items
+      - total_size
+    ChannelAggBucket:
+      type: object
+      description: serialize channel agg bucket
+      properties:
+        value:
+          type: integer
+        value_str:
+          type: string
+      required:
+      - value
+    ChannelList:
+      type: object
+      description: serialize channel list
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+        paginate:
+          $ref: '#/components/schemas/Pagination'
+      required:
+      - data
+      - paginate
+    ChannelNav:
+      type: object
+      description: serialize channel navigation
+      properties:
+        has_pending:
+          type: boolean
+        has_ignored:
+          type: boolean
+        has_playlists:
+          type: boolean
+        has_videos:
+          type: boolean
+        has_streams:
+          type: boolean
+        has_shorts:
+          type: boolean
+      required:
+      - has_ignored
+      - has_pending
+      - has_playlists
+      - has_shorts
+      - has_streams
+      - has_videos
+    ChannelOverwrite:
+      type: object
+      description: serialize channel overwrites
+      properties:
+        download_format:
+          type: string
+          nullable: true
+        autodelete_days:
+          type: integer
+          nullable: true
+        index_playlists:
+          type: boolean
+          nullable: true
+        integrate_sponsorblock:
+          type: boolean
+          nullable: true
+        subscriptions_channel_size:
+          type: integer
+          nullable: true
+        subscriptions_live_channel_size:
+          type: integer
+          nullable: true
+        subscriptions_shorts_channel_size:
+          type: integer
+          nullable: true
+    ChannelStats:
+      type: object
+      description: serialize channel stats
+      properties:
+        doc_count:
+          type: integer
+          nullable: true
+        active_true:
+          type: integer
+          nullable: true
+        active_false:
+          type: integer
+          nullable: true
+        subscribed_true:
+          type: integer
+          nullable: true
+        subscribed_false:
+          type: integer
+          nullable: true
+      required:
+      - active_false
+      - active_true
+      - doc_count
+      - subscribed_false
+      - subscribed_true
+    ChannelUpdate:
+      type: object
+      description: update channel
+      properties:
+        channel_subscribed:
+          type: boolean
+        channel_overwrites:
+          $ref: '#/components/schemas/ChannelOverwrite'
+    CommentItem:
+      type: object
+      description: serialize comment item
+      properties:
+        comment_id:
+          type: string
+        comment_text:
+          type: string
+        comment_timestamp:
+          type: integer
+        comment_time_text:
+          type: string
+        comment_likecount:
+          type: integer
+        comment_is_favorited:
+          type: boolean
+        comment_author:
+          type: string
+        comment_author_id:
+          type: string
+        comment_author_thumbnail:
+          type: string
+          format: uri
+        comment_author_is_uploader:
+          type: boolean
+        comment_parent:
+          type: string
+        comment_replies:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommentThreadItem'
+      required:
+      - comment_author
+      - comment_author_id
+      - comment_author_is_uploader
+      - comment_author_thumbnail
+      - comment_id
+      - comment_is_favorited
+      - comment_likecount
+      - comment_parent
+      - comment_replies
+      - comment_text
+      - comment_time_text
+      - comment_timestamp
+    CommentSortEnum:
+      enum:
+      - top
+      - new
+      type: string
+      description: |-
+        * `top` - top
+        * `new` - new
+    CommentThreadItem:
+      type: object
+      description: serialize comment thread item
+      properties:
+        comment_id:
+          type: string
+        comment_text:
+          type: string
+        comment_timestamp:
+          type: integer
+        comment_time_text:
+          type: string
+        comment_likecount:
+          type: integer
+        comment_is_favorited:
+          type: boolean
+        comment_author:
+          type: string
+        comment_author_id:
+          type: string
+        comment_author_thumbnail:
+          type: string
+          format: uri
+        comment_author_is_uploader:
+          type: boolean
+        comment_parent:
+          type: string
+      required:
+      - comment_author
+      - comment_author_id
+      - comment_author_is_uploader
+      - comment_author_thumbnail
+      - comment_id
+      - comment_is_favorited
+      - comment_likecount
+      - comment_parent
+      - comment_text
+      - comment_time_text
+      - comment_timestamp
+    CookieUpdate:
+      type: object
+      description: serialize cookie to update
+      properties:
+        cookie:
+          type: string
+      required:
+      - cookie
+    CookieValidation:
+      type: object
+      description: serialize cookie validation response
+      properties:
+        cookie_enabled:
+          type: boolean
+        status:
+          type: boolean
+        validated:
+          type: integer
+        validated_str:
+          type: string
+      required:
+      - cookie_enabled
+    CustomPeriodicTask:
+      type: object
+      description: serialize CustomPeriodicTask
+      properties:
+        name:
+          type: string
+          description: Short Description For This Task
+          maxLength: 200
+        schedule:
+          type: string
+        schedule_human:
+          type: string
+        last_run_at:
+          type: string
+          format: date-time
+        config:
+          type: object
+          additionalProperties: {}
+      required:
+      - config
+      - last_run_at
+      - name
+      - schedule
+      - schedule_human
+    DownloadAggBucket:
+      type: object
+      description: serialize bucket
+      properties:
+        key:
+          type: array
+          items:
+            type: string
+        key_as_string:
+          type: string
+        doc_count:
+          type: integer
+      required:
+      - doc_count
+      - key
+      - key_as_string
+    DownloadAggs:
+      type: object
+      description: serialize download channel bucket aggregations
+      properties:
+        doc_count_error_upper_bound:
+          type: integer
+        sum_other_doc_count:
+          type: integer
+        buckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/DownloadAggBucket'
+      required:
+      - buckets
+      - doc_count_error_upper_bound
+      - sum_other_doc_count
+    DownloadHistItem:
+      type: object
+      description: serialize download hist item
+      properties:
+        date:
+          type: string
+        count:
+          type: integer
+        media_size:
+          type: integer
+      required:
+      - count
+      - date
+      - media_size
+    DownloadItem:
+      type: object
+      description: serialize download item
+      properties:
+        auto_start:
+          type: boolean
+        channel_id:
+          type: string
+        channel_indexed:
+          type: boolean
+        channel_name:
+          type: string
+        duration:
+          type: string
+        published:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/DownloadItemStatusEnum'
+        timestamp:
+          type: integer
+          nullable: true
+        title:
+          type: string
+        vid_thumb_url:
+          type: string
+          nullable: true
+        vid_type:
+          $ref: '#/components/schemas/DownloadItemVidTypeEnum'
+        youtube_id:
+          type: string
+        message:
+          type: string
+        _index:
+          type: string
+          title: ' index'
+        _score:
+          type: integer
+          title: ' score'
+      required:
+      - auto_start
+      - channel_id
+      - channel_indexed
+      - channel_name
+      - duration
+      - published
+      - status
+      - timestamp
+      - title
+      - vid_thumb_url
+      - vid_type
+      - youtube_id
+    DownloadItemStatusEnum:
+      enum:
+      - pending
+      - ignore
+      type: string
+      description: |-
+        * `pending` - pending
+        * `ignore` - ignore
+    DownloadItemVidTypeEnum:
+      enum:
+      - videos
+      - streams
+      - shorts
+      - unknown
+      type: string
+      description: |-
+        * `videos` - videos
+        * `streams` - streams
+        * `shorts` - shorts
+        * `unknown` - unknown
+    DownloadList:
+      type: object
+      description: serialize download list
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DownloadItem'
+        paginate:
+          $ref: '#/components/schemas/Pagination'
+      required:
+      - data
+      - paginate
+    DownloadQueueItemUpdate:
+      type: object
+      description: update single download queue item
+      properties:
+        status:
+          $ref: '#/components/schemas/DownloadQueueItemUpdateStatusEnum'
+      required:
+      - status
+    DownloadQueueItemUpdateStatusEnum:
+      enum:
+      - pending
+      - ignore
+      - ignore-force
+      - priority
+      type: string
+      description: |-
+        * `pending` - pending
+        * `ignore` - ignore
+        * `ignore-force` - ignore-force
+        * `priority` - priority
+    DownloadStats:
+      type: object
+      description: serialize download stats
+      properties:
+        pending:
+          type: integer
+          nullable: true
+        ignore:
+          type: integer
+          nullable: true
+        pending_videos:
+          type: integer
+          nullable: true
+        pending_shorts:
+          type: integer
+          nullable: true
+        pending_streams:
+          type: integer
+          nullable: true
+      required:
+      - ignore
+      - pending
+      - pending_shorts
+      - pending_streams
+      - pending_videos
+    DynamicDict:
+      type: object
+      properties:
+        update_subscribed:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        download_pending:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        extract_download:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        check_reindex:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        manual_import:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        run_backup:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        restore_backup:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        rescan_filesystem:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        thumbnail_check:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        resync_thumbs:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        resync_metadata:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        index_playlists:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        subscribe_to:
+          $ref: '#/components/schemas/TaskNotificationItem'
+        version_check:
+          $ref: '#/components/schemas/TaskNotificationItem'
+    ErrorResponse:
+      type: object
+      description: error message
+      properties:
+        error:
+          type: string
+      required:
+      - error
+    ExtEnum:
+      enum:
+      - json3
+      type: string
+      description: '* `json3` - json3'
+    FileSizeUnitEnum:
+      enum:
+      - binary
+      - metric
+      type: string
+      description: |-
+        * `binary` - binary
+        * `metric` - metric
+    LevelEnum:
+      enum:
+      - info
+      - error
+      type: string
+      description: |-
+        * `info` - info
+        * `error` - error
+    Login:
+      type: object
+      description: serialize login
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        remember_me:
+          allOf:
+          - $ref: '#/components/schemas/RememberMeEnum'
+          default: 'off'
+      required:
+      - password
+      - username
+    MembershipProfile:
+      type: object
+      description: serialize membership profile
+      properties:
+        id:
+          type: integer
+        user:
+          $ref: '#/components/schemas/MembershipUser'
+        sponsor_tier:
+          $ref: '#/components/schemas/Sponsortier'
+        subscription_count:
+          type: integer
+        subscription_is_max:
+          type: boolean
+      required:
+      - id
+      - sponsor_tier
+      - subscription_count
+      - subscription_is_max
+      - user
+    MembershipUser:
+      type: object
+      description: serialize user
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+      required:
+      - id
+      - username
+    Notification:
+      type: object
+      description: serialize notification messages
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        group:
+          type: string
+        api_start:
+          type: boolean
+        api_stop:
+          type: boolean
+        level:
+          $ref: '#/components/schemas/LevelEnum'
+        messages:
+          type: array
+          items:
+            type: string
+        progress:
+          type: number
+          format: double
+        command:
+          $ref: '#/components/schemas/NotificationCommandEnum'
+      required:
+      - api_start
+      - api_stop
+      - group
+      - id
+      - level
+      - messages
+      - title
+    NotificationCommandEnum:
+      enum:
+      - STOP
+      - KILL
+      type: string
+      description: |-
+        * `STOP` - STOP
+        * `KILL` - KILL
+    NullEnum:
+      enum:
+      - null
+    Pagination:
+      type: object
+      description: serialize paginate response
+      properties:
+        page_size:
+          type: integer
+        page_from:
+          type: integer
+        prev_pages:
+          type: array
+          items:
+            type: integer
+          nullable: true
+        current_page:
+          type: integer
+        max_hits:
+          type: boolean
+        params:
+          type: string
+        last_page:
+          type: integer
+        next_pages:
+          type: array
+          items:
+            type: integer
+          nullable: true
+        total_hits:
+          type: integer
+      required:
+      - current_page
+      - last_page
+      - max_hits
+      - next_pages
+      - page_from
+      - page_size
+      - params
+      - prev_pages
+      - total_hits
+    PatchedBulkUpdateDowloadData:
+      type: object
+      description: serialize data
+      properties:
+        status:
+          $ref: '#/components/schemas/BulkUpdateDowloadDataStatusEnum'
+    Ping:
+      type: object
+      description: serialize ping response
+      properties:
+        response:
+          $ref: '#/components/schemas/ResponseEnum'
+        user:
+          type: integer
+        version:
+          type: string
+        ta_update:
+          $ref: '#/components/schemas/PingUpdate'
+      required:
+      - response
+      - user
+      - version
+    PingUpdate:
+      type: object
+      description: serialize update notification
+      properties:
+        status:
+          type: boolean
+        version:
+          type: string
+        is_breaking:
+          type: boolean
+      required:
+      - is_breaking
+      - status
+      - version
+    Player:
+      type: object
+      description: serialize player
+      properties:
+        watched:
+          type: boolean
+        watched_date:
+          type: integer
+        duration:
+          type: integer
+        duration_str:
+          type: string
+        progress:
+          type: number
+          format: double
+        position:
+          type: number
+          format: double
+      required:
+      - duration
+      - duration_str
+      - watched
+    Playlist:
+      type: object
+      description: serialize playlist
+      properties:
+        playlist_active:
+          type: boolean
+        playlist_channel:
+          type: string
+        playlist_channel_id:
+          type: string
+        playlist_description:
+          type: string
+        playlist_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlaylistEntry'
+        playlist_id:
+          type: string
+        playlist_last_refresh:
+          type: string
+        playlist_name:
+          type: string
+        playlist_subscribed:
+          type: boolean
+        playlist_sort_order:
+          $ref: '#/components/schemas/PlaylistSortOrderEnum'
+        playlist_thumbnail:
+          type: string
+        playlist_type:
+          $ref: '#/components/schemas/PlaylistTypeEnum'
+        _index:
+          type: string
+          title: ' index'
+        _score:
+          type: integer
+          title: ' score'
+      required:
+      - playlist_active
+      - playlist_channel
+      - playlist_channel_id
+      - playlist_description
+      - playlist_entries
+      - playlist_id
+      - playlist_last_refresh
+      - playlist_name
+      - playlist_sort_order
+      - playlist_subscribed
+      - playlist_thumbnail
+      - playlist_type
+    PlaylistBulkAdd:
+      type: object
+      description: bulk add playlists serializers
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlaylistSingleAdd'
+      required:
+      - data
+    PlaylistCustomPost:
+      type: object
+      description: serialize playlist custom action
+      properties:
+        action:
+          $ref: '#/components/schemas/ActionEnum'
+        video_id:
+          type: string
+      required:
+      - action
+      - video_id
+    PlaylistEntry:
+      type: object
+      description: serialize single playlist entry
+      properties:
+        youtube_id:
+          type: string
+        title:
+          type: string
+        uploader:
+          type: string
+        idx:
+          type: integer
+        downloaded:
+          type: boolean
+      required:
+      - downloaded
+      - idx
+      - title
+      - uploader
+      - youtube_id
+    PlaylistList:
+      type: object
+      description: serialize list of playlists
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Playlist'
+        paginate:
+          $ref: '#/components/schemas/Pagination'
+      required:
+      - data
+      - paginate
+    PlaylistListCustomPost:
+      type: object
+      description: serialize list post custom playlist
+      properties:
+        playlist_name:
+          type: string
+      required:
+      - playlist_name
+    PlaylistNavItem:
+      type: object
+      description: serialize nav on playlist
+      properties:
+        playlist_meta:
+          $ref: '#/components/schemas/PlaylistNavMeta'
+        playlist_previous:
+          allOf:
+          - $ref: '#/components/schemas/PlaylistNavVideo'
+          nullable: true
+        playlist_next:
+          allOf:
+          - $ref: '#/components/schemas/PlaylistNavVideo'
+          nullable: true
+      required:
+      - playlist_meta
+      - playlist_next
+      - playlist_previous
+    PlaylistNavMeta:
+      type: object
+      description: serialize playlist nav meta
+      properties:
+        current_idx:
+          type: integer
+        playlist_id:
+          type: string
+        playlist_name:
+          type: string
+        playlist_channel:
+          type: string
+      required:
+      - current_idx
+      - playlist_channel
+      - playlist_id
+      - playlist_name
+    PlaylistNavVideo:
+      type: object
+      description: serialize video item on playlist nav
+      properties:
+        youtube_id:
+          type: string
+        title:
+          type: string
+        uploader:
+          type: string
+        idx:
+          type: integer
+        downloaded:
+          type: boolean
+        vid_thumb:
+          type: string
+      required:
+      - downloaded
+      - idx
+      - title
+      - uploader
+      - vid_thumb
+      - youtube_id
+    PlaylistSingleAdd:
+      type: object
+      description: single item to add
+      properties:
+        playlist_id:
+          type: string
+        playlist_subscribed:
+          $ref: '#/components/schemas/PlaylistSubscribedEnum'
+      required:
+      - playlist_id
+      - playlist_subscribed
+    PlaylistSingleUpdate:
+      type: object
+      description: update state of single playlist
+      properties:
+        playlist_subscribed:
+          type: boolean
+        playlist_sort_order:
+          $ref: '#/components/schemas/PlaylistSortOrderEnum'
+    PlaylistSortOrderEnum:
+      enum:
+      - top
+      - bottom
+      type: string
+      description: |-
+        * `top` - top
+        * `bottom` - bottom
+    PlaylistStats:
+      type: object
+      description: serialize playlists stats
+      properties:
+        doc_count:
+          type: integer
+          nullable: true
+        active_true:
+          type: integer
+          nullable: true
+        active_false:
+          type: integer
+          nullable: true
+        subscribed_false:
+          type: integer
+          nullable: true
+        subscribed_true:
+          type: integer
+          nullable: true
+      required:
+      - active_false
+      - active_true
+      - doc_count
+      - subscribed_false
+      - subscribed_true
+    PlaylistSubscribedEnum:
+      enum:
+      - true
+      type: boolean
+      description: '* `True` - True'
+    PlaylistTypeEnum:
+      enum:
+      - regular
+      - custom
+      type: string
+      description: |-
+        * `regular` - regular
+        * `custom` - custom
+    PoToken:
+      type: object
+      description: serialize PO token
+      properties:
+        potoken:
+          type: string
+      required:
+      - potoken
+    RefreshAddData:
+      type: object
+      description: add to refresh queue serializer
+      properties:
+        video:
+          type: array
+          items:
+            type: string
+        channel:
+          type: array
+          items:
+            type: string
+        playlist:
+          type: array
+          items:
+            type: string
+    RefreshResponse:
+      type: object
+      description: serialize refresh response
+      properties:
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        total_queued:
+          type: integer
+        in_queue_name:
+          type: string
+      required:
+      - state
+      - total_queued
+    RememberMeEnum:
+      enum:
+      - 'on'
+      - 'off'
+      type: string
+      description: |-
+        * `on` - on
+        * `off` - off
+    ResponseEnum:
+      enum:
+      - pong
+      type: string
+      description: '* `pong` - pong'
+    SnapshotCreateResponse:
+      type: object
+      description: serialize new snapshot creating response
+      properties:
+        snapshot_name:
+          type: string
+      required:
+      - snapshot_name
+    SnapshotItem:
+      type: object
+      description: serialize snapshot response
+      properties:
+        id:
+          type: string
+        state:
+          type: string
+        es_version:
+          type: string
+        start_date:
+          type: string
+        end_date:
+          type: string
+        end_stamp:
+          type: integer
+        duration_s:
+          type: integer
+      required:
+      - duration_s
+      - end_date
+      - end_stamp
+      - es_version
+      - id
+      - start_date
+      - state
+    SnapshotList:
+      type: object
+      description: serialize snapshot list response
+      properties:
+        next_exec:
+          type: integer
+        next_exec_str:
+          type: string
+        expire_after:
+          type: string
+        snapshots:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotItem'
+      required:
+      - expire_after
+      - next_exec
+      - next_exec_str
+      - snapshots
+    SnapshotRestoreResponse:
+      type: object
+      description: serialize snapshot restore response
+      properties:
+        accepted:
+          type: boolean
+      required:
+      - accepted
+    SortByEnum:
+      enum:
+      - published
+      - downloaded
+      - views
+      - likes
+      - duration
+      - mediasize
+      - width
+      - height
+      type: string
+      description: |-
+        * `published` - published
+        * `downloaded` - downloaded
+        * `views` - views
+        * `likes` - likes
+        * `duration` - duration
+        * `mediasize` - mediasize
+        * `width` - width
+        * `height` - height
+    SortOrderEnum:
+      enum:
+      - asc
+      - desc
+      type: string
+      description: |-
+        * `asc` - asc
+        * `desc` - desc
+    SourceEnum:
+      enum:
+      - user
+      - auto
+      type: string
+      description: |-
+        * `user` - user
+        * `auto` - auto
+    SponsorBlock:
+      type: object
+      description: serialize sponsorblock
+      properties:
+        is_enabled:
+          type: boolean
+        last_refresh:
+          type: integer
+        has_unlocked:
+          type: boolean
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SponsorBlockSegment'
+      required:
+      - is_enabled
+      - last_refresh
+      - segments
+    SponsorBlockSegment:
+      type: object
+      description: serialize sponsorblock segment
+      properties:
+        actionType:
+          type: string
+        videoDuration:
+          type: number
+          format: double
+        segment:
+          type: array
+          items:
+            type: number
+            format: double
+        votes:
+          type: integer
+        category:
+          type: string
+        UUID:
+          type: string
+        locked:
+          type: integer
+      required:
+      - UUID
+      - actionType
+      - category
+      - locked
+      - segment
+      - videoDuration
+      - votes
+    Sponsortier:
+      type: object
+      description: serialize sponsor tier
+      properties:
+        tier_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        max_subs:
+          type: integer
+      required:
+      - description
+      - max_subs
+      - name
+      - tier_id
+    StateEnum:
+      enum:
+      - running
+      - queued
+      - empty
+      - false
+      description: |-
+        * `running` - running
+        * `queued` - queued
+        * `empty` - empty
+        * `False` - False
+    Stats:
+      type: object
+      description: serialize stats
+      properties:
+        like_count:
+          type: integer
+        average_rating:
+          type: number
+          format: double
+        view_count:
+          type: integer
+        dislike_count:
+          type: integer
+    StreamItem:
+      type: object
+      description: serialize stream item
+      properties:
+        index:
+          type: integer
+        codec:
+          type: string
+        bitrate:
+          type: integer
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        width:
+          type: integer
+        height:
+          type: integer
+      required:
+      - bitrate
+      - codec
+      - index
+      - type
+    StylesheetEnum:
+      enum:
+      - dark.css
+      - light.css
+      - matrix.css
+      - midnight.css
+      - custom.css
+      type: string
+      description: |-
+        * `dark.css` - dark.css
+        * `light.css` - light.css
+        * `matrix.css` - matrix.css
+        * `midnight.css` - midnight.css
+        * `custom.css` - custom.css
+    SubtitleItem:
+      type: object
+      description: serialize subtitle item
+      properties:
+        ext:
+          $ref: '#/components/schemas/ExtEnum'
+        name:
+          type: string
+        source:
+          $ref: '#/components/schemas/SourceEnum'
+        lang:
+          type: string
+        media_url:
+          type: string
+        url:
+          type: string
+          format: uri
+      required:
+      - ext
+      - lang
+      - media_url
+      - name
+      - source
+      - url
+    SubtitleSourceEnum:
+      enum:
+      - auto
+      - user
+      type: string
+      description: |-
+        * `auto` - auto
+        * `user` - user
+    TaskCreateData:
+      type: object
+      description: serialize task create data
+      properties:
+        schedule:
+          type: string
+        config:
+          type: object
+          additionalProperties: {}
+    TaskIDData:
+      type: object
+      description: serialize task by ID POST data
+      properties:
+        command:
+          $ref: '#/components/schemas/TaskIDDataCommandEnum'
+      required:
+      - command
+    TaskIDDataCommandEnum:
+      enum:
+      - stop
+      - kill
+      type: string
+      description: |-
+        * `stop` - stop
+        * `kill` - kill
+    TaskNameEnum:
+      enum:
+      - update_subscribed
+      - download_pending
+      - extract_download
+      - check_reindex
+      - manual_import
+      - run_backup
+      - restore_backup
+      - rescan_filesystem
+      - thumbnail_check
+      - resync_thumbs
+      - resync_metadata
+      - index_playlists
+      - subscribe_to
+      - version_check
+      type: string
+      description: |-
+        * `update_subscribed` - update_subscribed
+        * `download_pending` - download_pending
+        * `extract_download` - extract_download
+        * `check_reindex` - check_reindex
+        * `manual_import` - manual_import
+        * `run_backup` - run_backup
+        * `restore_backup` - restore_backup
+        * `rescan_filesystem` - rescan_filesystem
+        * `thumbnail_check` - thumbnail_check
+        * `resync_thumbs` - resync_thumbs
+        * `resync_metadata` - resync_metadata
+        * `index_playlists` - index_playlists
+        * `subscribe_to` - subscribe_to
+        * `version_check` - version_check
+    TaskNotificationItem:
+      type: object
+      description: serialize single task notification
+      properties:
+        urls:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+      required:
+      - title
+      - urls
+    TaskNotificationPost:
+      type: object
+      description: serialize task notification POST
+      properties:
+        task_name:
+          $ref: '#/components/schemas/TaskNameEnum'
+        url:
+          type: string
+      required:
+      - task_name
+    TaskNotificationTest:
+      type: object
+      description: serialize task notification test POST
+      properties:
+        url:
+          type: string
+        task_name:
+          $ref: '#/components/schemas/TaskNameEnum'
+      required:
+      - url
+    TaskResult:
+      type: object
+      description: serialize task result stored in redis
+      properties:
+        status:
+          $ref: '#/components/schemas/TaskResultStatusEnum'
+        result:
+          type: string
+          nullable: true
+        traceback:
+          type: string
+          nullable: true
+        date_done:
+          type: string
+        name:
+          type: string
+        args:
+          type: array
+          items: {}
+        children:
+          type: array
+          items:
+            type: string
+        kwargs:
+          type: object
+          additionalProperties: {}
+        worker:
+          type: string
+        retries:
+          type: integer
+        queue:
+          type: string
+        task_id:
+          type: string
+      required:
+      - date_done
+      - name
+      - result
+      - status
+      - task_id
+      - traceback
+    TaskResultStatusEnum:
+      enum:
+      - PENDING
+      - STARTED
+      - SUCCESS
+      - FAILURE
+      - RETRY
+      - REVOKED
+      type: string
+      description: |-
+        * `PENDING` - PENDING
+        * `STARTED` - STARTED
+        * `SUCCESS` - SUCCESS
+        * `FAILURE` - FAILURE
+        * `RETRY` - RETRY
+        * `REVOKED` - REVOKED
+    TokenResponse:
+      type: object
+      description: serialize token response
+      properties:
+        token:
+          type: string
+          nullable: true
+      required:
+      - token
+    TypeEnum:
+      enum:
+      - video
+      - audio
+      type: string
+      description: |-
+        * `video` - video
+        * `audio` - audio
+    UserMeConfig:
+      type: object
+      description: serialize user me config
+      properties:
+        stylesheet:
+          $ref: '#/components/schemas/StylesheetEnum'
+        page_size:
+          type: integer
+        sort_by:
+          $ref: '#/components/schemas/SortByEnum'
+        sort_order:
+          $ref: '#/components/schemas/SortOrderEnum'
+        view_style_home:
+          $ref: '#/components/schemas/ViewStyleHomeEnum'
+        view_style_channel:
+          $ref: '#/components/schemas/ViewStylePlaylistEnum'
+        view_style_downloads:
+          $ref: '#/components/schemas/ViewStylePlaylistEnum'
+        view_style_playlist:
+          $ref: '#/components/schemas/ViewStylePlaylistEnum'
+        vid_type_filter:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/VidTypeFilterEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        grid_items:
+          type: integer
+          maximum: 7
+          minimum: 3
+        hide_watched:
+          type: boolean
+          nullable: true
+        hide_watched_channel:
+          type: boolean
+          nullable: true
+        hide_watched_playlist:
+          type: boolean
+          nullable: true
+        file_size_unit:
+          $ref: '#/components/schemas/FileSizeUnitEnum'
+        show_ignored_only:
+          type: boolean
+        show_subed_only:
+          type: boolean
+          nullable: true
+        show_subed_only_playlists:
+          type: boolean
+          nullable: true
+        show_help_text:
+          type: boolean
+      required:
+      - file_size_unit
+      - grid_items
+      - hide_watched
+      - hide_watched_channel
+      - hide_watched_playlist
+      - page_size
+      - show_help_text
+      - show_ignored_only
+      - show_subed_only
+      - show_subed_only_playlists
+      - sort_by
+      - sort_order
+      - stylesheet
+      - vid_type_filter
+      - view_style_channel
+      - view_style_downloads
+      - view_style_home
+      - view_style_playlist
+    VidTypeFilterEnum:
+      enum:
+      - videos
+      - streams
+      - shorts
+      type: string
+      description: |-
+        * `videos` - videos
+        * `streams` - streams
+        * `shorts` - shorts
+    Video:
+      type: object
+      description: serialize video item
+      properties:
+        active:
+          type: boolean
+        category:
+          type: array
+          items:
+            type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+        comment_count:
+          type: integer
+          nullable: true
+        date_downloaded:
+          type: integer
+        description:
+          type: string
+        media_size:
+          type: integer
+        media_url:
+          type: string
+        player:
+          $ref: '#/components/schemas/Player'
+        playlist:
+          type: array
+          items:
+            type: string
+        published:
+          type: string
+        sponsorblock:
+          allOf:
+          - $ref: '#/components/schemas/SponsorBlock'
+          nullable: true
+        stats:
+          $ref: '#/components/schemas/Stats'
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/StreamItem'
+        subtitles:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubtitleItem'
+        tags:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+        vid_last_refresh:
+          type: string
+        vid_thumb_url:
+          type: string
+        vid_type:
+          $ref: '#/components/schemas/VidTypeFilterEnum'
+        youtube_id:
+          type: string
+        _index:
+          type: string
+          title: ' index'
+        _score:
+          type: number
+          format: double
+          title: ' score'
+      required:
+      - active
+      - category
+      - channel
+      - comment_count
+      - date_downloaded
+      - description
+      - media_size
+      - media_url
+      - player
+      - playlist
+      - published
+      - sponsorblock
+      - stats
+      - streams
+      - subtitles
+      - tags
+      - title
+      - vid_last_refresh
+      - vid_thumb_url
+      - vid_type
+      - youtube_id
+    VideoList:
+      type: object
+      description: serialize video list
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Video'
+        paginate:
+          $ref: '#/components/schemas/Pagination'
+      required:
+      - data
+      - paginate
+    VideoProgressUpdate:
+      type: object
+      description: serialize progress update data
+      properties:
+        position:
+          type: number
+          format: double
+          default: 0.0
+    VideoStats:
+      type: object
+      description: serialize video stats
+      properties:
+        doc_count:
+          type: integer
+        media_size:
+          type: integer
+        duration:
+          type: integer
+        duration_str:
+          type: string
+        type_videos:
+          allOf:
+          - $ref: '#/components/schemas/VideoStatsItem'
+          nullable: true
+        type_shorts:
+          allOf:
+          - $ref: '#/components/schemas/VideoStatsItem'
+          nullable: true
+        type_streams:
+          allOf:
+          - $ref: '#/components/schemas/VideoStatsItem'
+          nullable: true
+        active_true:
+          allOf:
+          - $ref: '#/components/schemas/VideoStatsItem'
+          nullable: true
+        active_false:
+          allOf:
+          - $ref: '#/components/schemas/VideoStatsItem'
+          nullable: true
+      required:
+      - active_false
+      - active_true
+      - doc_count
+      - duration
+      - duration_str
+      - media_size
+      - type_shorts
+      - type_streams
+      - type_videos
+    VideoStatsItem:
+      type: object
+      description: serialize video stats item
+      properties:
+        doc_count:
+          type: integer
+        media_size:
+          type: integer
+        duration:
+          type: integer
+        duration_str:
+          type: string
+      required:
+      - doc_count
+      - duration
+      - duration_str
+      - media_size
+    ViewStyleHomeEnum:
+      enum:
+      - grid
+      - list
+      - table
+      type: string
+      description: |-
+        * `grid` - grid
+        * `list` - list
+        * `table` - table
+    ViewStylePlaylistEnum:
+      enum:
+      - grid
+      - list
+      type: string
+      description: |-
+        * `grid` - grid
+        * `list` - list
+    WatchItemStats:
+      type: object
+      description: serialize watch item stats
+      properties:
+        duration:
+          type: integer
+        duration_str:
+          type: string
+        progress:
+          type: number
+          format: double
+        items:
+          type: integer
+      required:
+      - duration
+      - duration_str
+      - items
+      - progress
+    WatchStats:
+      type: object
+      description: serialize watch stats
+      properties:
+        total:
+          allOf:
+          - $ref: '#/components/schemas/WatchTotalStats'
+          nullable: true
+        unwatched:
+          allOf:
+          - $ref: '#/components/schemas/WatchItemStats'
+          nullable: true
+        watched:
+          allOf:
+          - $ref: '#/components/schemas/WatchItemStats'
+          nullable: true
+      required:
+      - total
+      - unwatched
+      - watched
+    WatchTotalStats:
+      type: object
+      description: serialize total watch stats
+      properties:
+        duration:
+          type: integer
+        duration_str:
+          type: string
+        items:
+          type: integer
+      required:
+      - duration
+      - duration_str
+      - items
+    WatchedData:
+      type: object
+      description: mark as watched serializer
+      properties:
+        id:
+          type: string
+        is_watched:
+          type: boolean
+      required:
+      - id
+      - is_watched
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"

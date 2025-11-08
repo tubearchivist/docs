@@ -1,0 +1,39 @@
+.scheme-container,
+.try-out,
+.authorization__btn {
+  display: none;
+}
+
+h2,
+p,
+td,
+th,
+li,
+.parameter__name,
+.model-title,
+.models-control {
+  color: #eeeeee !important;
+}
+
+.section.models {
+  border-color: #eeeeee !important;
+}
+
+a {
+  color: #97d4c8 !important;
+}
+
+input[disabled] {
+  background-color: #858585;
+}
+
+.opblock-section-header {
+  background: #eeeeee !important;
+}
+
+.model-toggle,
+.models-control svg,
+.opblock-control-arrow,
+.expand-operation {
+  filter: invert(100%);
+}

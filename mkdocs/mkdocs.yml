@@ -70,3 +70,8 @@ plugins:
         color: "#eeeeee"
   - search:
       lang: en
+  - swagger-ui-tag:
+      background: ""
+      tryItOutEnabled: false
+      extra_css:
+          - stylesheets/apidocs.css

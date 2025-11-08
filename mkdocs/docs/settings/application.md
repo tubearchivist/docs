@@ -75,6 +75,13 @@ This saves:
 
 The `ta` tag is a json object and contains the complete metadata as indexed in TA. That can be advantageous to embed directly in the file, e.g. for data recovery, portability or reusing of the media files.
 
+This includes, based on your configurations:
+
+- **Video**: Full video metadata, channel metadata is part of this
+- **Comments**: All comments
+- **Subtitles**: These are the full text segments as indexed and optimized for searching
+- **Playlists**: Full playlist metadata if the video is part of any Playlist/s
+
 ??? "Examples accessing `ta` metadata"
     Using ffprobe:
 

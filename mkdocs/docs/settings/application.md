@@ -64,7 +64,40 @@ This allows you to change how yt-dlp sorts formats by passing `--format-sort` to
 Some channels provide translated video titles and descriptions. Add the two letter ISO language code to set your prefered default language. This will only have an effect if the uploader adds translations. Not all language codes are supported, see the [documentation](https://github.com/yt-dlp/yt-dlp#youtube) (the `lang` section) for more details.
 
 ### Embed Metadata
-This saves the available tags directly into the media file by passing `--embed-metadata` to yt-dlp.
+This embeds metadata directly into the media file as tags.
+
+This saves:
+
+- Title
+- Artist (Channel Name)
+- Description
+- `ta`: That's the TA metadata as indexed.
+
+The `ta` tag is a json object and contains the complete metadata as indexed in TA. That can be advantageous to embed directly in the file, e.g. for data recovery, portability or reusing of the media files.
+
+??? "Examples accessing `ta` metadata"
+    Using ffprobe:
+
+    ```bash
+    ffprobe -v quiet -show_entries format_tags -of json video.mp4 \
+      | jq -r '.format.tags.ta
+    ```
+
+    Using [mediainfo](https://mediaarea.net/en/MediaInfo):
+    ```bash
+    mediainfo --Output=JSON video.mp4 | jq -r '.media.track.[].extra.ta'
+    ```
+
+    Using [mutagen](https://github.com/quodlibet/mutagen):
+
+    ```python
+    import json
+    from mutagen.mp4 import MP4
+
+    video = MP4("video.mp4")
+    metadata = json.loads(video.tags["----:com.tubearchivist:ta"][0].decode())
+    print(metadata)
+    ```
 
 ### Embed Thumbnail
 This saves the thumbnail into the media file by passing `--embed-thumbnail` to yt-dlp.

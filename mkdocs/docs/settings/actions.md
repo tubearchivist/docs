@@ -83,6 +83,14 @@ If the video you are trying to import is not available on YouTube any more, **Tu
 ## Embed thumbnails into media file
 This will write or overwrite all thumbnails in the media file using the downloaded thumbnail. This is only necessary if you didn't download the files with the option *Embed Thumbnail* enabled or you want to make sure all media files get the newest thumbnail.
 
+## Embed metadata into media file
+
+This starts a background task adding metadata into the media file. Is is meant to update your existing mediafiles. Also see [application/embed-metadata](application.md/#embed-metadata).
+
+!!! tip "This is slow"
+
+    This task is quite slow. Exact values will depend on your hardware and file sizes, expect this to take anywhere from 5 to 30 minutes for 1000 videos.
+
 ## ZIP file index backup
 This will backup your metadata into a zip file. The file will get stored at `/cache/backup` and will contain the necessary files to restore the Elasticsearch index formatted **nd-json** files. For data consistency, make sure there aren't any other tasks running that will change the index during the backup process. This is very slow, particularly for large archives.
 

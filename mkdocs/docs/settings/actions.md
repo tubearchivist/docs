@@ -91,6 +91,12 @@ This starts a background task adding metadata into the media file. Is is meant t
 
     This task is quite slow. Exact values will depend on your hardware and file sizes, expect this to take anywhere from 5 to 30 minutes for 1000 videos.
 
+!!! danger "Corrupted Media Files"
+    This task will fail if there are any corrupted media files. That can happen due to various reasons, like filesystem, hardware or interrupted transfers. Or specifically, if yt-dlp and ffmpeg didn't download and merge a valid mp4 file.
+
+    - This is not a bug, but a happy accident, as that informs you of any problems in the media file that might have gone unnoticed otherwise.
+    - Changes are, a redownload will fix that. Then start the task again.
+
 ## ZIP file index backup
 This will backup your metadata into a zip file. The file will get stored at `/cache/backup` and will contain the necessary files to restore the Elasticsearch index formatted **nd-json** files. For data consistency, make sure there aren't any other tasks running that will change the index during the backup process. This is very slow, particularly for large archives.
 

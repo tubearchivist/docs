@@ -1,50 +1,52 @@
 !!! abstract "Installation Instructions - Community Guides"
-    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute. 
+    These are beginner's guides/installation instructions for additional platforms generously provided by users of these platforms. When in doubt, verify the details with the [project README](https://github.com/tubearchivist/tubearchivist#installing). If you see any issues here while using these instructions, please contribute.
 
-!!! warning "Outdated"
-	  Please review these instructions and update it to the changes introduced in [v0.5.0](https://github.com/tubearchivist/tubearchivist/releases/tag/v0.5.0).
-
-Podman handles container hostname resolution slightly differently than Docker, so you need to make a few changes to the `docker-compose.yml` to get up and running.
+Podman handles some things slightly differently than Docker, so you need to make a few changes to the `docker-compose.yml` to get up and running.
 
 ### Installation Changes from Compose Instructions
 
-Follow the installation instructions for [Docker Compose](docker-compose.md), with a few additional changes to the `docker-compose.yml`.
+Follow the installation instructions for [Docker Compose](docker-compose.md), edit the `docker-compose.yml` with these additional changes:
 
-Edit the `docker-compose.yml` with these additional changes:  
+#### Configure Pod
 
-#### Tube Archivist
+Add the following to the bottom of your compose file so that all the containers will reside within the same pod:
 
-  - under `tubearchivist` > `image`:
-    prefix the container name with `docker.io/` (or the url of your container registry of choice).
-  - under `tubearchivist` > `environment`:
-    `ES_URL`: change `archivist-es` to reflect the internal IP of the computer that will be running the containers.
-    `REDIS_HOST`: change `archivist-redis` to reflect the internal IP of the computer that will be running the containers (should be the same as above).
+``` yaml
+x-podman:
+    in_pod: true
+```
 
-#### Redis
+This will allow the containers to share the same network namespace. Tube Archivist, Redis, and ElasticSearch will be able to communicate with each other using localhost (127.0.0.1) or their container names using DNS. Check here for more information on [Pod Networking](https://github.com/containers/podman/blob/main/docs/tutorials/basic_networking.md#communicating-between-containers-and-pods)
 
-  - under `archivist-redis` > `image`: 
- 	  prefix the container name with `docker.io/` again.
-  - under `archivist-redis` > `expose`: 
-    change the whole entry from `expose: ["<PORT>"]` into `ports: ["<PORT>:<PORT>"]`.
-    
-    ???+ example
-        `ports: ["6379:6379"]`
+#### Image URL
 
-#### Elasticsearch
+For each of the container `image` tags prefix the container name with `docker.io/` (or your container registry of choice).
 
-  - under `archivist-es` > `image`: 
- 	  prefix the container name with `docker.io/` again.
-  - under `archivist-es` > `expose`: 
-    change the whole entry from `expose: ["<PORT>"]` into `ports: ["<PORT>:<PORT>"]`.
-    
-    ???+ example
-        `ports: ["9200:9200"]`
+#### Redis & ElasticSearch Ports
 
-### Create service files (optional)
+For `archivist-redis` and `archivist-es` remove the whole `expose: ["<PORT>"]` entry as it is not needed when running in a pod.
 
-Since Podman doesn't run as a service, it can't start containers after reboots without some additional configuration.
+#### Auto Restarting Containers (optional)
 
-If you want to enable this behavior, you can follow [this example](https://techblog.jeppson.org/2020/04/create-podman-services-with-podman-compose/) to have `systemd` start up the containers with `podman-compose` when the computer boots up.
+To enable starting of containers after reboots you can either:
+
+* Enable the systemd podman restart service
+
+    ``` shell
+    systemctl enable podman-restart.service
+    ```
+
+    ``` yaml
+        restart: unless-stopped
+    ```
+
+    ``` yaml
+        restart: always
+    ```
+
+* Start your pod directly with systemd quadlets.
+
+[Podman systemd Docs](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html)
 
 ### Support
 

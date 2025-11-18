@@ -168,7 +168,7 @@ There is only one cookie per Tube Archivist instance. This will be shared betwee
 ## PO Token
 Also known as _proof of origin token_, this is a token required in some cases by YT to validate the requests. See the wiki on the yt-dlp repo with more info, particularly the [PO Token Guide](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide) page.
 
-## POT Provider URL
+## PO Token Provider URL
 yt-dlp offers a [plugin](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide#po-token-provider-plugins) to support for the Proof of Origin (PO) Token.
 In an effort to make it easier for the user, **Tube Archivist** has implemented the plugin:
 

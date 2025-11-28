@@ -67,8 +67,10 @@ Narrow down your search with these secondary keywords:
 
 - `lang`: Search for matches only within a language. Use the same two letter ISO 639 language code as you have set on the settings page.
 - `source`: Can either be *auto* to search through auto generated subtitles only or *user* to search through user uploaded subtitles only.
+- `channel`: Limit subtitle search to a specific channel name. Useful to filter subtitle segments belonging only to one creator or channel.
 
 **Example**:
 
 - `full:contribute to open source lang:en` search for subtitle segments matching with the words *Contribute*, *to*, *Open* or *Source* in the language *en*.
 - `full:flight simulator cockpit source:user` to search for the words *Flight*, *Simulator* or *Cockpit* from *user* uploaded subtitle segments.
+- `full:javascript channel:corey schafer` to search for subtitles containing *javascript* from *Corey Schafer’s* channel only.

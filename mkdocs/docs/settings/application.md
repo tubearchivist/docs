@@ -169,15 +169,12 @@ There is only one cookie per Tube Archivist instance. This will be shared betwee
 Also known as _proof of origin token_, this is a token required in some cases by YT to validate the requests. See the wiki on the yt-dlp repo with more info, particularly the [PO Token Guide](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide) page.
 
 ## PO Token Provider URL
-yt-dlp offers a [plugin](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide#po-token-provider-plugins) to support for the Proof of Origin (PO) Token.
-In an effort to make it easier for the user, **Tube Archivist** has implemented the plugin:
+Instruct yt-dlp to automatically fetch PO tokens from a token provider. 
 
+- [yt-dlp docs](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide#po-token-provider-plugins)
 - [bgutil-ytdlp-pot-provider](https://github.com/Brainicism/bgutil-ytdlp-pot-provider) by [Brainicism](https://github.com/Brainicism)
 
-### Installation
-The following is a suggested docker-compose.yml to use the plugin with the default **Tube Archivist** container.
-The default container creates it's own network named tubearchivist_default.
-Please customize this example to your needs.
+For a minimal installation use the provided docker container. Example: 
 
 ```yml
 services:
@@ -186,17 +183,11 @@ services:
     container_name: bgutil-provider
     restart: unless-stopped
     init: true
-    ports:
-      - "4416:4416"
-    environment:
-      - TZ=Etc/UTC
-    networks:
-      - tubearchivist_default
-
-networks:
-  tubearchivist_default:
-    external: true
+    expose:
+      - "4416"
 ```
+
+When in doubt, consult the upstream resources.
 
 ### Configuration
 If you are using the above example docker container for **bgutil-ytdlp-pot-provider**, here is an example of what the URL would be:

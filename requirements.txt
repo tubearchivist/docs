@@ -1,5 +1,5 @@
 cairosvg==2.8.2
-mkdocs-material==9.6.23
+mkdocs-material==9.7.1
 mkdocs-swagger-ui-tag==0.7.2
 mkdocs==1.6.1
-pillow==12.0.0
+pillow==12.1.0

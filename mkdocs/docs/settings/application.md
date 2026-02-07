@@ -168,6 +168,34 @@ There is only one cookie per Tube Archivist instance. This will be shared betwee
 ## PO Token
 Also known as _proof of origin token_, this is a token required in some cases by YT to validate the requests. See the wiki on the yt-dlp repo with more info, particularly the [PO Token Guide](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide) page.
 
+## PO Token Provider URL
+Instruct yt-dlp to automatically fetch PO tokens from a token provider. 
+
+- [yt-dlp docs](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide#po-token-provider-plugins)
+- [bgutil-ytdlp-pot-provider](https://github.com/Brainicism/bgutil-ytdlp-pot-provider) by [Brainicism](https://github.com/Brainicism)
+
+For a minimal installation use the provided docker container. Example: 
+
+```yml
+services:
+  bgutil-provider:
+    image: brainicism/bgutil-ytdlp-pot-provider
+    container_name: bgutil-provider
+    restart: unless-stopped
+    init: true
+    expose:
+      - "4416"
+```
+
+When in doubt, consult the upstream resources.
+
+### Configuration
+If you are using the above example docker container for **bgutil-ytdlp-pot-provider**, here is an example of what the URL would be:
+
+```text
+http://bgutil-provider:4416
+```
+
 ## Integrations
 All third party integrations of **Tube Archivist** will **always** be *opt in*.
 

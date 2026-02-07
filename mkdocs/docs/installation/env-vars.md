@@ -43,8 +43,8 @@ If you forgot your password, see [User Management/#Forgot Password](../users.md#
 <span class="tag-neutral">Type: String</span>  
 Your timezone. This is used for the scheduler. Defaults to UTC.
 
-!!! info
-    If you don't know your timezone, you can find a list [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). Enter the value from the `TZ Identifier` column. 
+!!! warning "Canonical vs Linked Timezones"
+    If you don't know your timezone, you can find a list [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). Enter the value from the `TZ Identifier` column. Use the `Canonical` values only. If you previously have used a `Linked` item, you'll need to update it to the `Canonical` value.
 
 !!! info
     There is a check at application startup comparing the `TZ` value with your existing schedules. Your schedules will update automatically to reflect the change in timezone.

@@ -88,11 +88,13 @@ ES will not start, if the data is corrupted. So, stop all containers, delete eve
 In general the mapping update process is as follows:
 
 1. Compare existing mapping with predefined expected mapping
-	1. If that is identical, there is nothing to do
-1. Else create a `_backup` of the existing index
-1. Delete the original index and create a new empty one with the new mapping in place
-1. Copy over the previously created `_backup` index to apply the new mappings
-1. Delete the now leftover `_backup` index.
+	- If that is identical, there is nothing to do
+2. If the difference is just adding a new field, that is simply added in place
+3. If the difference is a change in how an existing field is indexed, that needs a index rebuild:
+	- Reindex into a new index by appending a version to the index nummer, e.g. `ta_video_v2`.
+	- That will also remove any no longer needed fields.
+	- Delete the old index
+	- Create an alias to point all new requests to the new version of the index
 
 If you are not sure if anything is happening, you can monitor your index and `docs.count` value for each index. Those values should change over time during the process and you should get an indicator of progress happening:
 
@@ -101,23 +103,6 @@ From within the ES container:
 ```bash
 curl -u elastic:$ELASTIC_PASSWORD "localhost:9200/_cat/indices?v&s=index"
 ```
-
-If that process gets interrupted before deleting the `_backup` index and you try to run this again, you will see an error like `resource_already_exists_exception`, for example `index [ta_comment_backup/...] already exists` indicating in this case that your migration previously failed for the `ta_comment` index.
-
-First, make sure you still have the original index with the command above. After verifying, stop the TA container, then you can delete the `_backup` index, e.g. in the case of `ta_comment_backup`.
-
-```bash
-curl -XDELETE -u elastic:$ELASTIC_PASSWORD "localhost:9200/ta_comment_backup?pretty"
-```
-
-and you should get:
-```json
-{
-  "acknowledged" : true
-}
-```
-
-Then you can restart the container and the migration will run again. If your error persists, the ES and TA logs should give additional debug info.
 
 ## Manual yt-dlp update
 !!! warning 

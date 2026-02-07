@@ -71,6 +71,7 @@ This saves:
 - Title
 - Artist (Channel Name)
 - Description
+- Artwork: Cover art, channel art and playlist art
 - `ta`: That's the TA metadata as indexed.
 
 The `ta` tag is a json object and contains the complete metadata as indexed in TA. That can be advantageous to embed directly in the file, e.g. for data recovery, portability or reusing of the media files.
@@ -81,6 +82,7 @@ This includes, based on your configurations:
 - **Comments**: All comments
 - **Subtitles**: These are the full text segments as indexed and optimized for searching
 - **Playlists**: Full playlist metadata if the video is part of any Playlist/s
+- **Version**: TA version number of the embedded metadata format
 
 ??? "Examples accessing `ta` metadata"
     Using ffprobe:
@@ -108,9 +110,6 @@ This includes, based on your configurations:
 
 Also see [settings/embed-metadata-into-media-file](actions.md/#embed-metadata-into-media-file) to update metadata into existing files.
 
-### Embed Thumbnail
-This saves the thumbnail into the media file by passing `--embed-thumbnail` to yt-dlp.
-
 ## Subtitles
 
 ### Subtitle Language
@@ -129,15 +128,15 @@ Set your configuration for downloading and indexing comments. This takes the sam
 
 Example:  
 
-- `all,100,all,30`: Get 100 max-parents and 30 max-replies-per-thread.
-- `1000,all,all,50`: Get a total of 1000 comments over all, 50 replies per thread.
+- `all,100,all,30,all`: Get 100 max-parents and 30 max-replies-per-thread at any depth.
+- `1000,all,all,50,2`: Get a total of 1000 comments over all, 50 replies per thread only 2 levels of depth.
 
 ### Comment sort method
 Change sort method between *top* or *new*. The default is *top*, as decided by YouTube.
 
 - The [Refresh Metadata](scheduling.md#refresh-metadata) background task will get comments from your already archived videos, spreading the requests out over time.
 
-Archiving comments is slow as only a few comments get returned per request with yt-dlp. Choose your configuration above wisely. Tube Archivist will download comments after the download queue finishes. Your videos will already be available while the comments are getting downloaded.
+Archiving comments is slow as only a few comments get returned per request with yt-dlp. Choose your configuration above wisely. Tube Archivist will download comments after the download queue finishes during post processing. Your videos will already be available while the comments are getting downloaded.
 
 ## Cookie
 

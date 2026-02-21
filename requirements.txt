@@ -1,5 +1,6 @@
 cairosvg==2.8.2
-mkdocs-material==9.7.1
+click==8.2.1  # rc:ignore
+mkdocs-material==9.7.2
 mkdocs-swagger-ui-tag==0.7.2
 mkdocs==1.6.1
-pillow==12.1.0
+pillow==12.1.1

@@ -1,3 +1,6 @@
+!!! warning "Your help is needed"
+    This functionality is currently unmaintained. Please reach out if you are interested in taking over responsibility for maintaining this.
+
 You can enable support for authentication proxies such as Authelia, Authentik, etc.
 
 This effectively disables credentials-based authentication and instead authenticates users if a specific request header contains a known username.

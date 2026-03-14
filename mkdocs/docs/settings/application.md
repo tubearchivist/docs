@@ -191,6 +191,9 @@ services:
 
 When in doubt, consult the upstream resources.
 
+!!! warning "Match versions"
+    To avoid compatibility issues, pin the `brainicism/bgutil-ytdlp-pot-provider` container version to the same version as provided in the TA container. That version is pinned in the `backend/requirements.plugins.txt` requirement file.
+
 ### Configuration
 If you are using the above example docker container for **bgutil-ytdlp-pot-provider**, here is an example of what the URL would be:
 

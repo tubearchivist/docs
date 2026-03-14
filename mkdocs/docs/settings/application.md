@@ -84,6 +84,9 @@ This includes, based on your configurations:
 - **Playlists**: Full playlist metadata if the video is part of any Playlist/s
 - **Version**: TA version number of the embedded metadata format
 
+!!! danger "Schema can change"
+    Be aware that the schema in ES changes over time. Old outdated metadata might not be able to be restored if the schema is out of sync. Ideally after a schema change, sync the metadata again for the new version for best portability.
+
 ??? "Examples accessing `ta` metadata"
     Using ffprobe:
 

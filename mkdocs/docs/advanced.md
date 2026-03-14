@@ -98,11 +98,30 @@ In general the mapping update process is as follows:
 
 If you are not sure if anything is happening, you can monitor your index and `docs.count` value for each index. Those values should change over time during the process and you should get an indicator of progress happening:
 
-From within the ES container:
+From within the ES container get a list of your indexes :
 
 ```bash
-curl -u elastic:$ELASTIC_PASSWORD "localhost:9200/_cat/indices?v&s=index"
+curl -u elastic:$ELASTIC_PASSWORD "localhost:9200/_cat/indices/ta_*?v&s=index"
 ```
+
+### Resource already exists
+
+If you get an error like `resource_already_exists_exception` for example `"index [ta_download_v2/...] already exists"`, this means a previous migration attempt was interrupted. So according to the steps outlined above: 
+
+- double check the available indexes first. From the example above `ta_download_v2` already exists. If the older index e.g. `ta_download` also exists, that means you can simply delete the `ta_download_v2` index:
+
+```
+curl -u elastic:$ELASTIC_PASSWORD -XDELETE "localhost:9200/ta_download_v2"
+```
+
+- Double check the aliases, to make sure they point to the current index version: 
+
+```
+curl -u elastic:$ELASTIC_PASSWORD "localhost:9200/_cat/aliases/ta_*?v&s=index"
+```
+
+- if that is incorrect, refer to the [elasticsearch docs](https://www.elastic.co/docs/manage-data/data-store/aliases) on how to modify and point the alias to the correct location. 
+- after that, restart and monitor the startup logs for any errors.
 
 ## Manual yt-dlp update
 !!! warning 

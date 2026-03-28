@@ -167,9 +167,6 @@ Once imported, in addition to the advantages above, your [Watch Later](https://w
 ### Limitation
 There is only one cookie per Tube Archivist instance. This will be shared between all users.
 
-## PO Token
-Also known as _proof of origin token_, this is a token required in some cases by YT to validate the requests. See the wiki on the yt-dlp repo with more info, particularly the [PO Token Guide](https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide) page.
-
 ## PO Token Provider URL
 Instruct yt-dlp to automatically fetch PO tokens from a token provider. 
 

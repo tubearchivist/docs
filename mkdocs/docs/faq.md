@@ -90,7 +90,7 @@ Read the [docs](https://docs.tubearchivist.com/) with a comprehensive overview o
 
 ## Am I getting blocked/throttled?
 
-Heavy users of this project can run into the danger of getting blocked / throttled or soft banned from YouTube. Symptoms might not be obvious and the error messages cryptic. Users have reported messages and behavior like:
+Any users of this project can run into the danger of getting blocked / throttled or soft banned from YouTube. Symptoms might not be obvious and the error messages cryptic. Users have reported messages and behavior like:
 
 - `Sign in to confirm you’re not a bot. This helps protect our community.`
 - `Playlists that require authentication may not extract correctly without a successful webpage download` but you aren't downloading a private playlist, a sign that YouTube is blocking your requests behind authentication.
@@ -107,3 +107,4 @@ There are other error messages that show up from time to time and may affect onl
 - In some cases if you are using [your cookie](settings/application.md#cookie), this can be an account level ban and YouTube will block all requests from that cookie/account. Sometimes refreshing your cookie will work around that, but most likely only temporarily. Only known solution for these cases is to remove your cookie.
 - Conversely in some cases, adding your cookie can be a solution if you didn't use your cookie previously, as user authenticated requests are sometimes allowed to pass.
 - Sometimes a newer version of yt-dlp has fixes and workarounds.
+- Sometimes the [POT integration](https://docs.tubearchivist.com/settings/application/#po-token-provider-url) can help to make your requests look more legitimate.

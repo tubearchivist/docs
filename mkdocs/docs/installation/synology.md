@@ -4,7 +4,7 @@
 !!! danger "Compatibility Problems"
 	- As Synology is running their old kernel (currently 4.4.302+), you might face problems running Elasticsearch on your device, as newer Elasticsearch version require kernel modules not available and not backported by Synology.
 	- You will see errors like: `seccomp unavailable` and `CONFIG_SECCOMP not compiled into kernel`, `CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed`.
-	- Workaround is to pin the Elasticsearch image to an older version, not requiring these modules: `docker.elastic.co/elasticsearch/elasticsearch:8.14.3`.
+	- Workaround is to pin the Elasticsearch image to an older version, not requiring these modules: `elasticsearch:8.14.3`.
 	- That is likely going to break in the future, as this project develops, new functionality might depend on new ES versions.
 
 !!! warning "Outdated"

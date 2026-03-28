@@ -1,3 +1,6 @@
+!!! warning "Your help is needed"
+    This functionality is currently unmaintained. Please reach out if you are interested in taking over responsibility for maintaining this.
+
 You can enable and configure LDAP with the following environment variables:
 
 | Environment Variable  | Default   | Example   | Description   |

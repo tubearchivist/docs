@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Tube Archivist API
-  version: v0.5.8
+  version: v0.5.9
   description: API documentation for Tube Archivist backend.
 paths:
   /api/appsettings/backup/:
@@ -238,6 +238,34 @@ paths:
       responses:
         '204':
           description: Cookie revoked
+  /api/appsettings/manual-import/:
+    post:
+      operationId: appsettings_manual_import_create
+      description: manual import
+      tags:
+      - appsettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualImportConfig'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ManualImportConfig'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ManualImportConfig'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
   /api/appsettings/membership/profile/:
     get:
       operationId: appsettings_membership_profile_retrieve
@@ -360,6 +388,34 @@ paths:
       responses:
         '204':
           description: PO token revoked
+  /api/appsettings/rescan-filesystem/:
+    post:
+      operationId: appsettings_rescan_filesystem_create
+      description: start new task rescan filesystem task
+      tags:
+      - appsettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescanFileSystemConfig'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RescanFileSystemConfig'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RescanFileSystemConfig'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskResponse'
+          description: ''
   /api/appsettings/snapshot/:
     get:
       operationId: appsettings_snapshot_retrieve
@@ -2490,8 +2546,6 @@ components:
           nullable: true
         add_metadata:
           type: boolean
-        add_thumbnail:
-          type: boolean
         subtitle:
           type: string
           nullable: true
@@ -2512,6 +2566,9 @@ components:
           - $ref: '#/components/schemas/NullEnum'
         cookie_import:
           type: boolean
+        pot_provider_url:
+          type: string
+          nullable: true
         potoken:
           type: boolean
         throttledratelimit:
@@ -2526,7 +2583,6 @@ components:
           type: boolean
       required:
       - add_metadata
-      - add_thumbnail
       - autodelete_days
       - comment_max
       - comment_sort
@@ -2537,6 +2593,7 @@ components:
       - integrate_ryd
       - integrate_sponsorblock
       - limit_speed
+      - pot_provider_url
       - potoken
       - sleep_interval
       - subtitle
@@ -2642,12 +2699,16 @@ components:
           type: boolean
         channel_banner_url:
           type: string
+          nullable: true
         channel_thumb_url:
           type: string
+          nullable: true
         channel_tvart_url:
           type: string
+          nullable: true
         channel_description:
           type: string
+          nullable: true
         channel_last_refresh:
           type: string
         channel_name:
@@ -2666,8 +2727,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VidTypeFilterEnum'
-        channel_views:
-          type: integer
         _index:
           type: string
           title: ' index'
@@ -2676,17 +2735,12 @@ components:
           title: ' score'
       required:
       - channel_active
-      - channel_banner_url
-      - channel_description
       - channel_id
       - channel_last_refresh
       - channel_name
       - channel_subs
       - channel_subscribed
       - channel_tabs
-      - channel_thumb_url
-      - channel_tvart_url
-      - channel_views
     ChannelAgg:
       type: object
       description: serialize channel aggregation
@@ -2809,33 +2863,33 @@ components:
       type: object
       description: serialize comment item
       properties:
-        comment_id:
-          type: string
-        comment_text:
-          type: string
-        comment_timestamp:
-          type: integer
-        comment_time_text:
-          type: string
-        comment_likecount:
-          type: integer
-        comment_is_favorited:
-          type: boolean
         comment_author:
           type: string
         comment_author_id:
           type: string
+        comment_author_is_uploader:
+          type: boolean
         comment_author_thumbnail:
           type: string
           format: uri
-        comment_author_is_uploader:
+        comment_id:
+          type: string
+        comment_is_favorited:
           type: boolean
+        comment_likecount:
+          type: integer
         comment_parent:
           type: string
+        comment_text:
+          type: string
+        comment_time_text:
+          type: string
+        comment_timestamp:
+          type: integer
         comment_replies:
           type: array
-          items:
-            $ref: '#/components/schemas/CommentThreadItem'
+          items: {}
+          readOnly: true
       required:
       - comment_author
       - comment_author_id
@@ -2857,45 +2911,6 @@ components:
       description: |-
         * `top` - top
         * `new` - new
-    CommentThreadItem:
-      type: object
-      description: serialize comment thread item
-      properties:
-        comment_id:
-          type: string
-        comment_text:
-          type: string
-        comment_timestamp:
-          type: integer
-        comment_time_text:
-          type: string
-        comment_likecount:
-          type: integer
-        comment_is_favorited:
-          type: boolean
-        comment_author:
-          type: string
-        comment_author_id:
-          type: string
-        comment_author_thumbnail:
-          type: string
-          format: uri
-        comment_author_is_uploader:
-          type: boolean
-        comment_parent:
-          type: string
-      required:
-      - comment_author
-      - comment_author_id
-      - comment_author_is_uploader
-      - comment_author_thumbnail
-      - comment_id
-      - comment_is_favorited
-      - comment_likecount
-      - comment_parent
-      - comment_text
-      - comment_time_text
-      - comment_timestamp
     CookieUpdate:
       type: object
       description: serialize cookie to update
@@ -3002,6 +3017,8 @@ components:
           type: string
         duration:
           type: string
+        message:
+          type: string
         published:
           type: string
           nullable: true
@@ -3019,8 +3036,6 @@ components:
           $ref: '#/components/schemas/DownloadItemVidTypeEnum'
         youtube_id:
           type: string
-        message:
-          type: string
         _index:
           type: string
           title: ' index'
@@ -3028,13 +3043,11 @@ components:
           type: integer
           title: ' score'
       required:
-      - auto_start
       - channel_id
       - channel_indexed
       - channel_name
       - duration
       - published
-      - status
       - timestamp
       - title
       - vid_thumb_url
@@ -3139,8 +3152,6 @@ components:
           $ref: '#/components/schemas/TaskNotificationItem'
         thumbnail_check:
           $ref: '#/components/schemas/TaskNotificationItem'
-        resync_thumbs:
-          $ref: '#/components/schemas/TaskNotificationItem'
         resync_metadata:
           $ref: '#/components/schemas/TaskNotificationItem'
         index_playlists:
@@ -3160,8 +3171,11 @@ components:
     ExtEnum:
       enum:
       - json3
+      - vtt
       type: string
-      description: '* `json3` - json3'
+      description: |-
+        * `json3` - json3
+        * `vtt` - vtt
     FileSizeUnitEnum:
       enum:
       - binary
@@ -3193,6 +3207,17 @@ components:
       required:
       - password
       - username
+    ManualImportConfig:
+      type: object
+      description: serialize for manual import task
+      properties:
+        ignore_error:
+          type: boolean
+        prefer_local:
+          type: boolean
+      required:
+      - ignore_error
+      - prefer_local
     MembershipProfile:
       type: object
       description: serialize membership profile
@@ -3207,8 +3232,11 @@ components:
           type: integer
         subscription_is_max:
           type: boolean
+        is_connected:
+          type: boolean
       required:
       - id
+      - is_connected
       - sponsor_tier
       - subscription_count
       - subscription_is_max
@@ -3376,6 +3404,7 @@ components:
           type: string
         playlist_description:
           type: string
+          nullable: true
         playlist_entries:
           type: array
           items:
@@ -3404,7 +3433,6 @@ components:
       - playlist_active
       - playlist_channel
       - playlist_channel_id
-      - playlist_description
       - playlist_entries
       - playlist_id
       - playlist_last_refresh
@@ -3444,6 +3472,7 @@ components:
           type: string
         uploader:
           type: string
+          nullable: true
         idx:
           type: integer
         downloaded:
@@ -3643,6 +3672,17 @@ components:
       description: |-
         * `on` - on
         * `off` - off
+    RescanFileSystemConfig:
+      type: object
+      description: serialize rescan filesystem config
+      properties:
+        ignore_error:
+          type: boolean
+        prefer_local:
+          type: boolean
+      required:
+      - ignore_error
+      - prefer_local
     ResponseEnum:
       enum:
       - pong
@@ -3834,21 +3874,26 @@ components:
           type: integer
         dislike_count:
           type: integer
+      required:
+      - average_rating
+      - dislike_count
+      - like_count
+      - view_count
     StreamItem:
       type: object
       description: serialize stream item
       properties:
-        index:
+        bitrate:
           type: integer
         codec:
           type: string
-        bitrate:
+        height:
+          type: integer
+        index:
           type: integer
         type:
           $ref: '#/components/schemas/TypeEnum'
         width:
-          type: integer
-        height:
           type: integer
       required:
       - bitrate
@@ -3875,17 +3920,18 @@ components:
       properties:
         ext:
           $ref: '#/components/schemas/ExtEnum'
-        name:
-          type: string
-        source:
-          $ref: '#/components/schemas/SourceEnum'
         lang:
           type: string
         media_url:
           type: string
+        name:
+          type: string
+        source:
+          $ref: '#/components/schemas/SourceEnum'
         url:
           type: string
           format: uri
+          nullable: true
       required:
       - ext
       - lang
@@ -3937,7 +3983,6 @@ components:
       - restore_backup
       - rescan_filesystem
       - thumbnail_check
-      - resync_thumbs
       - resync_metadata
       - index_playlists
       - subscribe_to
@@ -3953,7 +3998,6 @@ components:
         * `restore_backup` - restore_backup
         * `rescan_filesystem` - rescan_filesystem
         * `thumbnail_check` - thumbnail_check
-        * `resync_thumbs` - resync_thumbs
         * `resync_metadata` - resync_metadata
         * `index_playlists` - index_playlists
         * `subscribe_to` - subscribe_to
@@ -4163,6 +4207,7 @@ components:
           type: integer
         description:
           type: string
+          nullable: true
         media_size:
           type: integer
         media_url:
@@ -4213,19 +4258,13 @@ components:
       required:
       - active
       - category
-      - channel
-      - comment_count
       - date_downloaded
-      - description
       - media_size
       - media_url
       - player
-      - playlist
       - published
-      - sponsorblock
       - stats
       - streams
-      - subtitles
       - tags
       - title
       - vid_last_refresh

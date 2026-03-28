@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Tube Archivist API
-  version: v0.5.9
+  version: v0.5.10
   description: API documentation for Tube Archivist backend.
 paths:
   /api/appsettings/backup/:
@@ -334,60 +334,6 @@ paths:
       responses:
         '204':
           description: No response body
-  /api/appsettings/potoken/:
-    get:
-      operationId: appsettings_potoken_retrieve
-      description: get PO token
-      tags:
-      - appsettings
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PoToken'
-          description: ''
-        '404':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: PO token not found
-    post:
-      operationId: appsettings_potoken_create
-      description: Update PO token
-      tags:
-      - appsettings
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PoToken'
-          description: ''
-        '400':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Bad request
-    delete:
-      operationId: appsettings_potoken_destroy
-      description: delete PO token
-      tags:
-      - appsettings
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      responses:
-        '204':
-          description: PO token revoked
   /api/appsettings/rescan-filesystem/:
     post:
       operationId: appsettings_rescan_filesystem_create
@@ -2569,8 +2515,6 @@ components:
         pot_provider_url:
           type: string
           nullable: true
-        potoken:
-          type: boolean
         throttledratelimit:
           type: integer
           nullable: true
@@ -2594,7 +2538,6 @@ components:
       - integrate_sponsorblock
       - limit_speed
       - pot_provider_url
-      - potoken
       - sleep_interval
       - subtitle
       - subtitle_index
@@ -3627,14 +3570,6 @@ components:
       description: |-
         * `regular` - regular
         * `custom` - custom
-    PoToken:
-      type: object
-      description: serialize PO token
-      properties:
-        potoken:
-          type: string
-      required:
-      - potoken
     RefreshAddData:
       type: object
       description: add to refresh queue serializer

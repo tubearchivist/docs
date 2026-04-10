@@ -14,7 +14,7 @@ This is a comprehensive list of environment variables for the **Tube Archivist**
     - <span class="tag-neutral">Type: Boolean</span>: Will evaluate to `True` to _enable_ the described functionality. Set to anything except blank string to enable. To disable, remove the variable.
 
 !!! tip
-    Some environment variables can be suffixed with `_FILE` to allow passing in passwords using docker secretes.
+    Some environment variables can be suffixed with `_FILE` to allow passing in passwords using docker secrets.
 
 ## TA_HOST
 <span class="tag-alert">Required</span>
@@ -40,7 +40,7 @@ Username for your initial credentials. Changing that after first time starting t
 Password for your initial user. Changing that after creating the user, does not have any effect. Use the admin interface to change your password.
 
 !!! tip
-    `TA_PASSWORD` can be suffixed with `_FILE` to allow passing in passwords using docker secretes.
+    `TA_PASSWORD` can be suffixed with `_FILE` to allow passing in passwords using docker secrets.
 
 If you forgot your password, see [User Management/#Forgot Password](../users.md#forgot-password).
 
@@ -131,7 +131,7 @@ E.g. `http://archivist-es:9200`.
 This is the password for ElasticSearch. Make sure it matches with the equivalent password set for the ElasticSearch container.
 
 !!! tip
-    `ELASTIC_PASSWORD` can be suffixed with `_FILE` to allow passing in passwords using docker secretes.
+    `ELASTIC_PASSWORD` can be suffixed with `_FILE` to allow passing in passwords using docker secrets.
     The `_FILE` convention is also supported by the [ElasticSearch](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-configure) docker image.
 
 ## ELASTIC_USER

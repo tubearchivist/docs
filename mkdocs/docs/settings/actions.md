@@ -140,7 +140,7 @@ This action will go through all your media files and looks at the whole index to
     There is no undo. Deleted references and metadata are removed and cannot be brought back without a restore operation.
 
 ### Prefer embedded metadata
-This this trigger indexing a new video, if you enable this option, [embedded metadata](application.md/#embed-metadata) will be prefered and, if available, the task will not be fetched again from YT.
+This whill trigger indexing a new video, if you enable this option, [embedded metadata](application.md/#embed-metadata) will be prefered and, if available, the task will not be fetched again from YT.
 
 ### Ignore missing metadata errors
 The task will stop when adding a video fails, for example if the video is no longer available on YouTube and no embedded metadata was found so you can take appropriate actions. Activate this option to still continue the task, monitor the logs for the details.

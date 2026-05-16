@@ -33,6 +33,8 @@ nav:
     - API:
         - 'Introduction': 'api/introduction.md'
         - 'Docs': 'api/docs.md'
+    - 'Browser Extension':
+        - 'User Docs': 'browser-extension/user-docs.md'
     - Links:
         - 'Main site': https://www.tubearchivist.com
         - 'Join us on Discord!': https://www.tubearchivist.com/discord

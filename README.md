@@ -6,6 +6,7 @@ This is the git repo of the official documentation for Tube Archivist - Your sel
 
 Additional links:
 - The Project: [tubearchivist/tubearchivist](https://github.com/tubearchivist/tubearchivist)
+- The browser extension: [tubearchivist/browser-extension](https://github.com/tubearchivist/browser-extension)
 - The Website: [tubearchivist.com](https://www.tubearchivist.com/)
 - The Discord: [tubearchivist.com/discord](https://www.tubearchivist.com/discord)
 

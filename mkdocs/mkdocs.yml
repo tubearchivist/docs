@@ -29,6 +29,7 @@ nav:
     - Configuration:
         - 'LDAP Authentication': 'configuration/ldap.md'
         - 'Forward Authentication': 'configuration/forward-auth.md'
+        - 'OIDC / SSO Authentication': 'configuration/oidc.md'
         - 'Stylesheets': 'configuration/stylesheets.md'
     - API:
         - 'Introduction': 'api/introduction.md'

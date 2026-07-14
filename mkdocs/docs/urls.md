@@ -43,7 +43,7 @@ Channel URLs can have these forms, all will get translated to the ID:
 - Every other channel sub page will default to download all, for example `https://www.youtube.com/@IBRACORP/featured` will download videos and shorts and streams.
 
 ## Playlist
-A playlist ID can be `34`, `26` or `18` characters long, e.g. `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`
+A playlist ID can be `34`, `26`, `18` or `13` characters long, e.g. `PL96C35uN7xGLLeET0dOWaKHkAlPsrkcha`
 
 | URL Type | Example | Description |
 | :------- | :------ | :---------- |

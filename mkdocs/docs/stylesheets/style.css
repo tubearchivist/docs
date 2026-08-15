@@ -81,6 +81,14 @@ footer {
     color: var(--highlight-error-light);
 }
 
+.pros li::marker {
+    content: "+ ";
+}
+
+.cons li::marker {
+    content: "− ";
+}
+
 [data-md-color-scheme="tubearchivist"] {
     --md-default-bg-color: var(--main-bg);
     --md-default-fg-color: var(--main-font);

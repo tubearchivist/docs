@@ -68,6 +68,8 @@ This project doesn't make any recommendations: Some people prefer to convert the
 
 There are too many variations of that problem to be implemented in this project, use any of the various solutions out there that fits your needs.
 
+- Additional resources are available at [VPN](vpn.md) page.
+
 ## Why is there no flexible naming structure?
 Unlike other similar projects, **Tube Archivist** needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly, causing data loss in some edge cases and breaking things and causing other unexpected behavior.
 

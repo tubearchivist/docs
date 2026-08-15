@@ -18,6 +18,7 @@ nav:
           - 'Scheduling': 'settings/scheduling.md'
           - 'Actions': 'settings/actions.md'
         - 'Advanced': 'advanced.md'
+        - 'VPN': 'vpn.md'
     - Installation:
         - 'Environment Variables': 'installation/env-vars.md'
         - 'Docker-Compose (default)': 'installation/docker-compose.md'

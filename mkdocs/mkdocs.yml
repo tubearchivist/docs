@@ -41,7 +41,7 @@ nav:
         - 'Join us on Discord!': https://www.tubearchivist.com/discord
         - 'License': https://github.com/tubearchivist/tubearchivist/blob/master/LICENSE
         - 'Release Notes': https://github.com/tubearchivist/tubearchivist/releases
-repo_url: https://github.com/tubearchivist/docs
+repo_url: https://github.com/tubearchivist/tubearchivist
 markdown_extensions:
     - toc:
         permalink: "#"

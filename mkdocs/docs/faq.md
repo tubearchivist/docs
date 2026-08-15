@@ -69,6 +69,7 @@ This project doesn't make any recommendations: Some people prefer to convert the
 There are too many variations of that problem to be implemented in this project, use any of the various solutions out there that fits your needs.
 
 - Additional resources are available at [VPN](vpn.md) page.
+- VPN connections can trigger bot detection, also see [Am I getting blocked/throttled](#am-i-getting-blockedthrottled).
 
 ## Why is there no flexible naming structure?
 Unlike other similar projects, **Tube Archivist** needs to keep track of its media files indefinitely while everything can change: Channel names and aliases and titles regularly change over time. Previous attempts failed at handling that properly, causing data loss in some edge cases and breaking things and causing other unexpected behavior.
@@ -106,6 +107,7 @@ There are other error messages that show up from time to time and may affect onl
 
 - Wait and try again, these blocks might get lifted somewhere between a day or a week.
 - As described above, use a VPN or proxy to change your public IP, rotate every so often.
+- Also be aware, that datacenter IP ranges and VPN exit IPs are sometimes more likely to trip bot detection, or can be outright blocked altogether.
 - In some cases if you are using [your cookie](settings/application.md#cookie), this can be an account level ban and YouTube will block all requests from that cookie/account. Sometimes refreshing your cookie will work around that, but most likely only temporarily. Only known solution for these cases is to remove your cookie.
 - Conversely in some cases, adding your cookie can be a solution if you didn't use your cookie previously, as user authenticated requests are sometimes allowed to pass.
 - Sometimes a newer version of yt-dlp has fixes and workarounds.

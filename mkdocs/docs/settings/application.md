@@ -175,7 +175,7 @@ Instruct yt-dlp to automatically fetch PO tokens from a token provider.
 
 For a minimal installation use the provided docker container. Example: 
 
-```yml
+```yaml
 services:
   bgutil-provider:
     image: brainicism/bgutil-ytdlp-pot-provider

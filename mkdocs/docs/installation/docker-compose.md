@@ -70,7 +70,7 @@ Redis functions as a cache and temporary link between the application and the fi
 For some environments, it might be required to run Redis on a non-standard port. For example, to change the Redis port to `6380`, set the following values:  
 
 - For the *archivist-redis* service, set an additional key: `command: --port 6380` and update the `expose` value for your reference:
-```yml
+```yaml
 services:
   archivist-redis:
     [...]

@@ -12,7 +12,7 @@ Docker compose files are the most common and arguably the most convenient way to
 
 The top key is called `services` then each key inside that represents a container. And each additional container has additional options like `image` and `container_name`. So a common compose file will look like this:
 
-```yml
+```yaml
 services:
   container1:
     container_name: name1
@@ -86,7 +86,7 @@ By default Docker containers don't persist any data, meaning all data will get l
 ### Docker Managed
 
 In the example `docker-compose.yml` file you can see the volume definition at the bottom like that:
-```yml
+```yaml
 volumes:
   media:
   cache:
@@ -96,7 +96,7 @@ volumes:
 
 This defines volumes managed by docker. In a typical Linux based environment these get stored at `/var/lib/docker/`. Then you can see the corresponding volume mount on the container service like so: 
 
-```yml
+```yaml
 volumes:
   - media:/youtube
 ```
@@ -121,7 +121,7 @@ If you define a bind mount, you can remove the docker managed volume definition 
 You can specify a relative file path, starting with `./`, that will be relative from the location of the `docker-compose.yml` file.
 
 E.g.:  
-```yml
+```yaml
 volumes:
   - ./volume/youtube:/youtube
 ```
@@ -131,7 +131,7 @@ That will persist the data at `volume/youtube` where the content of the `/youtub
 Alternatively you can also specify an absolute path on your host system.
 
 E.g.:  
-```yml
+```yaml
 volumes:
   - /media/docker/volume/youtube:/youtube
 ```
@@ -149,7 +149,7 @@ Publishing a service running inside a container is required to access that servi
 You will see `ports` defined in the `docker-compose.yml` file.
 
 E.g.:
-```yml
+```yaml
 ports:
   - "8080:8000"
 ```
@@ -173,7 +173,7 @@ Containers regularly depend on other containers. How interacting between contain
 The good news is, docker handles all of that for you automatically: Docker's internal DNS automatically resolves the service name. Usually, you don't need to publish ports for services only expected to be accessed by another container. You will see `expose` keys defined on the service. 
 
 E.g.:
-```yml
+```yaml
 expose:
   - "9200"
 ```

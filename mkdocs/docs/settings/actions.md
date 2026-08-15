@@ -11,6 +11,8 @@ Accessible at `/settings/actions/` of your **Tube Archivist** instance, this pag
 
 Add the files you'd like to import to the `/cache/import` folder. Only add files, don't add subdirectories. All files you are adding need to have the same *base name* as the media file. Then, start the process from the settings page with the *Manual Media Files Import* button.
 
+Successfully imported IDs will be removed from the download queue, if found.
+
 Valid media extensions are *.mp4*, *.mkv* or *.webm*. If you have other file extensions or incompatible codecs, convert them first to mp4. **Tube Archivist** can identify the videos with one of the following methods:
 
 ### Prefer embedded metadata
@@ -134,6 +136,7 @@ This action will go through all your media files and looks at the whole index to
 - Should the filename not match with the indexed media url, this will rename the video files correctly and update the index with the new link.
 - When you delete media files from the filesystem outside of the **Tube Archivist** interface, this will delete leftover metadata from the index.
 - When you have media files that are not indexed yet, this will grab the metadata from YouTube as if it was a newly downloaded video. This can be useful when restoring from an older backup file with missing metadata but already downloaded mediafiles. NOTE: This only works if the media files are named in the same convention as **Tube Archivist** expects, alternatively see above for *Manual Media Files Import*.
+- Successfully imported IDs will be removed from the download queue, if found.
 - This will also check all of your thumbnails and download any that are missing.
 
 !!! danger "BE AWARE"

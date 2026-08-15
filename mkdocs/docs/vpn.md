@@ -1,3 +1,7 @@
+---
+description: How to setup this project with a VPN container.
+---
+
 # VPN
 
 As [established](faq.md#how-do-i-tunnel-all-traffic-from-this-container), using a VPN *can* be advantageous in some cases, but also disadvantageous in other cases. There are various ways to do this on Docker level:

@@ -189,7 +189,7 @@ services:
 When in doubt, consult the upstream resources.
 
 !!! warning "Match versions"
-    To avoid compatibility issues, pin the `brainicism/bgutil-ytdlp-pot-provider` container version to the same version as provided in the TA container. That version is pinned in the `backend/requirements.plugins.txt` requirement file.
+    To avoid compatibility issues, pin the `brainicism/bgutil-ytdlp-pot-provider` container version to the same version as provided in the TA container. We are using a [forked version](https://github.com/bbilly1/bgutil-ytdlp-pot-provider) of this plugin. That version is pinned in the [`backend/requirements.txt`](https://github.com/tubearchivist/tubearchivist/blob/develop/backend/requirements.txt) requirement file. Make sure it matches with the [\_\_version\_\_](https://github.com/bbilly1/bgutil-ytdlp-pot-provider/blob/feat/add-disable-flag/plugin/yt_dlp_plugins/extractor/getpot_bgutil.py) shipped in the container.
 
 ### Configuration
 If you are using the above example docker container for **bgutil-ytdlp-pot-provider**, here is an example of what the URL would be:

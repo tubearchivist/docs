@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Tube Archivist API
-  version: v0.5.10
+  version: v0.5.12
   description: API documentation for Tube Archivist backend.
 paths:
   /api/appsettings/backup/:
@@ -3570,6 +3570,18 @@ components:
       description: |-
         * `regular` - regular
         * `custom` - custom
+    QueueTypeEnum:
+      enum:
+      - all
+      - video
+      - channel
+      - playlist
+      type: string
+      description: |-
+        * `all` - all
+        * `video` - video
+        * `channel` - channel
+        * `playlist` - playlist
     RefreshAddData:
       type: object
       description: add to refresh queue serializer
@@ -3590,13 +3602,22 @@ components:
       type: object
       description: serialize refresh response
       properties:
+        id:
+          type: string
+          nullable: true
         state:
           $ref: '#/components/schemas/StateEnum'
         total_queued:
           type: integer
-        in_queue_name:
-          type: string
+        queue_type:
+          $ref: '#/components/schemas/QueueTypeEnum'
+        queue_position:
+          type: integer
+          nullable: true
       required:
+      - id
+      - queue_position
+      - queue_type
       - state
       - total_queued
     RememberMeEnum:
@@ -3788,14 +3809,17 @@ components:
     StateEnum:
       enum:
       - running
-      - queued
+      - in_queue
       - empty
-      - false
+      - not_in_queue
+      - processing
+      type: string
       description: |-
         * `running` - running
-        * `queued` - queued
+        * `in_queue` - in_queue
         * `empty` - empty
-        * `False` - False
+        * `not_in_queue` - not_in_queue
+        * `processing` - processing
     Stats:
       type: object
       description: serialize stats

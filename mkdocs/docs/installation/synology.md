@@ -221,8 +221,6 @@ Once all of the folders have been created, it should have a folder structure wit
    | `TA_HOST` | `synology.local` |
    | `ES_URL` | `http://tubearchivist-es:9200` |
    | `REDIS_HOST` | `tubearchivist-redis` |
-   | `HOST_UID` | `1000` |
-   | `HOST_GID` | `0` |
    | `TA_USERNAME` | `tubearchivist` |
    | `TA_PASSWORD` | `verysecret` |
    | `ELASTIC_PASSWORD` | `verysecret` |

@@ -38,17 +38,10 @@ Save the [docker-compose.yml](https://github.com/tubearchivist/tubearchivist/blo
     All you really _need_ to configure is the [`TA_HOST`](env-vars.md#ta_host) environment variable.
 
 ### Networking
-The main container serves the interface on port `8000` with Nginx. Nginx is packaged in the container and serves the static files and handles proxy requests to the backend.
+The main container serves the interface on port `8000` with `uvicorn`. That also serves the frontend bundle, static assets and media files. That is a compromize between simplicity with Python native tooling and some performance overhead.
 
 - For port collisions, see [Docker for Beginners/#networking](docker-for-beginners.md#networking).
 - Alternatively to modify the port, see [Environment Variables/#TA_PORT](env-vars.md#ta_port)
-
-The React TS based frontend is compiled and served by Nginx from the `static` folder.
-
-The Python Django based backend is served with `uvicorn` on the container internal port `8080`.
-
-- Only container internal. Nginx handles proxying requests to the backend
-- To modify, see [Environment Variables/#TA_BACKEND_PORT](env-vars.md#ta_backend_port)
 
 ### Volumes
 This container expects two volumes:

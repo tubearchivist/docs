@@ -1,17 +1,16 @@
 openapi: 3.0.3
 info:
   title: Tube Archivist API
-  version: v0.5.12
+  version: v0.6.0
   description: API documentation for Tube Archivist backend.
 paths:
   /api/appsettings/backup/:
     get:
-      operationId: appsettings_backup_retrieve
+      operationId: api_appsettings_backup_retrieve
       description: get list of available backup files
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -23,12 +22,11 @@ paths:
                   $ref: '#/components/schemas/BackupFile'
           description: ''
     post:
-      operationId: appsettings_backup_create
+      operationId: api_appsettings_backup_create
       description: start new backup file task
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -39,7 +37,7 @@ paths:
           description: ''
   /api/appsettings/backup/{filename}/:
     get:
-      operationId: appsettings_backup_retrieve_2
+      operationId: api_appsettings_backup_retrieve_2
       description: get single backup
       parameters:
       - in: path
@@ -48,9 +46,8 @@ paths:
           type: string
         required: true
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -66,7 +63,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: file not found
     post:
-      operationId: appsettings_backup_create_2
+      operationId: api_appsettings_backup_create_2
       description: start new task to restore backup file
       parameters:
       - in: path
@@ -75,9 +72,8 @@ paths:
           type: string
         required: true
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -93,7 +89,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: file not found
     delete:
-      operationId: appsettings_backup_destroy
+      operationId: api_appsettings_backup_destroy
       description: delete backup file
       parameters:
       - in: path
@@ -102,9 +98,8 @@ paths:
           type: string
         required: true
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -117,12 +112,11 @@ paths:
           description: file not found
   /api/appsettings/config/:
     get:
-      operationId: appsettings_config_retrieve
+      operationId: api_appsettings_config_retrieve
       description: get app config
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -132,10 +126,10 @@ paths:
                 $ref: '#/components/schemas/AppConfig'
           description: ''
     post:
-      operationId: appsettings_config_create
+      operationId: api_appsettings_config_create
       description: update config values, allows partial update
       tags:
-      - appsettings
+      - api
       requestBody:
         content:
           application/json:
@@ -148,7 +142,6 @@ paths:
             schema:
               $ref: '#/components/schemas/AppConfig'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -165,12 +158,11 @@ paths:
           description: Bad request
   /api/appsettings/cookie/:
     get:
-      operationId: appsettings_cookie_retrieve
+      operationId: api_appsettings_cookie_retrieve
       description: get cookie validation status
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -180,12 +172,11 @@ paths:
                 $ref: '#/components/schemas/CookieValidation'
           description: ''
     post:
-      operationId: appsettings_cookie_create
+      operationId: api_appsettings_cookie_create
       description: validate cookie
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -195,10 +186,10 @@ paths:
                 $ref: '#/components/schemas/CookieValidation'
           description: ''
     put:
-      operationId: appsettings_cookie_update
+      operationId: api_appsettings_cookie_update
       description: handle put request
       tags:
-      - appsettings
+      - api
       requestBody:
         content:
           application/json:
@@ -212,7 +203,6 @@ paths:
               $ref: '#/components/schemas/CookieUpdate'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -228,22 +218,21 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad request
     delete:
-      operationId: appsettings_cookie_destroy
+      operationId: api_appsettings_cookie_destroy
       description: delete the cookie
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: Cookie revoked
   /api/appsettings/manual-import/:
     post:
-      operationId: appsettings_manual_import_create
+      operationId: api_appsettings_manual_import_create
       description: manual import
       tags:
-      - appsettings
+      - api
       requestBody:
         content:
           application/json:
@@ -257,7 +246,6 @@ paths:
               $ref: '#/components/schemas/ManualImportConfig'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -268,12 +256,11 @@ paths:
           description: ''
   /api/appsettings/membership/profile/:
     get:
-      operationId: appsettings_membership_profile_retrieve
+      operationId: api_appsettings_membership_profile_retrieve
       description: get profile
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -290,56 +277,52 @@ paths:
           description: bad request
   /api/appsettings/membership/sync/:
     post:
-      operationId: appsettings_membership_sync_create
+      operationId: api_appsettings_membership_sync_create
       description: post request
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
           description: No response body
   /api/appsettings/membership/token/:
     get:
-      operationId: appsettings_membership_token_retrieve
+      operationId: api_appsettings_membership_token_retrieve
       description: get token
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
           description: No response body
     post:
-      operationId: appsettings_membership_token_create
+      operationId: api_appsettings_membership_token_create
       description: add token
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
           description: No response body
     delete:
-      operationId: appsettings_membership_token_destroy
+      operationId: api_appsettings_membership_token_destroy
       description: delete token
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: No response body
   /api/appsettings/rescan-filesystem/:
     post:
-      operationId: appsettings_rescan_filesystem_create
+      operationId: api_appsettings_rescan_filesystem_create
       description: start new task rescan filesystem task
       tags:
-      - appsettings
+      - api
       requestBody:
         content:
           application/json:
@@ -353,7 +336,6 @@ paths:
               $ref: '#/components/schemas/RescanFileSystemConfig'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -364,12 +346,11 @@ paths:
           description: ''
   /api/appsettings/snapshot/:
     get:
-      operationId: appsettings_snapshot_retrieve
+      operationId: api_appsettings_snapshot_retrieve
       description: get available snapshots with metadata
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -379,12 +360,11 @@ paths:
                 $ref: '#/components/schemas/SnapshotList'
           description: ''
     post:
-      operationId: appsettings_snapshot_create
+      operationId: api_appsettings_snapshot_create
       description: take snapshot now
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -395,7 +375,7 @@ paths:
           description: ''
   /api/appsettings/snapshot/{snapshot_id}/:
     get:
-      operationId: appsettings_snapshot_retrieve_2
+      operationId: api_appsettings_snapshot_retrieve_2
       description: handle get request
       parameters:
       - in: path
@@ -404,9 +384,8 @@ paths:
           type: string
         required: true
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -422,7 +401,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: snapshot not found
     post:
-      operationId: appsettings_snapshot_create_2
+      operationId: api_appsettings_snapshot_create_2
       description: restore snapshot
       parameters:
       - in: path
@@ -431,9 +410,8 @@ paths:
           type: string
         required: true
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -449,7 +427,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: bad request
     delete:
-      operationId: appsettings_snapshot_destroy
+      operationId: api_appsettings_snapshot_destroy
       description: delete snapshot from index
       parameters:
       - in: path
@@ -458,21 +436,19 @@ paths:
           type: string
         required: true
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: delete snapshot from index
   /api/appsettings/token/:
     get:
-      operationId: appsettings_token_retrieve
+      operationId: api_appsettings_token_retrieve
       description: get your API token
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -482,19 +458,18 @@ paths:
                 $ref: '#/components/schemas/TokenResponse'
           description: ''
     delete:
-      operationId: appsettings_token_destroy
+      operationId: api_appsettings_token_destroy
       description: delete your API token, new will get created on next get
       tags:
-      - appsettings
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: delete token
   /api/channel/:
     get:
-      operationId: channel_retrieve
+      operationId: api_channel_retrieve
       description: get request
       parameters:
       - in: query
@@ -513,9 +488,8 @@ paths:
         schema:
           type: integer
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -525,19 +499,18 @@ paths:
                 $ref: '#/components/schemas/ChannelList'
           description: ''
     post:
-      operationId: channel_create
+      operationId: api_channel_create
       description: subscribe/unsubscribe to list of channels
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
           description: No response body
   /api/channel/{channel_id}/:
     get:
-      operationId: channel_retrieve_2
+      operationId: api_channel_retrieve_2
       description: get channel detail
       parameters:
       - in: path
@@ -546,9 +519,8 @@ paths:
           type: string
         required: true
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -564,7 +536,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Channel not found
     post:
-      operationId: channel_create_2
+      operationId: api_channel_create_2
       description: modify channel
       parameters:
       - in: path
@@ -573,7 +545,7 @@ paths:
           type: string
         required: true
       tags:
-      - channel
+      - api
       requestBody:
         content:
           application/json:
@@ -586,7 +558,6 @@ paths:
             schema:
               $ref: '#/components/schemas/ChannelUpdate'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -608,7 +579,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Channel not found
     delete:
-      operationId: channel_destroy
+      operationId: api_channel_destroy
       description: delete channel
       parameters:
       - in: path
@@ -617,9 +588,8 @@ paths:
           type: string
         required: true
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -632,7 +602,7 @@ paths:
           description: Channel not found
   /api/channel/{channel_id}/aggs/:
     get:
-      operationId: channel_aggs_retrieve
+      operationId: api_channel_aggs_retrieve
       description: get channel aggregations
       parameters:
       - in: path
@@ -641,9 +611,8 @@ paths:
           type: string
         required: true
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -654,7 +623,7 @@ paths:
           description: ''
   /api/channel/{channel_id}/nav/:
     get:
-      operationId: channel_nav_retrieve
+      operationId: api_channel_nav_retrieve
       description: get navigation
       parameters:
       - in: path
@@ -663,9 +632,8 @@ paths:
           type: string
         required: true
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -676,7 +644,7 @@ paths:
           description: ''
   /api/channel/search/:
     get:
-      operationId: channel_search_retrieve
+      operationId: api_channel_search_retrieve
       description: search for local channel ID
       parameters:
       - in: query
@@ -686,9 +654,8 @@ paths:
         description: Search query string
         required: true
       tags:
-      - channel
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -707,7 +674,7 @@ paths:
           description: Channel not found
   /api/download/:
     get:
-      operationId: download_retrieve
+      operationId: api_download_retrieve
       description: get download queue list
       parameters:
       - in: query
@@ -756,9 +723,8 @@ paths:
           * `streams` - streams
           * `shorts` - shorts
       tags:
-      - download
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -768,7 +734,7 @@ paths:
                 $ref: '#/components/schemas/DownloadList'
           description: ''
     post:
-      operationId: download_create
+      operationId: api_download_create
       description: add list of videos to download queue
       parameters:
       - in: query
@@ -784,7 +750,7 @@ paths:
         schema:
           type: boolean
       tags:
-      - download
+      - api
       requestBody:
         content:
           application/json:
@@ -798,7 +764,6 @@ paths:
               $ref: '#/components/schemas/AddToDownloadList'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -814,7 +779,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad request
     patch:
-      operationId: download_partial_update
+      operationId: api_download_partial_update
       description: bulk update status
       parameters:
       - in: query
@@ -855,7 +820,7 @@ paths:
           * `streams` - streams
           * `shorts` - shorts
       tags:
-      - download
+      - api
       requestBody:
         content:
           application/json:
@@ -868,13 +833,12 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedBulkUpdateDowloadData'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: Status updated
     delete:
-      operationId: download_destroy
+      operationId: api_download_destroy
       description: bulk delete download queue items by filter
       parameters:
       - in: query
@@ -909,9 +873,8 @@ paths:
           * `streams` - streams
           * `shorts` - shorts
       tags:
-      - download
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -924,7 +887,7 @@ paths:
           description: Bad request
   /api/download/{video_id}/:
     get:
-      operationId: download_retrieve_2
+      operationId: api_download_retrieve_2
       description: get download queue item
       parameters:
       - in: path
@@ -933,9 +896,8 @@ paths:
           type: string
         required: true
       tags:
-      - download
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -951,7 +913,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Download item not found
     post:
-      operationId: download_create_2
+      operationId: api_download_create_2
       description: post to video to change status
       parameters:
       - in: path
@@ -960,7 +922,7 @@ paths:
           type: string
         required: true
       tags:
-      - download
+      - api
       requestBody:
         content:
           application/json:
@@ -974,7 +936,6 @@ paths:
               $ref: '#/components/schemas/DownloadQueueItemUpdate'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -996,7 +957,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Download item not found
     delete:
-      operationId: download_destroy_2
+      operationId: api_download_destroy_2
       description: delete single video from queue
       parameters:
       - in: path
@@ -1005,9 +966,8 @@ paths:
           type: string
         required: true
       tags:
-      - download
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -1020,7 +980,7 @@ paths:
           description: Download item not found
   /api/download/aggs/:
     get:
-      operationId: download_aggs_retrieve
+      operationId: api_download_aggs_retrieve
       description: get aggs
       parameters:
       - in: query
@@ -1055,9 +1015,8 @@ paths:
           * `streams` - streams
           * `shorts` - shorts
       tags:
-      - download
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1074,10 +1033,10 @@ paths:
           description: bad request
   /api/health/:
     get:
-      operationId: health_retrieve
+      operationId: api_health_retrieve
       description: health check, no auth needed
       tags:
-      - health
+      - api
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -1087,7 +1046,7 @@ paths:
           description: No response body
   /api/notification/:
     get:
-      operationId: notification_retrieve
+      operationId: api_notification_retrieve
       description: get all notifications
       parameters:
       - in: query
@@ -1104,9 +1063,8 @@ paths:
           * `settings` - settings
           * `channel` - channel
       tags:
-      - notification
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1119,12 +1077,11 @@ paths:
           description: ''
   /api/ping/:
     get:
-      operationId: ping_retrieve
+      operationId: api_ping_retrieve
       description: get pong
       tags:
-      - ping
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1135,7 +1092,7 @@ paths:
           description: ''
   /api/playlist/:
     get:
-      operationId: playlist_retrieve
+      operationId: api_playlist_retrieve
       description: get playlist list
       parameters:
       - in: query
@@ -1164,9 +1121,8 @@ paths:
           * `regular` - regular
           * `custom` - custom
       tags:
-      - playlist
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1182,10 +1138,10 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad request
     post:
-      operationId: playlist_create
+      operationId: api_playlist_create
       description: async subscribe to list of playlists
       tags:
-      - playlist
+      - api
       requestBody:
         content:
           application/json:
@@ -1199,7 +1155,6 @@ paths:
               $ref: '#/components/schemas/PlaylistBulkAdd'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1216,7 +1171,7 @@ paths:
           description: Bad request
   /api/playlist/{playlist_id}/:
     get:
-      operationId: playlist_retrieve_2
+      operationId: api_playlist_retrieve_2
       description: get playlist
       parameters:
       - in: path
@@ -1225,9 +1180,8 @@ paths:
           type: string
         required: true
       tags:
-      - playlist
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1243,7 +1197,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: playlist not found
     post:
-      operationId: playlist_create_2
+      operationId: api_playlist_create_2
       description: update subscribed state of playlist
       parameters:
       - in: path
@@ -1252,7 +1206,7 @@ paths:
           type: string
         required: true
       tags:
-      - playlist
+      - api
       requestBody:
         content:
           application/json:
@@ -1265,7 +1219,6 @@ paths:
             schema:
               $ref: '#/components/schemas/PlaylistSingleUpdate'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1281,7 +1234,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: playlist not found
     delete:
-      operationId: playlist_destroy
+      operationId: api_playlist_destroy
       description: delete playlist
       parameters:
       - in: query
@@ -1294,19 +1247,18 @@ paths:
           type: string
         required: true
       tags:
-      - playlist
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: playlist deleted
   /api/playlist/custom/:
     post:
-      operationId: playlist_custom_create
+      operationId: api_playlist_custom_create
       description: create new custom playlist
       tags:
-      - playlist
+      - api
       requestBody:
         content:
           application/json:
@@ -1320,7 +1272,6 @@ paths:
               $ref: '#/components/schemas/PlaylistListCustomPost'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1337,7 +1288,7 @@ paths:
           description: Bad request
   /api/playlist/custom/{playlist_id}/:
     post:
-      operationId: playlist_custom_create_2
+      operationId: api_playlist_custom_create_2
       description: modify custom playlist
       parameters:
       - in: path
@@ -1346,7 +1297,7 @@ paths:
           type: string
         required: true
       tags:
-      - playlist
+      - api
       requestBody:
         content:
           application/json:
@@ -1360,7 +1311,6 @@ paths:
               $ref: '#/components/schemas/PlaylistCustomPost'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1383,7 +1333,7 @@ paths:
           description: playlist not found
   /api/refresh/:
     get:
-      operationId: refresh_retrieve
+      operationId: api_refresh_retrieve
       description: get refresh status
       parameters:
       - in: query
@@ -1405,9 +1355,8 @@ paths:
           * `channel` - channel
           * `playlist` - playlist
       tags:
-      - refresh
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1423,7 +1372,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad request
     post:
-      operationId: refresh_create
+      operationId: api_refresh_create
       description: add to reindex queue
       parameters:
       - in: query
@@ -1431,7 +1380,7 @@ paths:
         schema:
           type: boolean
       tags:
-      - refresh
+      - api
       requestBody:
         content:
           application/json:
@@ -1444,7 +1393,6 @@ paths:
             schema:
               $ref: '#/components/schemas/RefreshAddData'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1455,26 +1403,24 @@ paths:
           description: ''
   /api/search/:
     get:
-      operationId: search_retrieve
+      operationId: api_search_retrieve
       description: |-
         handle get request
         search through all indexes
       tags:
-      - search
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
           description: No response body
   /api/stats/biggestchannels/:
     get:
-      operationId: stats_biggestchannels_retrieve
+      operationId: api_stats_biggestchannels_retrieve
       description: get biggest channels stats
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1493,12 +1439,11 @@ paths:
           description: Bad request
   /api/stats/channel/:
     get:
-      operationId: stats_channel_retrieve
+      operationId: api_stats_channel_retrieve
       description: get channel stats
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1509,12 +1454,11 @@ paths:
           description: ''
   /api/stats/download/:
     get:
-      operationId: stats_download_retrieve
+      operationId: api_stats_download_retrieve
       description: get download stats
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1525,12 +1469,11 @@ paths:
           description: ''
   /api/stats/downloadhist/:
     get:
-      operationId: stats_downloadhist_list
+      operationId: api_stats_downloadhist_list
       description: get download hist items
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1543,12 +1486,11 @@ paths:
           description: ''
   /api/stats/playlist/:
     get:
-      operationId: stats_playlist_retrieve
+      operationId: api_stats_playlist_retrieve
       description: get playlist stats
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1559,12 +1501,11 @@ paths:
           description: ''
   /api/stats/video/:
     get:
-      operationId: stats_video_retrieve
+      operationId: api_stats_video_retrieve
       description: get video stats
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1575,12 +1516,11 @@ paths:
           description: ''
   /api/stats/watch/:
     get:
-      operationId: stats_watch_retrieve
+      operationId: api_stats_watch_retrieve
       description: get watched stats
       tags:
-      - stats
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1591,7 +1531,7 @@ paths:
           description: ''
   /api/task/by-id/{task_id}/:
     get:
-      operationId: task_by_id_retrieve
+      operationId: api_task_by_id_retrieve
       description: get task by ID
       parameters:
       - in: path
@@ -1600,9 +1540,8 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1618,7 +1557,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: task not found
     post:
-      operationId: task_by_id_create
+      operationId: api_task_by_id_create
       description: post command to task
       parameters:
       - in: path
@@ -1627,7 +1566,7 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       requestBody:
         content:
           application/json:
@@ -1641,7 +1580,6 @@ paths:
               $ref: '#/components/schemas/TaskIDData'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -1660,12 +1598,11 @@ paths:
           description: task not found
   /api/task/by-name/:
     get:
-      operationId: task_by_name_list
+      operationId: api_task_by_name_list
       description: get all stored task results
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1678,7 +1615,7 @@ paths:
           description: ''
   /api/task/by-name/{task_name}/:
     get:
-      operationId: task_by_name_retrieve
+      operationId: api_task_by_name_retrieve
       description: get stored task by name
       parameters:
       - in: path
@@ -1687,9 +1624,8 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1707,7 +1643,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: task name not found
     post:
-      operationId: task_by_name_create
+      operationId: api_task_by_name_create
       description: start new task without args
       parameters:
       - in: path
@@ -1716,9 +1652,8 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1741,12 +1676,11 @@ paths:
           description: task name not found
   /api/task/notification/:
     get:
-      operationId: task_notification_retrieve
+      operationId: api_task_notification_retrieve
       description: handle get request
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1756,10 +1690,10 @@ paths:
                 $ref: '#/components/schemas/DynamicDict'
           description: ''
     post:
-      operationId: task_notification_create
+      operationId: api_task_notification_create
       description: create notification
       tags:
-      - task
+      - api
       requestBody:
         content:
           application/json:
@@ -1773,7 +1707,6 @@ paths:
               $ref: '#/components/schemas/TaskNotificationPost'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1789,12 +1722,11 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: bad request
     delete:
-      operationId: task_notification_destroy
+      operationId: api_task_notification_destroy
       description: delete notification
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -1807,10 +1739,10 @@ paths:
           description: bad request
   /api/task/notification/test/:
     post:
-      operationId: task_notification_test_create
+      operationId: api_task_notification_test_create
       description: test notification
       tags:
-      - task
+      - api
       requestBody:
         content:
           application/json:
@@ -1824,7 +1756,6 @@ paths:
               $ref: '#/components/schemas/TaskNotificationTest'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1837,12 +1768,11 @@ paths:
           description: bad request
   /api/task/schedule/:
     get:
-      operationId: task_schedule_retrieve
+      operationId: api_task_schedule_retrieve
       description: get all schedules
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1855,7 +1785,7 @@ paths:
           description: ''
   /api/task/schedule/{task_name}/:
     get:
-      operationId: task_schedule_retrieve_2
+      operationId: api_task_schedule_retrieve_2
       description: get single schedule by task_name
       parameters:
       - in: path
@@ -1864,9 +1794,8 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1882,7 +1811,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: schedule not found
     post:
-      operationId: task_schedule_create
+      operationId: api_task_schedule_create
       description: create/update schedule for task
       parameters:
       - in: path
@@ -1891,7 +1820,7 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       requestBody:
         content:
           application/json:
@@ -1904,7 +1833,6 @@ paths:
             schema:
               $ref: '#/components/schemas/TaskCreateData'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1920,7 +1848,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: bad request
     delete:
-      operationId: task_schedule_destroy
+      operationId: api_task_schedule_destroy
       description: delete schedule by task_name
       parameters:
       - in: path
@@ -1929,9 +1857,8 @@ paths:
           type: string
         required: true
       tags:
-      - task
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -1944,12 +1871,11 @@ paths:
           description: schedule not found
   /api/user/account/:
     get:
-      operationId: user_account_retrieve
+      operationId: api_user_account_retrieve
       description: get user account
       tags:
-      - user
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -1960,10 +1886,10 @@ paths:
           description: ''
   /api/user/login/:
     post:
-      operationId: user_login_create
+      operationId: api_user_login_create
       description: login with username and password
       tags:
-      - user
+      - api
       requestBody:
         content:
           application/json:
@@ -1985,24 +1911,22 @@ paths:
           description: login successful
   /api/user/logout/:
     post:
-      operationId: user_logout_create
+      operationId: api_user_logout_create
       description: logout user from session
       tags:
-      - user
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: logout successful
   /api/user/me/:
     get:
-      operationId: user_me_retrieve
+      operationId: api_user_me_retrieve
       description: get user config
       tags:
-      - user
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2012,10 +1936,10 @@ paths:
                 $ref: '#/components/schemas/UserMeConfig'
           description: ''
     post:
-      operationId: user_me_create
+      operationId: api_user_me_create
       description: update config, allows partial update
       tags:
-      - user
+      - api
       requestBody:
         content:
           application/json:
@@ -2029,7 +1953,6 @@ paths:
               $ref: '#/components/schemas/UserMeConfig'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2046,7 +1969,7 @@ paths:
           description: Bad request
   /api/video/:
     get:
-      operationId: video_retrieve
+      operationId: api_video_retrieve
       description: get video list
       parameters:
       - in: query
@@ -2130,9 +2053,8 @@ paths:
           * `unwatched` - unwatched
           * `continue` - continue
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2149,7 +2071,7 @@ paths:
           description: bad request
   /api/video/{video_id}/:
     get:
-      operationId: video_retrieve_2
+      operationId: api_video_retrieve_2
       description: get video
       parameters:
       - in: path
@@ -2158,9 +2080,8 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2176,7 +2097,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: video not found
     delete:
-      operationId: video_destroy
+      operationId: api_video_destroy
       description: delete video
       parameters:
       - in: path
@@ -2185,9 +2106,8 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
@@ -2200,7 +2120,7 @@ paths:
           description: video not found
   /api/video/{video_id}/comment/:
     get:
-      operationId: video_comment_retrieve
+      operationId: api_video_comment_retrieve
       description: get video comments
       parameters:
       - in: path
@@ -2209,9 +2129,8 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2228,7 +2147,7 @@ paths:
           description: video not found
   /api/video/{video_id}/nav/:
     get:
-      operationId: video_nav_retrieve
+      operationId: api_video_nav_retrieve
       description: get video playlist nav
       parameters:
       - in: path
@@ -2237,9 +2156,8 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2256,7 +2174,7 @@ paths:
           description: video not found
   /api/video/{video_id}/progress/:
     post:
-      operationId: video_progress_create
+      operationId: api_video_progress_create
       description: set video progress position in redis
       parameters:
       - in: path
@@ -2265,7 +2183,7 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       requestBody:
         content:
           application/json:
@@ -2278,7 +2196,6 @@ paths:
             schema:
               $ref: '#/components/schemas/VideoProgressUpdate'
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2294,7 +2211,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: video not found
     delete:
-      operationId: video_progress_destroy
+      operationId: api_video_progress_destroy
       description: delete progress position
       parameters:
       - in: path
@@ -2303,16 +2220,15 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '204':
           description: video progress deleted
   /api/video/{video_id}/similar/:
     get:
-      operationId: video_similar_list
+      operationId: api_video_similar_list
       description: get similar videos
       parameters:
       - in: path
@@ -2321,9 +2237,8 @@ paths:
           type: string
         required: true
       tags:
-      - video
+      - api
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2336,10 +2251,10 @@ paths:
           description: ''
   /api/watched/:
     post:
-      operationId: watched_create
+      operationId: api_watched_create
       description: change watched state
       tags:
-      - watched
+      - api
       requestBody:
         content:
           application/json:
@@ -2353,7 +2268,6 @@ paths:
               $ref: '#/components/schemas/WatchedData'
         required: true
       security:
-      - cookieAuth: []
       - tokenAuth: []
       responses:
         '200':
@@ -2368,6 +2282,210 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad request
+  /media/stream/{channel_id}/{video_id}.mp4:
+    get:
+      operationId: media_stream
+      description: get media stream, handle ranged byte request
+      parameters:
+      - in: header
+        name: Range
+        schema:
+          type: string
+        description: Single byte range, for example bytes=0-1023
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - media
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+          description: ''
+        '206':
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found
+        '416':
+          description: Range not satisfiable
+  /media/subtitle/{channel_id}/{video_id}.{lang}.vtt:
+    get:
+      operationId: media_subtitle
+      description: get subtitle file
+      parameters:
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: lang
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - media
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            text/vtt:
+              schema:
+                type: string
+                format: binary
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found
+  /media/thumb/channel/{channel_id}/{art_type}.jpg:
+    get:
+      operationId: media_channel_art
+      description: get channel artwork
+      parameters:
+      - in: path
+        name: art_type
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: channel_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - media
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found
+  /media/thumb/playlist/{playlist_id}.jpg:
+    get:
+      operationId: media_playlist_thumbnail
+      description: get playlist thumb
+      parameters:
+      - in: path
+        name: playlist_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - media
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found
+  /media/thumb/video/{video_id}.jpg:
+    get:
+      operationId: media_video_thumbnail
+      description: get video thumb
+      parameters:
+      - in: path
+        name: video_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - media
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found
 components:
   schemas:
     Account:

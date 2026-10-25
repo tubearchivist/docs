@@ -238,6 +238,9 @@ Become a sponsor of this project to unlock additional membership perks. See [mem
 !!! info
     This will make a snapshot of your metadata index only. No media files or additional configuration variables you have set on the settings page will be backed up.
 
+!!! warning
+    Disabeling snapshots will delete existing snapshots from the index.
+
 System snapshots will automatically make daily snapshots of the Elasticsearch index. The task will start at 12pm your local time. Snapshots are deduplicated, meaning that each snapshot will only have to backup changes since the last snapshot. Old snapshots will automatically get deleted after 30 days.
 
 - **Create snapshot now**: Will start the snapshot process now and outside of the regular daily schedule.

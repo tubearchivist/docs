@@ -135,11 +135,11 @@ Verify inside the TA container that you are connected to the expected VPN server
 
 ### Port collision
 
-Gluetun uses port 8000 for its [control server](https://jarulsamy.github.io/gluetun-wiki/Setup/Advanced/control-server/). To avoid port collision use any other unused port. In the guide below we'll be using port 9000.
+Gluetun uses port 8000 for its [control server](https://jarulsamy.github.io/gluetun-wiki/Setup/Advanced/control-server/). To avoid port collision configure it to use any unused port. In the guide below port 9000 is used.
 
 ### Configuration
 
-Go to [Gluetun Wiki](https://jarulsamy.github.io/gluetun-wiki/Setup/getting_started/) and find your Provider. Add the YAML code to your `docker-compose.yml`. The top of the file should look like below:
+Go to [Gluetun Wiki](https://jarulsamy.github.io/gluetun-wiki/Setup/getting_started/) and find your Provider. Add the YAML code to your `docker-compose.yml`. Add the environment variable `HTTP_CONTROL_SERVER_ADDRESS=:9000` to Gluetun:
 
 ```yaml
 services:
@@ -151,10 +151,10 @@ services:
     devices:
       - /dev/net/tun:/dev/net/tun
     ports:
-      - 8000:8000 # Gluetun control server
-      - 9000:9000 # TA custom port
+      - 8000:8000
     environment:
       - <VPN-specific configuration>
+      - HTTP_CONTROL_SERVER_ADDRESS=:9000
     restart: unless-stopped
   tubearchivist:
 ```
@@ -169,10 +169,12 @@ with
 ```yaml
     network_mode: "service:gluetun"
 ```
-And update the following environment variables
+Add gluetun to `depends_on`:
 ```yaml
-      - TA_HOST=http://localhost:9000  # set your host name with protocol and port
-      - TA_PORT=9000
+    depends_on:
+      - archivist-es
+      - archivist-redis
+      - gluetun
 ```
 
 **Pros and Cons**:

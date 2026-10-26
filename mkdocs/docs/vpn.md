@@ -133,8 +133,47 @@ Verify inside the TA container that you are connected to the expected VPN server
 
 ## Gluetun
 
-!!! info
-    If you have a successful and working setup using Gluetun with **Tube Archivist**, please extend this documentation.
+### Port collision
+
+Gluetun uses port 8000 for its [control server](https://jarulsamy.github.io/gluetun-wiki/Setup/Advanced/control-server/). To avoid port collision use any other unused port. In the guide below we'll be using port 9000.
+
+### Configuration
+
+Go to [Gluetun Wiki](https://jarulsamy.github.io/gluetun-wiki/Setup/getting_started/) and find your Provider. Add the YAML code to your `docker-compose.yml`. The top of the file should look like below:
+
+```yaml
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8000:8000 # Gluetun control server
+      - 9000:9000 # TA custom port
+    environment:
+      - <VPN-specific configuration>
+    restart: unless-stopped
+  tubearchivist:
+```
+
+Under `tubearchivist` replace ports:
+
+```yaml
+    ports:
+      - 8000:8000
+```
+with 
+```yaml
+    network_mode: "service:gluetun"
+```
+And update the following environment variables
+```yaml
+      - TA_HOST=http://localhost:9000  # set your host name with protocol and port
+      - TA_PORT=9000
+```
 
 **Pros and Cons**:
 
